@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kinalia — sitio web
 
-## Getting Started
+Landing page de Kinalia, construida con [Next.js](https://nextjs.org) (App Router), TypeScript y Tailwind CSS v4.
 
-First, run the development server:
+## Estructura
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+app/
+  layout.tsx      # fuentes (Fraunces, Inter, IBM Plex Mono) + metadata SEO
+  page.tsx         # arma todas las secciones en orden
+  globals.css      # tokens de marca (colores, tipografía)
+components/
+  Navbar.tsx        # header con nav + CTA + menú móvil
+  Hero.tsx           # sección principal con headline y CTA
+  Clients.tsx        # franja "con empresas como"
+  Process.tsx        # los 6 pasos del proceso
+  About.tsx           # "Detrás de Kinalia" + ServicesCards
+  ServicesCards.tsx    # las 3 tarjetas de servicio (D / IA / E)
+  Footer.tsx            # CTA final oscuro + footer
+  CalendlyModal.tsx      # modal de agendado, se abre desde cualquier botón
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Desarrollo local
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Abre [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Configurar Calendly
 
-To learn more about Next.js, take a look at the following resources:
+El botón "Agenda una llamada" abre un modal con tu Calendly embebido.
+Copia `.env.example` a `.env.local` y pon tu link real:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cp .env.example .env.local
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/tu-usuario/30min
+```
 
-## Deploy on Vercel
+Si no configuras esta variable, se usa un link de ejemplo — el sitio
+compila igual, pero el modal no va a mostrar un calendario real.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy a Vercel (plan gratuito)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Sube este repo a GitHub (ver sección siguiente).
+2. Entra a [vercel.com](https://vercel.com) → **Add New… → Project**.
+3. Importa el repo de GitHub. Vercel detecta Next.js automáticamente,
+   no hace falta tocar el build command.
+4. En **Environment Variables**, agrega `NEXT_PUBLIC_CALENDLY_URL` con
+   tu link real de Calendly (para Production, Preview y Development).
+5. Dale **Deploy**. Cada push a `main` vuelve a desplegar solo.
+
+También puedes hacerlo desde la terminal con la [Vercel CLI](https://vercel.com/docs/cli):
+
+```bash
+npm i -g vercel
+vercel        # deploy de prueba (preview)
+vercel --prod # deploy a producción
+```
+
+## Subir el repo a GitHub
+
+```bash
+git init
+git add .
+git commit -m "Kinalia — sitio web inicial"
+git branch -M main
+git remote add origin https://github.com/<tu-usuario>/kinalia.git
+git push -u origin main
+```

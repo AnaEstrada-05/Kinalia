@@ -50,8 +50,8 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { label: t.nav.soluciones, href: "#soluciones" },
     { label: t.nav.proceso, href: "#proceso" },
+    { label: t.nav.nosotros, href: "#proceso" },
     { label: t.nav.contacto, href: "#contacto" },
   ];
 
@@ -84,7 +84,7 @@ export default function Navbar() {
       >
         {links.map((link) => (
           <a
-            key={link.href}
+            key={link.label}
             href={link.href}
             className={`flex items-center text-[14px] font-normal transition-colors duration-200 ${
               onHero

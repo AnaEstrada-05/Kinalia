@@ -33,7 +33,7 @@ const dictionary = {
   es: {
     nav: {
       proceso: "Proceso",
-      soluciones: "Soluciones",
+      nosotros: "Sobre nosotros",
       contacto: "Contacto",
       cta: "Agenda tu llamada",
       langLabel: "EN",
@@ -318,7 +318,7 @@ const dictionary = {
   en: {
     nav: {
       proceso: "Process",
-      soluciones: "Solutions",
+      nosotros: "About",
       contacto: "Contact",
       cta: "Book a call",
       langLabel: "ES",

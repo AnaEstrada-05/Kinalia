@@ -1,66 +1,93 @@
 "use client";
 
-import Image from "next/image";
 import { useLanguage } from "./LanguageContext";
 import ScrollReveal from "./ScrollReveal";
 
-/**
- * Drop real team photos in /public/team/ and update `photo` below —
- * placeholders render as initials on a gradient until then, so the
- * layout never looks broken while photos are pending.
- */
-const PHOTOS: (string | null)[] = [null, null, null];
+const TEAM_PHOTOS = [
+];
 
 export default function Team() {
   const { t } = useLanguage();
   const members = t.team.members;
 
   return (
-    <div className="mt-20">
-      <ScrollReveal variant="up">
-        <div className="text-center">
-          <h3 className="font-display text-2xl text-ink sm:text-3xl">
-            {t.about.teamHeading}
-          </h3>
-          <p className="mt-2 text-sm text-ink-soft">{t.about.teamSubheading}</p>
-        </div>
-      </ScrollReveal>
+    <section id="equipo" className="relative overflow-hidden px-6 py-28 sm:px-8 border-t border-line">
+      <div className="mx-auto max-w-7xl">
+        
+        {/* Cabecera */}
+        <ScrollReveal variant="up">
+          <div className="mb-12">
+            <span className="text-xs font-mono uppercase tracking-[0.16em] text-ink-faint">Nuestro equipo</span>
+            <h2 className="mt-2 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+              Conoce a Nuestro Equipo
+            </h2>
+          </div>
+        </ScrollReveal>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {members.map((member, index) => {
-          const photo = PHOTOS[index];
-          return (
-            <ScrollReveal key={`${member.name}-${index}`} variant="scale" delay={index * 100}>
-              <div className="group relative overflow-hidden rounded-[24px] border border-line bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-forest">
-                  {photo ? (
-                    <Image
-                      src={photo}
-                      alt={member.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-forest to-forest-soft">
-                      <span className="font-display text-4xl text-cream/90">
-                        {member.initials}
-                      </span>
-                    </div>
-                  )}
-                  {/* Futuristic scan-line sweep on hover */}
-                  <div className="scanline pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-terracotta/0 via-terracotta/25 to-terracotta/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </div>
-                <div className="p-5 text-left">
-                  <div className="font-medium text-ink">{member.name}</div>
-                  <div className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-ink-faint">
-                    {member.role}
-                  </div>
-                </div>
+        {/* Cuadrícula de 4 columnas */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
+          
+          {/* Tarjeta de llamada a la acción */}
+          <ScrollReveal variant="up" delay={0}>
+            <div className="h-full flex flex-col justify-between rounded-[32px] bg-[#0057FF] p-8 text-white shadow-lg relative overflow-hidden">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-wider text-white/80">Kinalia Core</span>
+                <h3 className="mt-4 font-display text-2xl sm:text-3xl leading-snug">
+                  Ingeniería a la Medida
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-white/90">
+                  Desarrollo directo y soluciones personalizadas con nuestros expertos en tecnología y diseño para impulsar tus metas.
+                </p>
               </div>
-            </ScrollReveal>
-          );
-        })}
+
+              <div className="mt-8">
+                <a
+                  href="#contacto"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-wider text-[#0057FF] transition-transform duration-200 hover:scale-105 shadow-sm"
+                >
+                  Explorar más
+                </a>
+              </div>
+
+              <div className="absolute -bottom-10 -right-10 h-36 w-36 rounded-full bg-white/15 blur-xl pointer-events-none" />
+            </div>
+          </ScrollReveal>
+
+          {/* Tarjetas individuales de los miembros */}
+          {members.map((member, index) => {
+            const photoUrl = TEAM_PHOTOS[index % TEAM_PHOTOS.length];
+            return (
+              <ScrollReveal
+                key={`${member.name}-${index}`}
+                variant="up"
+                delay={(index + 1) * 80}
+              >
+                <div className="group h-full flex flex-col justify-between">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[32px] bg-line shadow-sm">
+                    <img
+                      src={photoUrl}
+                      alt={member.name}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+
+                  <div className="mt-4 flex items-center justify-between px-2">
+                    <span className="font-display text-lg text-ink">
+                      {member.name}
+                    </span>
+                  </div>
+                  
+                  <p className="px-2 text-xs font-mono text-ink-faint uppercase tracking-wider mt-0.5">
+                    {member.role}
+                  </p>
+                </div>
+              </ScrollReveal>
+            );
+          })}
+
+        </div>
+
       </div>
-    </div>
+    </section>
   );
 }

@@ -5,7 +5,6 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
   type ReactNode,
 } from "react";
 
@@ -16,7 +15,6 @@ type Product = {
   num: string;
   name: string;
   tag: string;
-  price: string;
   queEs: string;
   paraQue: string;
   duracion: string;
@@ -28,39 +26,76 @@ type TeamMember = {
   name: string;
   role: string;
   initials: string;
+  bio?: string;
 };
 
 const dictionary = {
   es: {
     nav: {
-      productos: "Productos",
-      nosotros: "Nosotros",
+      proceso: "Proceso",
+      soluciones: "Soluciones",
       contacto: "Contacto",
-      cta: "Agenda una llamada",
+      cta: "Agenda tu llamada",
       langLabel: "EN",
       langAria: "Cambiar a inglés",
     },
     hero: {
-      eyebrow: "Consultoría de IA, automatización y datos",
-      title: ["Menos pérdidas.", "Más decisiones con datos reales."],
+      line1: "Soluciones",
+      line2: "Sin Complicaciones.",
       subtitle:
-        "Kinalia transforma tus datos y procesos en soluciones de IA a la medida — paso a paso, sin comprometerte de más.",
-      cta: "Agenda tu llamada — 30 min",
+        "Kinalia transforma tus procesos manuales en soluciones de inteligencia artificial a la medida — paso a paso, con impacto real desde el primer día.",
+      cta: "Agenda una llamada de 30 min →",
       badges: [
-        { label: "Datos conectados", value: "100%" },
-        { label: "Sin compromiso inicial", value: "0 MXN" },
-        { label: "De diagnóstico a producción", value: "6 pasos" },
+        { label: "Sin compromisos", sub: "Fase inicial clara" },
+        { label: "A la medida", sub: "Arquitectura propia" },
+        { label: "6 pasos", sub: "Diagnóstico a producción" },
+      ],
+      tagline:
+        "Menos pérdidas. Más decisiones basadas en datos reales y automatización inteligente.",
+    },
+    painPoints: {
+      title: "El freno invisible de tu crecimiento.",
+      subtitle:
+        "Identificamos los obstáculos cotidianos que impiden que tu empresa alcance su máximo potencial digital y operativo.",
+      items: [
+        {
+          num: "01.",
+          title: "Procesos Manuales",
+          description:
+            "Tareas rudimentarias que consumen horas valiosas del equipo cada semana.",
+          image: "/assets/manual-work.jpg",
+          alt: "Equipo de trabajo revisando procesos manuales",
+        },
+        {
+          num: "02.",
+          title: "Herramientas Genéricas",
+          description:
+            "Software estándar que no se adapta a lo que realmente necesita el negocio.",
+          image: "/assets/generic-tools.jpg",
+          alt: "Reunión de estrategia analizando software",
+        },
+        {
+          num: "03.",
+          title: "Oportunidades Perdidas",
+          description:
+            "Sin presencia web o un sistema centralizado, los clientes se van con otros.",
+          image:
+            "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+          alt: "Profesionales analizando oportunidades de crecimiento",
+        },
       ],
     },
     process: {
-      eyebrow: "02 — Nuestro proceso",
       title: "Un camino, seis pasos.",
       subtitle:
-        "Empieza donde tenga sentido para tu negocio. Cada paso construye sobre el anterior — y ninguno te compromete con el siguiente.",
+        "Empieza donde tenga sentido para tu negocio. Cada paso construye sobre el anterior y ninguno te compromete con el siguiente.",
       queEsLabel: "Qué es",
       paraQueLabel: "Para qué sirve",
       duracionLabel: "Duración",
+      entregablesLabel: "Entregables",
       restrictionsLabel: "Restricciones",
+      showDetail: "Ver información",
+      hideDetail: "Ocultar detalle",
       closeAria: "Cerrar detalles del proceso",
       products: [
         {
@@ -68,7 +103,6 @@ const dictionary = {
           num: "01",
           name: "Kinalia Call",
           tag: "Primer contacto",
-          price: "Gratis",
           queEs:
             "Una llamada de 30 minutos para conocer tu operación y mostrarte el impacto real que la IA puede tener en tu negocio.",
           paraQue:
@@ -82,7 +116,6 @@ const dictionary = {
           num: "02",
           name: "Kinalia Discovery",
           tag: "Mini-diagnóstico",
-          price: "$3,000 a $9,500 MXN",
           queEs:
             "Tu primer producto de bajo costo y bajo compromiso, pensado para validar la realidad técnica de tus datos antes de construir nada.",
           paraQue:
@@ -103,7 +136,6 @@ const dictionary = {
           num: "03",
           name: "Kinalia Adaptation",
           tag: "Orden y acceso a datos",
-          price: "$12,000 a $24,000 MXN",
           queEs:
             "Recopilamos, limpiamos e integramos tus datos dispersos en un solo lugar accesible.",
           paraQue:
@@ -124,7 +156,6 @@ const dictionary = {
           num: "04",
           name: "Kinalia Development",
           tag: "Construcción de IA",
-          price: "$25,000 a $60,000 MXN",
           queEs:
             "Nuestro servicio central de ingeniería: construimos el software de IA o la automatización avanzada para tu empresa.",
           paraQue:
@@ -145,7 +176,6 @@ const dictionary = {
           num: "05",
           name: "Kinalia Maintain",
           tag: "Soporte continuo",
-          price: "$3,000 a $10,000 MXN / mes",
           queEs:
             "Un esquema mensual para soporte, mantenimiento y optimización continua de tu infraestructura entregada.",
           paraQue:
@@ -165,7 +195,6 @@ const dictionary = {
           num: "06",
           name: "Kinalia Upgrade",
           tag: "Evolución del modelo",
-          price: "$5,000 a $12,000 MXN",
           queEs:
             "Un sprint enfocado en expandir, potenciar y reentrenar una solución ya en producción.",
           paraQue:
@@ -184,12 +213,23 @@ const dictionary = {
       ] as Product[],
     },
     services: [
-      { initial: "D", title: "Datos & Analítica" },
-      { initial: "IA", title: "IA & Automatización" },
-      { initial: "E", title: "Estrategia & Producto" },
+      {
+        initial: "D",
+        title: "Datos & Analítica",
+        description: "Tus datos dispersos, conectados en un solo lugar confiable.",
+      },
+      {
+        initial: "IA",
+        title: "IA & Automatización",
+        description: "Modelos predictivos y automatizaciones que sí se usan.",
+      },
+      {
+        initial: "E",
+        title: "Estrategia & Producto",
+        description: "Roadmap claro de dónde empezar y por qué.",
+      },
     ],
     about: {
-      eyebrow: "03 — Nosotros",
       title: "Detrás de Kinalia",
       intro:
         "Somos un equipo técnico que prefiere los datos reales a las promesas. Trabajamos codo a codo con tu operación para construir soluciones que de verdad se usan.",
@@ -215,56 +255,132 @@ const dictionary = {
       teamSubheading: "Personas reales, no un logo genérico de IA.",
     },
     team: {
+      eyebrow: "Nuestro equipo",
+      title: "Conoce a Nuestro Equipo",
+      ctaCard: {
+        label: "Kinalia Core",
+        title: "Ingeniería a la Medida",
+        description:
+          "Desarrollo directo y soluciones personalizadas con nuestros expertos en tecnología y diseño para impulsar tus metas.",
+        button: "Explorar más",
+      },
       members: [
-        { name: "Equipo Kinalia", role: "Ingeniería & Producto", initials: "K" },
-        { name: "Equipo Kinalia", role: "Datos & IA", initials: "K" },
-        { name: "Equipo Kinalia", role: "Estrategia", initials: "K" },
+        {
+          name: "Ana Estrada",
+          role: "COO",
+          initials: "AE",
+          bio: "Construye los pipelines y modelos que sostienen cada entrega.",
+        },
+        {
+          name: "Emiliano Neaves",
+          role: "CEO",
+          initials: "EN",
+          bio: "Traduce datos dispersos en modelos que sí se usan.",
+        },
+        {
+          name: "Edgar Aviles",
+          role: "CTO",
+          initials: "EA",
+          bio: "Define el roadmap y valida que cada paso tenga impacto real.",
+        },
       ] as TeamMember[],
     },
     footer: {
       heading: "¿Listo para conocer el estado real de tus datos?",
-      subheading: "Empieza con una llamada de 30 minutos, sin costo ni compromiso.",
+      subheading:
+        "Empieza con una llamada de 30 minutos, sin costo ni compromiso.",
       cta: "Agenda tu Kinalia Call",
       tagline: "IA, automatización y datos para negocios reales.",
       rights: "Kinalia",
+      columns: {
+        productos: "Productos",
+        empresa: "Empresa",
+        social: "Social",
+        empresaLinks: ["Nosotros", "Proceso", "Contacto"],
+        productosLinks: ["Discovery", "Development", "Maintain", "Upgrade"],
+        socialLinks: ["LinkedIn", "Instagram"],
+      },
+    },
+    ctaBanner: {
+      title: "¿Listo para mejorar tu operación?",
+      description:
+        "Empieza con una Kinalia Call — 30 minutos, sin costo, sin compromiso.",
+      cta: "Agenda tu llamada",
     },
     calendly: {
       eyebrow: "Kinalia Call",
       heading: "Agenda tu llamada — 30 min",
       closeAria: "Cerrar ventana de agendado",
       title: "Agenda tu Kinalia Call",
+      closeBackdrop: "Cerrar",
     },
   },
   en: {
     nav: {
-      productos: "Products",
-      nosotros: "About",
+      proceso: "Process",
+      soluciones: "Solutions",
       contacto: "Contact",
       cta: "Book a call",
       langLabel: "ES",
       langAria: "Switch to Spanish",
     },
     hero: {
-      eyebrow: "AI, automation & data consulting",
-      title: ["Fewer losses.", "Better decisions with real data."],
+      line1: "Solutions",
+      line2: "Without Complications.",
       subtitle:
-        "Kinalia turns your data and processes into AI solutions built for you — one step at a time, with no over-commitment.",
-      cta: "Book your call — 30 min",
+        "Kinalia turns your manual processes into custom artificial intelligence solutions — step by step, with real impact from day one.",
+      cta: "Book a 30-min call →",
       badges: [
-        { label: "Data, connected", value: "100%" },
-        { label: "No upfront commitment", value: "$0" },
-        { label: "From diagnosis to production", value: "6 steps" },
+        { label: "No commitment", sub: "Clear starting phase" },
+        { label: "Built for you", sub: "Custom architecture" },
+        { label: "6 steps", sub: "Diagnosis to production" },
+      ],
+      tagline:
+        "Fewer losses. Better decisions based on real data and intelligent automation.",
+    },
+    painPoints: {
+      title: "The invisible brake on your growth.",
+      subtitle:
+        "We identify the everyday obstacles that stop your company from reaching its full digital and operational potential.",
+      items: [
+        {
+          num: "01.",
+          title: "Manual Processes",
+          description:
+            "Rudimentary tasks that consume valuable team hours every week.",
+          image: "/assets/manual-work.jpg",
+          alt: "Team reviewing manual processes",
+        },
+        {
+          num: "02.",
+          title: "Generic Tools",
+          description:
+            "Off-the-shelf software that doesn’t adapt to what the business really needs.",
+          image: "/assets/generic-tools.jpg",
+          alt: "Strategy meeting analyzing software",
+        },
+        {
+          num: "03.",
+          title: "Missed Opportunities",
+          description:
+            "Without a web presence or a centralized system, customers leave for competitors.",
+          image:
+            "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+          alt: "Professionals analyzing growth opportunities",
+        },
       ],
     },
     process: {
-      eyebrow: "02 — Our process",
       title: "One path, six steps.",
       subtitle:
         "Start wherever it makes sense for your business. Each step builds on the last — and none locks you into the next.",
       queEsLabel: "What it is",
       paraQueLabel: "What it's for",
       duracionLabel: "Duration",
+      entregablesLabel: "Deliverables",
       restrictionsLabel: "Restrictions",
+      showDetail: "View details",
+      hideDetail: "Hide details",
       closeAria: "Close process details",
       products: [
         {
@@ -272,7 +388,6 @@ const dictionary = {
           num: "01",
           name: "Kinalia Call",
           tag: "First contact",
-          price: "Free",
           queEs:
             "A 30-minute call to understand your operation and show you the real impact AI could have on your business.",
           paraQue:
@@ -286,7 +401,6 @@ const dictionary = {
           num: "02",
           name: "Kinalia Discovery",
           tag: "Mini-diagnosis",
-          price: "$3,000–$9,500 MXN",
           queEs:
             "Your low-cost, low-commitment first product, built to validate the technical reality of your data before we build anything.",
           paraQue:
@@ -307,7 +421,6 @@ const dictionary = {
           num: "03",
           name: "Kinalia Adaptation",
           tag: "Data order & access",
-          price: "$12,000–$24,000 MXN",
           queEs:
             "We gather, clean, and integrate your scattered data into a single accessible place.",
           paraQue:
@@ -328,7 +441,6 @@ const dictionary = {
           num: "04",
           name: "Kinalia Development",
           tag: "AI build",
-          price: "$25,000–$60,000 MXN",
           queEs:
             "Our core engineering service: we build the AI software or advanced automation for your company.",
           paraQue:
@@ -349,7 +461,6 @@ const dictionary = {
           num: "05",
           name: "Kinalia Maintain",
           tag: "Ongoing support",
-          price: "$3,000–$10,000 MXN / month",
           queEs:
             "A monthly plan for support, maintenance, and continuous optimization of the infrastructure delivered.",
           paraQue:
@@ -369,7 +480,6 @@ const dictionary = {
           num: "06",
           name: "Kinalia Upgrade",
           tag: "Model evolution",
-          price: "$5,000–$12,000 MXN",
           queEs:
             "A focused sprint to expand, strengthen, and retrain a solution already in production.",
           paraQue:
@@ -388,12 +498,23 @@ const dictionary = {
       ] as Product[],
     },
     services: [
-      { initial: "D", title: "Data & Analytics" },
-      { initial: "AI", title: "AI & Automation" },
-      { initial: "S", title: "Strategy & Product" },
+      {
+        initial: "D",
+        title: "Data & Analytics",
+        description: "Your scattered data, connected in one reliable place.",
+      },
+      {
+        initial: "AI",
+        title: "AI & Automation",
+        description: "Predictive models and automations people actually use.",
+      },
+      {
+        initial: "S",
+        title: "Strategy & Product",
+        description: "A clear roadmap of where to start and why.",
+      },
     ],
     about: {
-      eyebrow: "03 — About",
       title: "Behind Kinalia",
       intro:
         "We're a technical team that trusts real data over promises. We work side by side with your operation to build solutions people actually use.",
@@ -419,10 +540,34 @@ const dictionary = {
       teamSubheading: "Real people, not a generic AI logo.",
     },
     team: {
+      eyebrow: "Our team",
+      title: "Meet Our Team",
+      ctaCard: {
+        label: "Kinalia Core",
+        title: "Custom Engineering",
+        description:
+          "Direct development and tailored solutions with our technology and design experts to drive your goals.",
+        button: "Explore more",
+      },
       members: [
-        { name: "Kinalia Team", role: "Engineering & Product", initials: "K" },
-        { name: "Kinalia Team", role: "Data & AI", initials: "K" },
-        { name: "Kinalia Team", role: "Strategy", initials: "K" },
+        {
+          name: "Ana Estrada",
+          role: "COO",
+          initials: "AE",
+          bio: "Builds the pipelines and models that power every delivery.",
+        },
+        {
+          name: "Emiliano Neaves",
+          role: "CEO",
+          initials: "EN",
+          bio: "Turns scattered data into models people actually use.",
+        },
+        {
+          name: "Edgar Aviles",
+          role: "CTO",
+          initials: "EA",
+          bio: "Defines the roadmap and validates that every step has real impact.",
+        },
       ] as TeamMember[],
     },
     footer: {
@@ -431,57 +576,62 @@ const dictionary = {
       cta: "Book your Kinalia Call",
       tagline: "AI, automation, and data for real businesses.",
       rights: "Kinalia",
+      columns: {
+        productos: "Products",
+        empresa: "Company",
+        social: "Social",
+        empresaLinks: ["About", "Process", "Contact"],
+        productosLinks: ["Discovery", "Development", "Maintain", "Upgrade"],
+        socialLinks: ["LinkedIn", "Instagram"],
+      },
+    },
+    ctaBanner: {
+      title: "Ready to improve your operation?",
+      description:
+        "Start with a Kinalia Call — 30 minutes, free, no strings attached.",
+      cta: "Book your call",
     },
     calendly: {
       eyebrow: "Kinalia Call",
       heading: "Book your call — 30 min",
       closeAria: "Close scheduling window",
       title: "Book your Kinalia Call",
+      closeBackdrop: "Close",
     },
   },
 } as const;
 
-export type Dictionary = typeof dictionary["es"];
+export type Dictionary = (typeof dictionary)["es"];
 
 type LanguageContextValue = {
   locale: Locale;
   t: Dictionary;
-  toggleLocale: () => void;
   setLocale: (locale: Locale) => void;
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-const STORAGE_KEY = "kinalia-locale";
-
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("es");
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === "es" || stored === "en") {
-      setLocaleState(stored);
-      return;
-    }
-    const browserLang = window.navigator.language?.toLowerCase();
-    if (browserLang && !browserLang.startsWith("es")) {
-      setLocaleState("en");
-    }
-  }, []);
-
+export function LanguageProvider({
+  children,
+  locale,
+}: {
+  children: ReactNode;
+  locale: Locale;
+}) {
   useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
 
-  const setLocale = (next: Locale) => {
-    setLocaleState(next);
-    window.localStorage.setItem(STORAGE_KEY, next);
-  };
-
-  const toggleLocale = () => setLocale(locale === "es" ? "en" : "es");
-
   const value = useMemo(
-    () => ({ locale, t: dictionary[locale], toggleLocale, setLocale }),
+    () => ({
+      locale,
+      t: dictionary[locale],
+      setLocale: (next: Locale) => {
+        const path = window.location.pathname;
+        const newPath = path.replace(/^\/(es|en)/, `/${next}`);
+        window.location.assign(newPath || `/${next}`);
+      },
+    }),
     [locale]
   );
 

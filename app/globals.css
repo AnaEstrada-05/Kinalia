@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  /* Kinalia brand tokens â€” matched to the mockup */
-  --color-cream: #f4f0e5;
+  /* Kinalia brand tokens */
+  --color-cream: #F4F4F4;
   --color-cream-soft: #eeeadd;
-  --color-ink: #211d17;
+  --color-ink: #111111;
   --color-ink-soft: #6b6656;
   --color-ink-faint: #a39d89;
-  --color-terracotta: #c1603c;
-  --color-terracotta-dark: #a54e2f;
-  --color-forest: #16231b;
-  --color-forest-soft: #223026;
+  --color-terracotta: #0057FF;      /* Kinalia Blue */
+  --color-terracotta-dark: #0a2a6b;
+  --color-teal: #2FD1C8;            /* Kinalia Teal */
+  --color-teal-dark: #189b93;
+  --color-forest: #111111;          /* Kinalia Black */
+  --color-forest-soft: #1c1c1c;
   --color-line: #ddd7c4;
   --color-card: #fdfcf8;
 }
@@ -23,6 +25,8 @@
   --color-ink-faint: var(--color-ink-faint);
   --color-terracotta: var(--color-terracotta);
   --color-terracotta-dark: var(--color-terracotta-dark);
+  --color-teal: var(--color-teal);
+  --color-teal-dark: var(--color-teal-dark);
   --color-forest: var(--color-forest);
   --color-forest-soft: var(--color-forest-soft);
   --color-line: var(--color-line);
@@ -59,7 +63,6 @@ body {
   color: var(--color-terracotta);
 }
 
-/* focus visibility for keyboard users */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--color-terracotta);
@@ -67,13 +70,16 @@ button:focus-visible {
   border-radius: 4px;
 }
 
+/* Evita que el navbar fijo tape los títulos al hacer scroll a las anclas */
+#soluciones,
+#proceso,
+#contacto {
+  scroll-margin-top: 6rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -82,108 +88,80 @@ button:focus-visible {
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
-
 @keyframes pulseSoft {
-  0%,
-  100% {
-    opacity: 0.9;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.02);
-  }
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
 }
+.animate-fadeUp { animation: fadeUp 0.35s ease both; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulseSoft { animation: pulseSoft 2.5s ease-in-out infinite; }
 
-.animate-fadeUp {
-  animation: fadeUp 0.35s ease both;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulseSoft {
-  animation: pulseSoft 2.5s ease-in-out infinite;
-}
-
-
-/* ============================================================
-   Agrega este bloque al FINAL de tu globals.css real.
-   Ya tienes fadeUp, float, pulseSoft y el bloque de
-   prefers-reduced-motion — esto solo agrega lo nuevo que
-   usan ScrollReveal, Hero y Team.
-   ============================================================ */
-
-/* --- ScrollReveal: variantes de entrada + estado final --- */
 .reveal-block {
   opacity: 0;
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
+.reveal-up { transform: translateY(28px); }
+.reveal-left { transform: translateX(-32px); }
+.reveal-right { transform: translateX(32px); }
+.reveal-scale { transform: scale(0.94); }
+.reveal-block.visible { opacity: 1; transform: translate(0, 0) scale(1); }
 
-.reveal-up {
-  transform: translateY(28px);
-}
-.reveal-left {
-  transform: translateX(-32px);
-}
-.reveal-right {
-  transform: translateX(32px);
-}
-.reveal-scale {
-  transform: scale(0.94);
-}
-
-.reveal-block.visible {
-  opacity: 1;
-  transform: translate(0, 0) scale(1);
-}
-
-/* Your existing prefers-reduced-motion block already forces
-   animation/transition-duration to 0.01ms for everything,
-   so reveal-block is covered automatically — no extra rule needed. */
-
-/* --- Grid de fondo sutil detrás del Hero, look "dashboard de datos" --- */
-.bg-grid {
-  background-image: linear-gradient(
-      to right,
-      rgba(33, 29, 23, 0.05) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(33, 29, 23, 0.05) 1px, transparent 1px);
-  background-size: 42px 42px;
-}
-
-/* --- Scan line al hacer hover sobre una tarjeta del equipo --- */
 @keyframes scanline {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
-.group:hover .scanline {
-  animation: scanline 1.4s linear infinite;
+.group:hover .scanline { animation: scanline 1.4s linear infinite; }
+
+/* --- Hero: transición de fondo + acentos --- */
+.hero-scrim-top {
+  background: linear-gradient(
+    180deg,
+    rgba(17, 17, 17, 0.68) 0%,
+    rgba(17, 17, 17, 0.32) 42%,
+    rgba(17, 17, 17, 0.08) 72%,
+    rgba(17, 17, 17, 0) 100%
+  );
+}
+.hero-fade-bottom {
+  background: linear-gradient(
+    180deg,
+    rgba(244, 244, 244, 0) 0%,
+    rgba(244, 244, 244, 0.55) 50%,
+    var(--color-cream) 100%
+  );
+}
+.hero-blob {
+  filter: blur(70px);
+  mix-blend-mode: screen;
+}
+@keyframes blobDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(24px, -28px) scale(1.1); }
+}
+.animate-blobDrift { animation: blobDrift 10s ease-in-out infinite; }
+.animate-blobDrift-slow { animation: blobDrift 16s ease-in-out infinite reverse; }
+
+.text-gradient-brand {
+  background: linear-gradient(95deg, #ffffff 0%, #7dd3fc 55%, #2FD1C8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- Bento / service cards --- */
+.card-hover-lift {
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), background-color 0.35s ease, border-color 0.35s ease;
+}
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(10,42,107,0.14);
 }

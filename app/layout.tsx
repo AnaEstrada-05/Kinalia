@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
-import { LanguageProvider } from "@/components/LanguageContext";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -39,15 +38,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="es">
+    <html suppressHydrationWarning>
       <body
         className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} antialiased`}
       >
-        <LanguageProvider>{children}</LanguageProvider>
+        {children}
       </body>
     </html>
   );

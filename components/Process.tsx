@@ -1,21 +1,60 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowRight, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import { useLanguage } from "./LanguageContext";
 
+const CARD_BORDER_HOVER = [
+  "group-hover:border-[#0057FF]/40",
+  "group-hover:border-[#189b93]/40",
+  "group-hover:border-[#0a2a6b]/40",
+  "group-hover:border-[#0057FF]/40",
+  "group-hover:border-[#189b93]/40",
+  "group-hover:border-[#0a2a6b]/40",
+];
+
 export default function Process() {
   const { t } = useLanguage();
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const products = t.process.products;
   const selectedProduct = openIndex !== null ? products[openIndex] : null;
 
+  const panelVariants = {
+    hidden: { opacity: 0, x: 15 },
+    visible: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: 15 },
+  };
+
   return (
-    <section id="productos" className="px-6 py-24 sm:px-8">
-      <div className="mx-auto max-w-6xl">
+    <section
+      id="proceso"
+      className="relative z-10 overflow-hidden px-6 py-24 sm:px-8"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-blue-50/40 via-blue-50/10 to-transparent"
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      >
+        <div className="absolute -left-40 top-[8%] h-[420px] w-[420px] rounded-full border-[2px] border-[#0057FF]/30 sm:h-[520px] sm:w-[520px]" />
+        <div className="absolute -left-24 top-[14%] h-[300px] w-[300px] rounded-full border-[2px] border-[#0057FF]/25 sm:h-[360px] sm:w-[360px]" />
+        <div className="absolute -left-32 top-[10%] h-[380px] w-[380px] rounded-full bg-blue-400/15 blur-3xl" />
+        <div className="absolute -right-44 top-[45%] h-[460px] w-[460px] rounded-full border-[2px] border-[#189b93]/30 sm:h-[580px] sm:w-[580px]" />
+        <div className="absolute -right-28 top-[52%] h-[320px] w-[320px] rounded-full border-[2px] border-[#189b93]/25 sm:h-[380px] sm:w-[380px]" />
+        <div className="absolute -right-36 top-[48%] h-[400px] w-[400px] rounded-full bg-teal-400/15 blur-3xl" />
+        <div className="absolute right-[8%] top-[5%] hidden h-24 w-24 rounded-full border-[2px] border-[#0a2a6b]/25 sm:block" />
+        <div className="absolute left-[20%] top-0 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl" />
+        <div className="absolute right-[15%] bottom-0 h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl">
         <ScrollReveal variant="up">
-          <div className="mx-auto max-w-xl text-center">
-            <p className="eyebrow">{t.process.eyebrow}</p>
+          <div className="mx-auto max-w-xl text-center mb-16">
             <h2 className="mt-4 font-display text-4xl tracking-tight text-ink sm:text-5xl">
               {t.process.title}
             </h2>
@@ -23,124 +62,174 @@ export default function Process() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal variant="scale" delay={100}>
-          <div className="relative mt-16 px-4 sm:px-6 lg:px-8">
-            <div className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-px max-w-[90%] bg-[rgba(26,46,31,0.15)]" />
-            <div className="relative grid gap-6 sm:grid-cols-3 lg:grid-cols-6">
-              {products.map((product, index) => {
-                const isOpen = openIndex === index;
-                return (
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
+          <div
+            className={`grid gap-x-8 gap-y-10 w-full ${
+              selectedProduct
+                ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            }`}
+          >
+            {products.map((product, index) => {
+              const isOpen = openIndex === index;
+
+              return (
+                <ScrollReveal
+                  key={product.id}
+                  variant="up"
+                  delay={(index % (selectedProduct ? 2 : 3)) * 80}
+                >
                   <button
-                    key={product.id}
                     type="button"
-                    onClick={() => setOpenIndex(index)}
-                    className="group flex flex-col items-center gap-3 rounded-[24px] bg-transparent px-3 pb-4 pt-6 text-center transition duration-300"
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className={`group relative w-full text-left flex flex-col h-full items-start border-b pb-8 transition-all duration-200 cursor-pointer ${
+                      isOpen
+                        ? "border-terracotta shadow-md rounded-2xl p-6 bg-white"
+                        : "border-line p-0 bg-transparent hover:border-terracotta/50"
+                    } ${!isOpen && CARD_BORDER_HOVER[index % CARD_BORDER_HOVER.length]}`}
                   >
-                    <div
-                      className={`flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] text-sm font-semibold transition duration-300 ${
-                        isOpen
-                          ? "border-ink bg-ink text-cream shadow-[0_0_0_4px_rgba(193,96,60,0.18)]"
-                          : "border-ink/20 bg-cream text-ink group-hover:border-ink"
-                      }`}
-                      style={{ fontVariantNumeric: "tabular-nums" }}
-                    >
-                      {product.num}
+                    <div className="mt-6 w-full">
+                      <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-faint">
+                        {product.num}
+                      </span>
+                      <h3 className="mt-1 font-display text-xl text-ink">
+                        {product.name}
+                      </h3>
+                      <p className="mt-1 text-sm text-ink-soft">{product.tag}</p>
                     </div>
-                    <div>
-                      <div className="font-medium text-ink">{product.name}</div>
-                      <div className="mt-2 text-xs text-ink-soft">{product.tag}</div>
+
+                    {!isOpen && (
+                      <p className="mt-4 text-sm leading-relaxed text-ink-soft line-clamp-2">
+                        {product.queEs}
+                      </p>
+                    )}
+
+                    <div className="flex-grow" />
+
+                    <div className="mt-6 flex w-full items-center justify-between">
+                      <span className="text-xs font-medium text-ink-faint group-hover:text-terracotta transition-colors duration-200">
+                        {isOpen
+                          ? t.process.hideDetail
+                          : t.process.showDetail}
+                      </span>
+                      <span
+                        className={`flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-200 ${
+                          isOpen
+                            ? "bg-terracotta border-terracotta text-cream rotate-180"
+                            : "border-line text-ink-faint group-hover:border-terracotta/40 group-hover:text-terracotta group-hover:translate-x-0.5"
+                        }`}
+                      >
+                        <ArrowRight size={14} />
+                      </span>
                     </div>
                   </button>
-                );
-              })}
-            </div>
+                </ScrollReveal>
+              );
+            })}
           </div>
-        </ScrollReveal>
 
-        {selectedProduct && (
-          <div
-            key={selectedProduct.id}
-            className="animate-fadeUp overflow-hidden rounded-[10px] border border-line bg-white p-10 shadow-[0_12px_34px_rgba(26,46,31,0.08)]"
-          >
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-              <div className="max-w-2xl">
-                <div className="text-sm font-medium uppercase tracking-[0.16em] text-terracotta">
-                  {selectedProduct.tag}
-                </div>
-                <h3 className="mt-4 text-3xl font-display text-ink">
-                  {selectedProduct.name}
-                </h3>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setOpenIndex(null)}
-                aria-label={t.process.closeAria}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/20 bg-white text-ink transition hover:border-ink hover:bg-ink hover:text-cream"
+          <AnimatePresence mode="wait">
+            {selectedProduct && (
+              <motion.div
+                key={selectedProduct.id}
+                variants={panelVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="w-full lg:max-w-xl xl:max-w-2xl shrink-0 lg:sticky lg:top-28 self-start"
               >
-                ×
-              </button>
-            </div>
+                <div className="overflow-hidden rounded-[32px] border border-line bg-white p-8 shadow-[0_12px_34px_rgba(10,42,107,0.08)] sm:p-10">
+                  <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                    <div className="max-w-2xl">
+                      <div className="text-sm font-medium uppercase tracking-[0.16em] text-terracotta">
+                        {selectedProduct.tag}
+                      </div>
+                      <h3 className="mt-2 font-display text-3xl text-ink">
+                        {selectedProduct.name}
+                      </h3>
+                    </div>
 
-            <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr]">
-              <div>
-                <div className="text-sm font-medium uppercase tracking-[0.16em] text-ink-faint">
-                  {t.process.queEsLabel}
-                </div>
-                <p className="mt-3 text-base leading-7 text-ink-soft">
-                  {selectedProduct.queEs}
-                </p>
-              </div>
-              <div>
-                <div className="text-sm font-medium uppercase tracking-[0.16em] text-ink-faint">
-                  {t.process.paraQueLabel}
-                </div>
-                <p className="mt-3 text-base leading-7 text-ink-soft">
-                  {selectedProduct.paraQue}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-medium uppercase tracking-[0.16em] text-ink-faint">
-                  {t.process.duracionLabel}
-                </span>
-                <span className="rounded-full bg-cream px-4 py-2 text-sm font-semibold text-ink">
-                  {selectedProduct.duracion}
-                </span>
-              </div>
-              {selectedProduct.entregables.length > 0 && (
-                <div className="flex flex-wrap gap-3">
-                  {selectedProduct.entregables.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-ink/10 bg-cream px-4 py-2 text-sm text-ink"
+                    <button
+                      type="button"
+                      onClick={() => setOpenIndex(null)}
+                      aria-label={t.process.closeAria}
+                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/20 bg-white text-ink transition hover:border-ink hover:bg-ink hover:text-cream cursor-pointer"
                     >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
+                      <X size={18} />
+                    </button>
+                  </div>
 
-            {selectedProduct.restrictions.length > 0 && (
-              <div className="mt-10 rounded-[24px] border border-line bg-cream/80 p-6">
-                <div className="text-sm font-medium uppercase tracking-[0.16em] text-ink-faint">
-                  {t.process.restrictionsLabel}
+                  <div className="mt-8 grid gap-8 lg:grid-cols-2">
+                    <div>
+                      <div className="text-xs font-medium uppercase tracking-[0.16em] text-ink-faint">
+                        {t.process.queEsLabel}
+                      </div>
+                      <p className="mt-3 text-base leading-7 text-ink-soft">
+                        {selectedProduct.queEs}
+                      </p>
+                    </div>
+                    <div>
+                      <div className="text-xs font-medium uppercase tracking-[0.16em] text-ink-faint">
+                        {t.process.paraQueLabel}
+                      </div>
+                      <p className="mt-3 text-base leading-7 text-ink-soft">
+                        {selectedProduct.paraQue}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex flex-col gap-6 border-t border-line pt-8 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="flex flex-col gap-2 shrink-0">
+                      <span className="text-xs font-medium uppercase tracking-[0.16em] text-ink-faint">
+                        {t.process.duracionLabel}
+                      </span>
+                      <div className="inline-flex items-center rounded-xl bg-cream px-4 py-2.5 text-sm font-semibold text-ink w-fit">
+                        {selectedProduct.duracion}
+                      </div>
+                    </div>
+                    {selectedProduct.entregables.length > 0 && (
+                      <div className="flex flex-col gap-2 flex-grow sm:items-end">
+                        <span className="text-xs font-medium uppercase tracking-[0.16em] text-ink-faint">
+                          {t.process.entregablesLabel}
+                        </span>
+                        <div className="flex flex-wrap gap-2 sm:justify-end">
+                          {selectedProduct.entregables.map((item) => (
+                            <span
+                              key={item}
+                              className="rounded-full border border-ink/10 bg-cream px-3.5 py-1.5 text-xs text-ink"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {selectedProduct.restrictions.length > 0 && (
+                    <div className="mt-8 rounded-[20px] border border-line bg-cream/60 p-6">
+                      <div className="text-xs font-medium uppercase tracking-[0.16em] text-ink-faint">
+                        {t.process.restrictionsLabel}
+                      </div>
+                      <ul className="mt-4 space-y-3">
+                        {selectedProduct.restrictions.map((item) => (
+                          <li
+                            key={item}
+                            className="flex gap-3 text-sm leading-7 text-ink"
+                          >
+                            <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink-faint" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-                <ul className="mt-4 space-y-3 text-sm leading-7 text-ink">
-                  {selectedProduct.restrictions.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ink" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </motion.div>
             )}
-          </div>
-        )}
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );

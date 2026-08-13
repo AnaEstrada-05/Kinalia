@@ -24,15 +24,29 @@ export const metadata: Metadata = {
   title: "Kinalia — Consultoría de IA, automatización y datos",
   description:
     "Kinalia transforma tus datos y procesos en soluciones de IA a la medida — paso a paso, sin comprometerte de más.",
-  metadataBase: new URL("https://kinalia.ai"),
+  metadataBase: new URL("https://kinalia.com.mx"),
+  icons: {
+    icon: [
+      { url: "/assets/kinalia-logo-color.svg", type: "image/svg+xml" },
+    ],
+    apple: "/assets/kinalia-logo-color.svg",
+  },
   openGraph: {
     title: "Kinalia — Consultoría de IA, automatización y datos",
     description:
       "Menos pérdidas. Más decisiones con datos reales. Agenda una llamada de 30 minutos, sin costo ni compromiso.",
-    url: "https://kinalia.ai",
+    url: "https://kinalia.com.mx",
     siteName: "Kinalia",
     locale: "es_MX",
     type: "website",
+    images: [
+      {
+        url: "/assets/kinalia-logo-color.svg",
+        width: 512,
+        height: 512,
+        alt: "Kinalia",
+      },
+    ],
   },
 };
 

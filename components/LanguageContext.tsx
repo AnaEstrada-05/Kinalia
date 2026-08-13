@@ -601,7 +601,7 @@ const dictionary = {
   },
 } as const;
 
-export type Dictionary = (typeof dictionary)["es"];
+export type Dictionary = (typeof dictionary)[Locale];
 
 type LanguageContextValue = {
   locale: Locale;

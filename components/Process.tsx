@@ -27,10 +27,16 @@ export default function Process() {
     exit: { opacity: 0, x: 15 },
   };
 
+  const modalVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 20 },
+  };
+
   return (
     <section
       id="proceso"
-      className="relative z-10 overflow-hidden px-6 py-24 sm:px-8"
+      className="relative z-10 overflow-hidden px-6 py-24 sm:px-8 md:px-14"
     >
       <div
         aria-hidden="true"
@@ -84,7 +90,7 @@ export default function Process() {
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     className={`group relative w-full text-left flex flex-col h-full items-start border-b pb-8 transition-all duration-200 cursor-pointer ${
                       isOpen
-                        ? "border-terracotta shadow-md rounded-2xl p-6 bg-white"
+                        ? "border-terracotta shadow-md rounded-2xl p-6 bg-white hidden lg:flex"
                         : "border-line p-0 bg-transparent hover:border-terracotta/50"
                     } ${!isOpen && CARD_BORDER_HOVER[index % CARD_BORDER_HOVER.length]}`}
                   >
@@ -128,6 +134,7 @@ export default function Process() {
             })}
           </div>
 
+          {/* Panel lateral - solo en desktop (lg:) */}
           <AnimatePresence mode="wait">
             {selectedProduct && (
               <motion.div
@@ -137,7 +144,7 @@ export default function Process() {
                 animate="visible"
                 exit="exit"
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="w-full lg:max-w-xl xl:max-w-2xl shrink-0 lg:sticky lg:top-28 self-start"
+                className="w-full lg:max-w-xl xl:max-w-2xl shrink-0 lg:sticky lg:top-28 self-start hidden lg:block"
               >
                 <div className="overflow-hidden rounded-[32px] border border-line bg-white p-8 shadow-[0_12px_34px_rgba(10,42,107,0.08)] sm:p-10">
                   <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
@@ -231,6 +238,124 @@ export default function Process() {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* MODAL MOBILE - aparece cuando abres un step en mobile/tablet */}
+      <AnimatePresence mode="wait">
+        {selectedProduct && (
+          <motion.div
+            key={`modal-${selectedProduct.id}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-black/50 flex items-end lg:hidden"
+            onClick={() => setOpenIndex(null)}
+          >
+            <motion.div
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="w-full bg-white rounded-t-3xl overflow-hidden max-h-[85vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header del modal */}
+              <div className="sticky top-0 bg-white border-b border-line px-6 py-4 flex items-start justify-between">
+                <div>
+                  <div className="text-sm font-medium uppercase tracking-[0.16em] text-terracotta">
+                    {selectedProduct.tag}
+                  </div>
+                  <h3 className="mt-2 font-display text-2xl text-ink">
+                    {selectedProduct.name}
+                  </h3>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(null)}
+                  aria-label={t.process.closeAria}
+                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/20 bg-white text-ink transition hover:border-ink hover:bg-ink hover:text-cream cursor-pointer flex-shrink-0 ml-4"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Contenido del modal */}
+              <div className="px-6 py-6">
+                <div className="grid gap-6">
+                  <div>
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-ink-faint">
+                      {t.process.queEsLabel}
+                    </div>
+                    <p className="mt-3 text-base leading-7 text-ink-soft">
+                      {selectedProduct.queEs}
+                    </p>
+                  </div>
+                  <div>
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-ink-faint">
+                      {t.process.paraQueLabel}
+                    </div>
+                    <p className="mt-3 text-base leading-7 text-ink-soft">
+                      {selectedProduct.paraQue}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex flex-col gap-6 border-t border-line pt-6">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-xs font-medium uppercase tracking-[0.16em] text-ink-faint">
+                      {t.process.duracionLabel}
+                    </span>
+                    <div className="inline-flex items-center rounded-xl bg-cream px-4 py-2.5 text-sm font-semibold text-ink w-fit">
+                      {selectedProduct.duracion}
+                    </div>
+                  </div>
+                  {selectedProduct.entregables.length > 0 && (
+                    <div className="flex flex-col gap-2">
+                      <span className="text-xs font-medium uppercase tracking-[0.16em] text-ink-faint">
+                        {t.process.entregablesLabel}
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProduct.entregables.map((item) => (
+                          <span
+                            key={item}
+                            className="rounded-full border border-ink/10 bg-cream px-3.5 py-1.5 text-xs text-ink"
+                          >
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {selectedProduct.restrictions.length > 0 && (
+                  <div className="mt-6 rounded-[20px] border border-line bg-cream/60 p-6">
+                    <div className="text-xs font-medium uppercase tracking-[0.16em] text-ink-faint">
+                      {t.process.restrictionsLabel}
+                    </div>
+                    <ul className="mt-4 space-y-3">
+                      {selectedProduct.restrictions.map((item) => (
+                        <li
+                          key={item}
+                          className="flex gap-3 text-sm leading-7 text-ink"
+                        >
+                          <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink-faint" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Espaciado al final para scroll */}
+                <div className="h-6" />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

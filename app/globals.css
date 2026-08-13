@@ -63,18 +63,21 @@ body {
   color: var(--color-terracotta);
 }
 
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--color-terracotta);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-/* Evita que el navbar fijo tape los títulos al hacer scroll a las anclas */
+/* Scroll margins para anclas */
 #soluciones,
 #proceso,
-#contacto {
-  scroll-margin-top: 6rem;
+#contacto,
+#equipo {
+  scroll-margin-top: 5rem;
+}
+
+@media (min-width: 640px) {
+  #soluciones,
+  #proceso,
+  #contacto,
+  #equipo {
+    scroll-margin-top: 6rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

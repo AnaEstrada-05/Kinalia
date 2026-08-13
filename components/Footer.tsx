@@ -39,7 +39,7 @@ export default function Footer() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
-        className="px-6 pt-14 pb-0 sm:px-10 sm:pt-16 lg:px-14 lg:pt-20 xl:px-20"
+        className="px-6 pt-14 pb-0 sm:px-8 sm:pt-16 lg:px-14 lg:pt-20 xl:px-20 md:px-14"
       >
         <div className="mx-auto flex max-w-[1200px] flex-col justify-between gap-10 lg:flex-row lg:gap-16">
           <motion.div variants={riseItem} className="flex shrink-0 flex-col gap-5 lg:max-w-[280px]">
@@ -95,7 +95,7 @@ export default function Footer() {
         </div>
       </motion.div>
 
-      <div className="border-t border-cream/10 px-6 py-6 text-cream/50 sm:px-10 lg:px-14 xl:px-20 margin-top-20 mt-[4vw]">
+      <div className="border-t border-cream/10 px-6 py-6 text-cream/50 sm:px-8 lg:px-14 xl:px-20 margin-top-20 mt-[4vw] md:px-14">
         <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-2 text-center text-xs sm:flex-row sm:justify-between sm:text-left">
           <a href="mailto:contacto@kinalia.com.mx" className="transition-colors hover:text-cream">
             contacto@kinalia.com.mx

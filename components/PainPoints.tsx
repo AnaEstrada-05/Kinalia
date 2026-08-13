@@ -10,7 +10,7 @@ export default function PainPoints() {
   return (
     <section
       id="soluciones"
-      className="relative overflow-hidden px-6 pt-24 pb-10 sm:px-8 sm:pt-28"
+      className="relative overflow-hidden px-6 pt-24 pb-10 sm:px-8 sm:pt-28 md:px-14"
     >
       <div className="mx-auto max-w-7xl">
         <ScrollReveal variant="up">

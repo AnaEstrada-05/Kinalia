@@ -118,6 +118,7 @@ export default function Hero() {
         }}
       />
 
+      {/* SOLO cambio: márgenes responsivos px-6 sm:px-10 md:px-14 lg:px-20 */}
       <div className="relative z-10 flex min-h-screen flex-col justify-evenly px-6 pb-12 pt-24 sm:px-10 md:px-14 lg:px-20">
         <div className="flex max-w-4xl flex-col items-start">
           <motion.h1

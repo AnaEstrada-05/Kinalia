@@ -6,6 +6,7 @@ const DEFAULT = "es";
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Ignorar assets, api, etc.
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
@@ -14,17 +15,16 @@ export function proxy(request: NextRequest) {
     return;
   }
 
+  // Si ya tiene /es o /en, no tocar
   const hasLocale = LOCALES.some(
     (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)
   );
 
   if (hasLocale) return;
 
-  const accept = request.headers.get("accept-language") ?? "";
-  const preferred = accept.toLowerCase().startsWith("en") ? "en" : DEFAULT;
-
+  // Siempre redirigir a español por defecto
   const url = request.nextUrl.clone();
-  url.pathname = `/${preferred}${pathname === "/" ? "" : pathname}`;
+  url.pathname = `/${DEFAULT}${pathname === "/" ? "" : pathname}`;
   return NextResponse.redirect(url);
 }
 

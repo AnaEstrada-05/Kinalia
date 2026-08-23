@@ -23,14 +23,9 @@ const wordmarkVariants: Variants = {
   visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { type: "spring", duration: 1.1, bounce: 0 } },
 };
 
-const COLUMNS = [
-  { title: { es: "Productos", en: "Products" }, links: ["Discovery", "Development", "Maintain", "Upgrade"], anchor: "#productos" },
-  { title: { es: "Empresa", en: "Company" }, links: { es: ["Nosotros", "Proceso", "Contacto"], en: ["About", "Process", "Contact"] } },
-  { title: { es: "Social", en: "Social" }, links: ["LinkedIn", "Instagram"] },
-];
-
 export default function Footer() {
   const { t, locale } = useLanguage();
+  const columns = [t.footer.columns.productos, t.footer.columns.empresa];
 
   return (
     <footer id="contacto" className="w-full overflow-hidden rounded-t-4xl bg-forest font-sans antialiased sm:rounded-t-[2.5rem] md:rounded-t-[3rem]">
@@ -68,29 +63,30 @@ export default function Footer() {
             </motion.button>
           </motion.div>
 
-          <nav aria-label="Footer navigation" className="grid w-full max-w-[480px] grid-cols-2 gap-y-8 sm:grid-cols-3">
-            {COLUMNS.map((col) => {
-              const links = Array.isArray(col.links) ? col.links : col.links[locale];
-              return (
-                <motion.div key={typeof col.title === "object" ? col.title.es : col.title} variants={riseItem}>
-                  <h3 className="text-md leading-none font-normal tracking-wide text-cream/90">
-                    {col.title[locale]}
-                  </h3>
-                  <motion.ul variants={linkStagger} className="mt-3 flex flex-col gap-3">
-                    {links.map((link) => (
-                      <motion.li key={link} variants={linkItem}>
-                        <a
-                          href={col.anchor ?? "#"}
-                          className="inline-block text-sm leading-none font-light text-cream/55 transition-colors duration-200 hover:text-cream"
-                        >
-                          {link}
-                        </a>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
-                </motion.div>
-              );
-            })}
+          <nav aria-label="Footer navigation" className="grid w-full max-w-[360px] grid-cols-2 gap-y-8">
+            {columns.map((col) => (
+              <motion.div key={col.title} variants={riseItem}>
+                <h3 className="text-md leading-none font-normal tracking-wide text-cream/90">
+                  {col.title}
+                </h3>
+                <motion.ul variants={linkStagger} className="mt-3 flex flex-col gap-3">
+                  {col.items.map((link) => (
+                    <motion.li key={link.label} variants={linkItem}>
+                      <a
+                        href={
+                          link.href.startsWith("#")
+                            ? link.href
+                            : `/${locale}${link.href}`
+                        }
+                        className="inline-block text-sm leading-none font-light text-cream/55 transition-colors duration-200 hover:text-cream"
+                      >
+                        {link.label}
+                      </a>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </motion.div>
+            ))}
           </nav>
         </div>
       </motion.div>

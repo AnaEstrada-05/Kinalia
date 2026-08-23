@@ -51,7 +51,6 @@ export default function Navbar() {
 
   const links = [
     { label: t.nav.proceso, href: "#proceso" },
-    { label: t.nav.nosotros, href: "#proceso" },
     { label: t.nav.productos, href: "#productos" },
     { label: t.nav.contacto, href: "#contacto" },
   ];

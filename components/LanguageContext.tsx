@@ -41,11 +41,19 @@ type ProductShowcaseItem = {
   logo: string;
 };
 
+// Footer columns. A link's `href` starting with "#" is used as-is (in-page
+// anchor); anything else is treated as a real route and gets the /[locale]
+// prefix added where it's rendered.
+type FooterLink = { label: string; href: string };
+type FooterColumns = {
+  productos: { title: string; items: FooterLink[] };
+  empresa: { title: string; items: FooterLink[] };
+};
+
 const dictionary = {
   es: {
     nav: {
       proceso: "Proceso",
-      nosotros: "Sobre nosotros",
       contacto: "Contacto",
       productos: "Productos",
       cta: "Agenda tu llamada",
@@ -323,13 +331,18 @@ const dictionary = {
       tagline: "IA, automatización y datos para negocios reales.",
       rights: "Kinalia",
       columns: {
-        productos: "Productos",
-        empresa: "Empresa",
-        social: "Social",
-        empresaLinks: ["Nosotros", "Proceso", "Contacto"],
-        productosLinks: ["Discovery", "Development", "Maintain", "Upgrade"],
-        socialLinks: ["LinkedIn", "Instagram"],
-      },
+        productos: {
+          title: "Productos",
+          items: [{ label: "Rope Master", href: "/productos/ropemaster" }],
+        },
+        empresa: {
+          title: "Empresa",
+          items: [
+            { label: "Proceso", href: "#proceso" },
+            { label: "Contacto", href: "#contacto" },
+          ],
+        },
+      } as FooterColumns,
     },
     ctaBanner: {
       title: "¿Listo para mejorar tu operación?",
@@ -348,7 +361,6 @@ const dictionary = {
   en: {
     nav: {
       proceso: "Process",
-      nosotros: "About",
       contacto: "Contact",
       productos: "Products",
       cta: "Book a call",
@@ -625,13 +637,18 @@ const dictionary = {
       tagline: "AI, automation, and data for real businesses.",
       rights: "Kinalia",
       columns: {
-        productos: "Products",
-        empresa: "Company",
-        social: "Social",
-        empresaLinks: ["About", "Process", "Contact"],
-        productosLinks: ["Discovery", "Development", "Maintain", "Upgrade"],
-        socialLinks: ["LinkedIn", "Instagram"],
-      },
+        productos: {
+          title: "Products",
+          items: [{ label: "Rope Master", href: "/productos/ropemaster" }],
+        },
+        empresa: {
+          title: "Company",
+          items: [
+            { label: "Process", href: "#proceso" },
+            { label: "Contact", href: "#contacto" },
+          ],
+        },
+      } as FooterColumns,
     },
     ctaBanner: {
       title: "Ready to improve your operation?",

@@ -29,6 +29,18 @@ type TeamMember = {
   bio?: string;
 };
 
+// Products showcased on the homepage "Nuestros productos" section and in the
+// Navbar's Productos dropdown. `href` is locale-independent (the /[locale]
+// prefix is added where it's used); add new entries here as more products ship.
+type ProductShowcaseItem = {
+  id: string;
+  name: string;
+  tag: string;
+  description: string;
+  href: string;
+  logo: string;
+};
+
 const dictionary = {
   es: {
     nav: {
@@ -41,10 +53,21 @@ const dictionary = {
       langAria: "Cambiar a inglés",
     },
     products: {
-      ropemaster: {
-        name: "Rope Master",
-        tag: "Gestión de eventos de lazo",
-      },
+      title: "Nuestros productos",
+      subtitle:
+        "Software que construimos y que ya está en uso — no son mockups, son productos reales, listos para instalar hoy.",
+      viewProduct: "Ver producto",
+      items: [
+        {
+          id: "ropemaster",
+          name: "Rope Master",
+          tag: "Gestión de eventos de lazo",
+          description:
+            "Series, equipos, jueces y resultados sincronizados en tiempo real — incluso sin una sola barra de señal.",
+          href: "/productos/ropemaster",
+          logo: "/assets/ropemaster-logo.png",
+        },
+      ] as ProductShowcaseItem[],
     },
     hero: {
       line1: "Soluciones",
@@ -333,10 +356,21 @@ const dictionary = {
       langAria: "Switch to Spanish",
     },
     products: {
-      ropemaster: {
-        name: "Rope Master",
-        tag: "Roping event management",
-      },
+      title: "Our products",
+      subtitle:
+        "Software we've built and that's already in use — not mockups, real products, ready to install today.",
+      viewProduct: "View product",
+      items: [
+        {
+          id: "ropemaster",
+          name: "Rope Master",
+          tag: "Roping event management",
+          description:
+            "Series, teams, judges and results synced in real time — even without a single bar of signal.",
+          href: "/productos/ropemaster",
+          logo: "/assets/ropemaster-logo.png",
+        },
+      ] as ProductShowcaseItem[],
     },
     hero: {
       line1: "Solutions",

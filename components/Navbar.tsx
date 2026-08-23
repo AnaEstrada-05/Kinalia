@@ -149,25 +149,28 @@ export default function Navbar() {
           {productsOpen && (
             <div className="absolute left-1/2 top-full -translate-x-1/2 pt-3">
               <div className="w-60 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl">
+                {t.products.items.map((product) => (
                 <a
-                  href={`/${locale}/productos/ropemaster`}
+                  key={product.id}
+                  href={`/${locale}${product.href}`}
                   onClick={() => setProductsOpen(false)}
                   className="flex items-center gap-3 rounded-xl p-2.5 transition-colors hover:bg-neutral-50"
                 >
                   <img
-                    src="/assets/ropemaster-logo.png"
-                    alt="Rope Master"
+                    src={product.logo}
+                    alt={product.name}
                     className="h-10 w-10 shrink-0 object-contain"
                   />
                   <span className="flex flex-col">
                     <span className="text-sm font-semibold text-neutral-900">
-                      {t.products.ropemaster.name}
+                      {product.name}
                     </span>
                     <span className="text-xs text-neutral-500">
-                      {t.products.ropemaster.tag}
+                      {product.tag}
                     </span>
                   </span>
                 </a>
+                ))}
               </div>
             </div>
           )}

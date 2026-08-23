@@ -36,7 +36,7 @@ export default function Process() {
   return (
     <section
       id="proceso"
-      className="relative z-10 overflow-hidden px-6 py-24 sm:px-8 md:px-14"
+      className="relative z-10 px-6 py-24 sm:px-8 md:px-14"
     >
       <div
         aria-hidden="true"

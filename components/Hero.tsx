@@ -178,12 +178,12 @@ export default function Hero() {
               <motion.div
                 key={stat.label}
                 variants={statIn}
-                className="flex flex-col gap-0.5 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 backdrop-blur-md"
+                className="flex flex-col gap-0.5 rounded-2xl border border-white/20 bg-black/30 px-6 py-4 backdrop-blur-md"
               >
                 <span className="text-[13px] font-semibold tracking-tight text-white">
                   {stat.label}
                 </span>
-                <span className="text-[11px] text-white">{stat.sub}</span>
+                <span className="text-[11px] text-white/80">{stat.sub}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -194,6 +194,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             className="max-w-[28ch] text-[13px] leading-[1.6] text-white sm:text-right"
+            style={{ textShadow: "0 1px 3px rgba(0,0,0,0.5), 0 4px 18px rgba(0,0,0,0.4)" }}
           >
             {t.hero.tagline}
           </motion.p>

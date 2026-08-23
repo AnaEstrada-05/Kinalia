@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, type Variants } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import CallButton from "./CallButton";
 import { openCalendlyModal } from "./CalendlyModal";
 import { useLanguage } from "./LanguageContext";
@@ -9,6 +10,7 @@ import { useLanguage } from "./LanguageContext";
 export default function Navbar() {
   const { t, locale, setLocale } = useLanguage();
   const [onHero, setOnHero] = useState(true);
+  const [productsOpen, setProductsOpen] = useState(false);
 
   const navVariants: Variants = {
     hidden: { opacity: 0, y: -20, filter: "blur(8px)" },
@@ -21,6 +23,30 @@ export default function Navbar() {
   };
 
   const navRef = useRef<HTMLElement | null>(null);
+  const productsRef = useRef<HTMLDivElement | null>(null);
+
+  // Close the Productos dropdown on outside click (covers touch/keyboard,
+  // not just mouseleave) and on Escape.
+  useEffect(() => {
+    if (!productsOpen) return;
+    function handleClick(e: MouseEvent) {
+      if (
+        productsRef.current &&
+        !productsRef.current.contains(e.target as Node)
+      ) {
+        setProductsOpen(false);
+      }
+    }
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setProductsOpen(false);
+    }
+    document.addEventListener("click", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("click", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [productsOpen]);
 
   useEffect(() => {
     const candidates = Array.from(
@@ -95,6 +121,57 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
+
+        {/* Productos: dropdown con el/los logo(s) de producto.
+            Click-to-toggle (no hover): el panel es position:absolute, así que
+            no forma parte de la caja del contenedor "relative" — con hover,
+            mover el mouse del botón hacia el panel lo cierra a medio camino. */}
+        <div ref={productsRef} className="relative">
+          <button
+            type="button"
+            onClick={() => setProductsOpen((v) => !v)}
+            aria-haspopup="true"
+            aria-expanded={productsOpen}
+            className={`flex items-center gap-1 text-[14px] font-normal transition-colors duration-200 ${
+              onHero
+                ? "text-white/90 hover:text-cream hover:[text-shadow:0_6px_24px_rgba(0,0,0,0.55)]"
+                : "text-neutral-900/90 hover:text-terracotta"
+            }`}
+          >
+            {t.nav.productos}
+            <ChevronDown
+              className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                productsOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+
+          {productsOpen && (
+            <div className="absolute left-1/2 top-full -translate-x-1/2 pt-3">
+              <div className="w-60 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl">
+                <a
+                  href={`/${locale}/productos/ropemaster`}
+                  onClick={() => setProductsOpen(false)}
+                  className="flex items-center gap-3 rounded-xl p-2.5 transition-colors hover:bg-neutral-50"
+                >
+                  <img
+                    src="/assets/ropemaster-logo.png"
+                    alt="Rope Master"
+                    className="h-10 w-10 shrink-0 object-contain"
+                  />
+                  <span className="flex flex-col">
+                    <span className="text-sm font-semibold text-neutral-900">
+                      {t.products.ropemaster.name}
+                    </span>
+                    <span className="text-xs text-neutral-500">
+                      {t.products.ropemaster.tag}
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
       </nav>
 
       {/* CTA + Language toggle */}

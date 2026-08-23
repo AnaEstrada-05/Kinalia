@@ -20,7 +20,25 @@ export async function GET(
   }
 
   const filePath = path.join(process.cwd(), "content", "ropemaster.html");
-  const html = await readFile(filePath, "utf-8");
+  let html = await readFile(filePath, "utf-8");
+
+  // The page ships in Spanish by default (its own [data-i18n] toggle already
+  // supports EN/ES client-side). For /en visitors we flip the initial state
+  // server-side — the page's own script then runs applyLang(currentLang) once
+  // on load, which swaps every [data-i18n] node and both the label + <html lang>.
+  if (locale === "en") {
+    html = html
+      .replace('<html lang="es">', '<html lang="en">')
+      .replace(
+        "<title>Rope Master · Sistema profesional de gestión de eventos de lazo</title>",
+        "<title>Rope Master · Professional Roping Event Management System</title>"
+      )
+      .replace(
+        '<meta name="description" content="Rope Master: el sistema de arena distribuido con tecnología Crossplay offline para gestionar tu serial de lazo con precisión profesional, incluso sin internet.">',
+        '<meta name="description" content="Rope Master: run your roping series with professional precision — series, events, teams and results synced in real time, even without a single bar of signal.">'
+      )
+      .replace("let currentLang = 'es';", "let currentLang = 'en';");
+  }
 
   return new Response(html, {
     headers: {

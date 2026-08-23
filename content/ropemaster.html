@@ -814,6 +814,10 @@
     currentLang = currentLang === 'es' ? 'en' : 'es';
     applyLang(currentLang);
   });
+  // Runs once on load — a no-op when currentLang is still 'es' (matches the
+  // static markup already), but activates the English copy when the server
+  // (see route.ts under kinalia-site) sets currentLang to 'en' up front for /en visitors.
+  applyLang(currentLang);
 
   // Scroll reveal
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');

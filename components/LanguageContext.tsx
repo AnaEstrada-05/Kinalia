@@ -35,9 +35,16 @@ const dictionary = {
       proceso: "Proceso",
       nosotros: "Sobre nosotros",
       contacto: "Contacto",
+      productos: "Productos",
       cta: "Agenda tu llamada",
       langLabel: "EN",
       langAria: "Cambiar a inglés",
+    },
+    products: {
+      ropemaster: {
+        name: "Rope Master",
+        tag: "Gestión de eventos de lazo",
+      },
     },
     hero: {
       line1: "Soluciones",
@@ -320,9 +327,16 @@ const dictionary = {
       proceso: "Process",
       nosotros: "About",
       contacto: "Contact",
+      productos: "Products",
       cta: "Book a call",
       langLabel: "ES",
       langAria: "Switch to Spanish",
+    },
+    products: {
+      ropemaster: {
+        name: "Rope Master",
+        tag: "Roping event management",
+      },
     },
     hero: {
       line1: "Solutions",

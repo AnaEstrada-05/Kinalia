@@ -20,47 +20,42 @@ export default function Products() {
           </div>
         </ScrollReveal>
 
-        <div
-          className={`grid gap-6 ${
-            items.length === 1
-              ? "mx-auto max-w-xl grid-cols-1"
-              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-          }`}
-        >
+        <div className="flex flex-col gap-6">
           {items.map((product, index) => (
             <ScrollReveal key={product.id} variant="up" delay={index * 80}>
               <a
                 href={`/${locale}${product.href}`}
-                className="card-hover-lift group flex h-full flex-col gap-5 rounded-[22px] border border-line bg-card p-6 sm:p-7"
+                className="card-hover-lift group flex flex-col items-center gap-8 rounded-2xl border border-line bg-card p-8 sm:flex-row sm:gap-10 sm:rounded-[32px] sm:p-10"
               >
-                <div className="flex items-center gap-4">
-                  <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-line bg-white p-2">
+                {/* Badge: anillo degradado azul→teal detrás del logo — el
+                    acento de marca vive aquí, no en el fondo de toda la tarjeta */}
+                <span className="relative flex h-28 w-28 shrink-0 items-center justify-center rounded-[26px] bg-gradient-to-br from-terracotta to-teal p-[3px] sm:h-32 sm:w-32">
+                  <span className="flex h-full w-full items-center justify-center rounded-[23px] bg-white p-4">
                     <img
                       src={product.logo}
                       alt={product.name}
                       className="h-full w-full object-contain"
                     />
                   </span>
-                  <div>
-                    <h3 className="font-display text-xl text-ink">
-                      {product.name}
-                    </h3>
-                    <p className="mt-0.5 text-sm text-ink-soft">
-                      {product.tag}
-                    </p>
-                  </div>
-                </div>
+                </span>
 
-                <p className="text-sm leading-relaxed text-ink-soft">
-                  {product.description}
-                </p>
-
-                <div className="mt-auto flex items-center justify-between pt-2">
-                  <span className="text-xs font-medium text-ink-faint transition-colors duration-200 group-hover:text-terracotta">
-                    {t.products.viewProduct}
+                <div className="flex flex-1 flex-col items-center text-center sm:items-start sm:text-left">
+                  <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-terracotta">
+                    {product.tag}
                   </span>
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-ink-faint transition-all duration-200 group-hover:border-terracotta/40 group-hover:text-terracotta group-hover:translate-x-0.5">
-                    <ArrowRight size={14} />
+                  <h3 className="mt-2 font-display text-2xl text-ink sm:text-3xl">
+                    {product.name}
+                  </h3>
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-soft sm:text-base">
+                    {product.description}
+                  </p>
+
+                  <span className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-terracotta px-6 py-3 text-sm font-medium text-cream transition-transform duration-150 group-hover:scale-[1.03]">
+                    {t.products.viewProduct}
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-200 group-hover:translate-x-1"
+                    />
                   </span>
                 </div>
               </a>

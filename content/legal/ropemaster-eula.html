@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrato de Licencia de Usuario Final (EULA) · Rope Master</title>
+<meta name="description" content="Contrato de Licencia de Usuario Final (EULA) del software Rope Master Management, de Kinalia.">
+<!-- Página oculta: accesible solo por URL directa, fuera de navegación e indexación -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: {
+            950: '#0a0908',
+            900: '#131110',
+            850: '#1a1715',
+            800: '#211d1a',
+            700: '#2c2723',
+            600: '#3a332d',
+            500: '#5a5049',
+          },
+          rope: {
+            300: '#ffb377',
+            400: '#ff9142',
+            500: '#f2701a',
+            600: '#d4590a',
+            700: '#a84509',
+          },
+          sand: {
+            100: '#f7f3ea',
+            200: '#ece4d4',
+            300: '#d8cfc0',
+            400: '#b6ab99',
+            500: '#a69c8d',
+            600: '#847a6c',
+          },
+        },
+        fontFamily: {
+          display: ['Poppins', 'sans-serif'],
+          body: ['Karla', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+        boxShadow: {
+          'glow-orange': '0 0 60px -12px rgba(242, 112, 26, 0.55)',
+          'glow-soft': '0 0 30px -8px rgba(242, 112, 26, 0.35)',
+        },
+        letterSpacing: {
+          widest2: '.22em',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0a0908;
+    font-family: 'Karla', sans-serif;
+    position: relative;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .03;
+    z-index: 60;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .font-display { font-family: 'Poppins', sans-serif; font-weight: 700; }
+  .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+  ::selection { background: rgba(242,112,26,.35); color: #f7f3ea; }
+  :focus-visible { outline: 2px solid #ff9142; outline-offset: 3px; border-radius: 4px; }
+
+  /* ---- Prosa del documento legal ---- */
+  .legal { color: #d8cfc0; font-size: 1rem; line-height: 1.75; }
+  .legal h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+    color: #f7f3ea;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #2c2723;
+    scroll-margin-top: 6rem;
+  }
+  .legal h2:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
+  .legal h2 .num {
+    color: #f2701a;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .95rem;
+    margin-right: .6rem;
+  }
+  .legal h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ece4d4;
+    font-size: 1.05rem;
+    margin-top: 1.75rem;
+    margin-bottom: .35rem;
+  }
+  .legal p { margin: .9rem 0; }
+  .legal ul { margin: .9rem 0; padding-left: 1.35rem; list-style: none; }
+  .legal ul li { position: relative; margin: .55rem 0; }
+  .legal ul li::before {
+    content: '';
+    position: absolute;
+    left: -1.15rem;
+    top: .62em;
+    width: 6px; height: 6px;
+    background: #f2701a;
+    border-radius: 1px;
+    transform: rotate(45deg);
+  }
+  .legal strong { color: #f7f3ea; font-weight: 700; }
+  .legal a { color: #ff9142; text-decoration: underline; text-underline-offset: 3px; }
+  .legal a:hover { color: #ffb377; }
+  .legal .todo { color: #a69c8d; font-style: italic; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body class="text-sand-100">
+
+<!-- ============ TOP BAR ============ -->
+<header class="border-b border-ink-800 bg-ink-950/80 backdrop-blur-sm sticky top-0 z-50">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="../../productos/ropemaster" class="flex items-baseline gap-2 group">
+      <span class="font-display font-extrabold uppercase tracking-widest2 text-sm text-sand-100 group-hover:text-rope-400 transition-colors">Rope Master</span>
+      <span class="font-mono text-[10px] uppercase tracking-wide text-sand-500">por Kinalia</span>
+    </a>
+    <a href="../../productos/ropemaster" class="font-mono text-[11px] uppercase tracking-wide text-sand-400 hover:text-rope-400 transition-colors">&larr; Volver al sitio</a>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
+
+  <!-- ============ ENCABEZADO ============ -->
+  <p class="font-mono text-[11px] uppercase tracking-widest2 text-rope-500">Documento legal</p>
+  <h1 class="mt-3 font-display font-extrabold uppercase text-3xl sm:text-4xl leading-[1.1] text-sand-100">
+    Contrato de Licencia de Usuario Final
+    <span class="block text-rope-400 text-xl sm:text-2xl mt-1">(EULA)</span>
+  </h1>
+  <p class="mt-4 text-sand-300 text-lg">Rope Master Management</p>
+  <p class="mt-1 font-mono text-xs text-sand-500">Versión: 2026-08-27</p>
+
+  <!-- ============ AVISO DE BORRADOR ============ -->
+  <div class="mt-8 rounded-xl border border-rope-500/40 bg-rope-500/[0.06] p-5">
+    <p class="font-mono text-[11px] uppercase tracking-wide text-rope-400 font-semibold">Borrador — no es asesoría legal</p>
+    <p class="mt-2 text-sm text-sand-300 leading-relaxed">
+      Este documento lo redactó una IA a partir de cómo funciona el sistema de licencias de la aplicación.
+      Antes de publicarlo o hacerlo válido para los clientes, debe revisarlo un abogado — sobre todo las
+      cláusulas de responsabilidad y las de protección de datos, que tienen requisitos legales específicos en México.
+    </p>
+  </div>
+
+  <!-- ============ CUERPO DEL CONTRATO ============ -->
+  <div class="legal mt-12">
+
+    <p>
+      Este Contrato de Licencia de Usuario Final ("Contrato") es un acuerdo legal entre usted ("el Usuario",
+      "el Licenciatario") y <strong>Kinalia</strong> ("Kinalia", "el Licenciante", "nosotros"), con domicilio en
+      <span class="todo">[domicilio — pendiente, mismo tema que el Aviso de Privacidad y los demás documentos
+      legales de Kinalia: confirmar con abogado / domicilio fiscal al constituir]</span>, para el uso del software
+      <strong>Rope Master Management</strong> ("el Software"), incluyendo sus actualizaciones y documentación asociada.
+    </p>
+    <p>
+      Al activar una licencia del Software, usted acepta los términos de este Contrato. Si no está de acuerdo, no
+      active ni utilice el Software. Al comprar una licencia a través del sitio de Kinalia, usted además acepta este
+      Contrato marcando la casilla correspondiente antes de completar el pago, conforme a los Términos y Condiciones
+      de Kinalia.
+    </p>
+
+    <h2><span class="num">1.</span>Concesión de licencia</h2>
+    <p>
+      Sujeto al pago correspondiente y a los términos de este Contrato, Kinalia le concede una licencia limitada,
+      no exclusiva e intransferible para instalar y usar el Software, <strong>únicamente en el número de dispositivos</strong>
+      que su plan adquirido especifique, y <strong>únicamente en los equipos para los que la licencia fue emitida</strong>
+      (identificados mediante una huella técnica del equipo, no personal, generada al activar).
+    </p>
+    <p>
+      La licencia no le transfiere ninguna propiedad sobre el Software. Kinalia conserva todos los derechos de autor
+      y propiedad intelectual sobre él.
+    </p>
+
+    <h2><span class="num">2.</span>Alcance de la licencia</h2>
+    <p>
+      <strong>2.1 Dispositivos.</strong> Cada licencia queda ligada a un equipo específico. Un plan de varios
+      dispositivos le da derecho a activar el Software en tantos equipos como su plan indique, cada uno con su
+      propia licencia.
+    </p>
+    <p>
+      <strong>2.2 Sesiones compartidas ("crossplay").</strong> Algunos planes incluyen la posibilidad de conectar
+      varios dispositivos entre sí durante un mismo evento (por ejemplo, para que distintas estaciones actúen como
+      juez o cronometrista). Esta función solo está disponible si su plan la incluye expresamente, y hasta el número
+      de estaciones que su plan especifique.
+    </p>
+    <p>
+      <strong>2.3 Vigencia.</strong> Algunos planes tienen una fecha de vencimiento. Al vencer, el Software dejará
+      de estar activo en ese equipo hasta que se renueve la licencia.
+    </p>
+    <p>
+      <strong>2.4 Cambio de equipo o reinstalación del sistema operativo.</strong> Si necesita reinstalar el sistema
+      operativo o cambiar el Software a otro equipo, debe solicitar la reactivación de su licencia a Kinalia. Kinalia
+      se reserva el derecho de solicitar información adicional o de limitar la frecuencia de estas reactivaciones si
+      detecta un patrón que sugiera un uso indebido de la licencia (por ejemplo, uso simultáneo en más equipos de
+      los contratados).
+    </p>
+
+    <h2><span class="num">3.</span>Restricciones</h2>
+    <p>Usted no puede, y no debe permitir que terceros:</p>
+    <ul>
+      <li>Usen el Software en más dispositivos de los que su licencia permite.</li>
+      <li>Compartan, revendan, sublicencien o transfieran su licencia a un tercero sin autorización expresa de Kinalia.</li>
+      <li>Intenten desactivar, evadir, alterar o eludir por cualquier medio el mecanismo de activación o verificación de licencias del Software.</li>
+      <li>Realicen ingeniería inversa, descompilen o desensamblen el Software, salvo en la medida en que la ley aplicable lo permita expresamente pese a esta restricción.</li>
+      <li>Usen el Software para fines distintos a los previstos por su funcionalidad ordinaria.</li>
+    </ul>
+    <p>
+      El incumplimiento de estas restricciones da a Kinalia el derecho de negarse a emitir o renovar licencias para
+      el Usuario responsable, independientemente de que el Software ya instalado siga funcionando.
+    </p>
+
+    <h2><span class="num">4.</span>Datos recopilados durante la activación</h2>
+    <p>
+      Para activar una licencia, el Software recopila su nombre, correo electrónico, folio de compra y una huella
+      técnica del equipo (no un dato personal como tal, sino un identificador generado por el propio sistema
+      operativo). El tratamiento de estos datos se rige por nuestro
+      <a href="aviso-de-privacidad">Aviso de Privacidad</a>.
+    </p>
+
+    <h2><span class="num">5.</span>Garantía y responsabilidad</h2>
+    <p>
+      <strong>5.1</strong> El Software se proporciona "tal cual" ("as is"), sin garantías de ningún tipo, expresas o
+      implícitas, incluyendo, sin limitación, garantías de comerciabilidad, idoneidad para un propósito particular, o
+      que su funcionamiento será ininterrumpido o libre de errores.
+    </p>
+    <p>
+      <strong>5.2</strong> En la máxima medida permitida por la ley aplicable, Kinalia no será responsable por daños
+      indirectos, incidentales, especiales o consecuentes derivados del uso o la imposibilidad de uso del Software,
+      incluyendo pérdida de datos o de resultados de competencias.
+    </p>
+    <p>
+      <strong>5.3</strong> La responsabilidad total de Kinalia frente al Usuario, por cualquier motivo relacionado
+      con este Contrato, no excederá el monto efectivamente pagado por la licencia correspondiente.
+    </p>
+
+    <h2><span class="num">6.</span>Reembolsos</h2>
+    <p>
+      <strong>6.1</strong> Si su licencia <strong>no ha sido activada</strong> en ningún equipo, usted puede
+      solicitar un reembolso dentro de los <strong>7 días naturales</strong> posteriores a la compra.
+    </p>
+    <p>
+      <strong>6.2</strong> Una vez que la licencia <strong>ha sido activada</strong> en un equipo,
+      <strong>no se otorgan reembolsos</strong>, independientemente de que hayan transcurrido los 7 días naturales
+      de la cláusula 6.1 — al activarla, usted ya está utilizando el Software.
+    </p>
+    <p><strong>6.3</strong> Lo anterior aplica salvo que se indique expresamente lo contrario al momento de la compra.</p>
+    <p>
+      <strong>6.4</strong> Nada en esta cláusula limita los derechos que, en su caso, le confiera la Ley Federal de
+      Protección al Consumidor respecto de ventas a distancia o por medios electrónicos.
+    </p>
+
+    <h2><span class="num">7.</span>Terminación</h2>
+    <p>
+      Este Contrato termina automáticamente si el Usuario incumple cualquiera de sus términos. Al terminar, debe
+      dejar de usar el Software y desinstalar todas las copias en su posesión. Las secciones 3, 5 y 6 sobreviven a
+      la terminación de este Contrato.
+    </p>
+
+    <h2><span class="num">8.</span>Ley aplicable</h2>
+    <p>
+      Este Contrato se rige por las leyes de los Estados Unidos Mexicanos. Cualquier controversia se someterá a los
+      tribunales competentes de la <strong>ciudad de Chihuahua, Chihuahua, México</strong>, renunciando las partes a
+      cualquier otro fuero que pudiera corresponderles.
+    </p>
+
+    <h2><span class="num">9.</span>Contacto</h2>
+    <p>
+      Para dudas sobre este Contrato o su licencia:
+      <a href="mailto:contacto@kinalia.com.mx">contacto@kinalia.com.mx</a>
+    </p>
+
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-ink-800 mt-8">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <p class="font-mono text-[11px] text-sand-600">
+      &copy; <span id="y">2026</span> Kinalia · Rope Master Management
+    </p>
+    <div class="flex items-center gap-5 font-mono text-[11px] uppercase tracking-wide text-sand-500">
+      <a href="aviso-de-privacidad" class="hover:text-rope-400 transition-colors">Aviso de Privacidad</a>
+      <a href="../../productos/ropemaster" class="hover:text-rope-400 transition-colors">Rope Master</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

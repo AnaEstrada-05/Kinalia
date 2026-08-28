@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviso de Privacidad · Rope Master</title>
+<meta name="description" content="Aviso de Privacidad del software Rope Master Management, de Kinalia, conforme a la LFPDPPP.">
+<!-- Página oculta: accesible solo por URL directa, fuera de navegación e indexación -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: {
+            950: '#0a0908',
+            900: '#131110',
+            850: '#1a1715',
+            800: '#211d1a',
+            700: '#2c2723',
+            600: '#3a332d',
+            500: '#5a5049',
+          },
+          rope: {
+            300: '#ffb377',
+            400: '#ff9142',
+            500: '#f2701a',
+            600: '#d4590a',
+            700: '#a84509',
+          },
+          sand: {
+            100: '#f7f3ea',
+            200: '#ece4d4',
+            300: '#d8cfc0',
+            400: '#b6ab99',
+            500: '#a69c8d',
+            600: '#847a6c',
+          },
+        },
+        fontFamily: {
+          display: ['Poppins', 'sans-serif'],
+          body: ['Karla', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+        boxShadow: {
+          'glow-orange': '0 0 60px -12px rgba(242, 112, 26, 0.55)',
+          'glow-soft': '0 0 30px -8px rgba(242, 112, 26, 0.35)',
+        },
+        letterSpacing: {
+          widest2: '.22em',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0a0908;
+    font-family: 'Karla', sans-serif;
+    position: relative;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .03;
+    z-index: 60;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .font-display { font-family: 'Poppins', sans-serif; font-weight: 700; }
+  .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+  ::selection { background: rgba(242,112,26,.35); color: #f7f3ea; }
+  :focus-visible { outline: 2px solid #ff9142; outline-offset: 3px; border-radius: 4px; }
+
+  /* ---- Prosa del documento legal ---- */
+  .legal { color: #d8cfc0; font-size: 1rem; line-height: 1.75; }
+  .legal h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+    color: #f7f3ea;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #2c2723;
+    scroll-margin-top: 6rem;
+  }
+  .legal h2:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
+  .legal h2 .num {
+    color: #f2701a;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .95rem;
+    margin-right: .6rem;
+  }
+  .legal h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ece4d4;
+    font-size: 1.05rem;
+    margin-top: 1.75rem;
+    margin-bottom: .35rem;
+  }
+  .legal p { margin: .9rem 0; }
+  .legal ul { margin: .9rem 0; padding-left: 1.35rem; list-style: none; }
+  .legal ul li { position: relative; margin: .55rem 0; }
+  .legal ul li::before {
+    content: '';
+    position: absolute;
+    left: -1.15rem;
+    top: .62em;
+    width: 6px; height: 6px;
+    background: #f2701a;
+    border-radius: 1px;
+    transform: rotate(45deg);
+  }
+  .legal strong { color: #f7f3ea; font-weight: 700; }
+  .legal a { color: #ff9142; text-decoration: underline; text-underline-offset: 3px; }
+  .legal a:hover { color: #ffb377; }
+  .legal .todo { color: #a69c8d; font-style: italic; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body class="text-sand-100">
+
+<!-- ============ TOP BAR ============ -->
+<header class="border-b border-ink-800 bg-ink-950/80 backdrop-blur-sm sticky top-0 z-50">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="../../productos/ropemaster" class="flex items-baseline gap-2 group">
+      <span class="font-display font-extrabold uppercase tracking-widest2 text-sm text-sand-100 group-hover:text-rope-400 transition-colors">Rope Master</span>
+      <span class="font-mono text-[10px] uppercase tracking-wide text-sand-500">por Kinalia</span>
+    </a>
+    <a href="../../productos/ropemaster" class="font-mono text-[11px] uppercase tracking-wide text-sand-400 hover:text-rope-400 transition-colors">&larr; Volver al sitio</a>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
+
+  <!-- ============ ENCABEZADO ============ -->
+  <p class="font-mono text-[11px] uppercase tracking-widest2 text-rope-500">Documento legal</p>
+  <h1 class="mt-3 font-display font-extrabold uppercase text-3xl sm:text-4xl leading-[1.1] text-sand-100">
+    Aviso de Privacidad
+  </h1>
+  <p class="mt-4 text-sand-300 text-lg">Rope Master Management (Kinalia)</p>
+  <p class="mt-1 font-mono text-xs text-sand-500">Versión: 2026-08-27</p>
+
+  <!-- ============ AVISO DE BORRADOR ============ -->
+  <div class="mt-8 rounded-xl border border-rope-500/40 bg-rope-500/[0.06] p-5">
+    <p class="font-mono text-[11px] uppercase tracking-wide text-rope-400 font-semibold">Borrador — no es asesoría legal</p>
+    <p class="mt-2 text-sm text-sand-300 leading-relaxed">
+      El Aviso de Privacidad tiene requisitos específicos bajo la Ley Federal de Protección de Datos Personales en
+      Posesión de los Particulares (LFPDPPP). Este borrador sigue su estructura general, pero antes de publicarlo debe
+      revisarlo un abogado — sobre todo para llenar el domicilio real y confirmar la lista de encargados que
+      efectivamente se usen.
+    </p>
+  </div>
+
+  <!-- ============ CUERPO DEL AVISO ============ -->
+  <div class="legal mt-12">
+
+    <p>
+      <strong>Kinalia</strong> ("Kinalia", "nosotros"), con domicilio en
+      <span class="todo">[domicilio — pendiente de confirmar con abogado / domicilio fiscal al constituir la
+      empresa]</span>, es responsable del tratamiento de sus datos personales conforme a la Ley Federal de Protección
+      de Datos Personales en Posesión de los Particulares (LFPDPPP).
+    </p>
+
+    <h2><span class="num">1.</span>Datos personales que recabamos</h2>
+    <p>
+      Al solicitar la activación de una licencia de <strong>Rope Master Management</strong>, recabamos:
+    </p>
+    <ul>
+      <li>Nombre completo</li>
+      <li>Correo electrónico</li>
+      <li>Folio de compra</li>
+      <li>
+        Un identificador técnico de su equipo ("<span class="font-mono">hardware_id</span>"), generado
+        automáticamente por el sistema operativo — no permite identificarlo a usted directamente, solo distingue
+        un equipo de otro.
+      </li>
+    </ul>
+    <p>
+      No recabamos datos financieros directamente — el pago se procesa a través de la plataforma de pago que
+      utilicemos en cada momento, sujeta a su propio aviso de privacidad.
+    </p>
+
+    <h2><span class="num">2.</span>Finalidades del tratamiento</h2>
+    <h3>Finalidades necesarias</h3>
+    <p>(sin las cuales no podemos prestar el servicio):</p>
+    <ul>
+      <li>Verificar su compra y emitir la licencia correspondiente a su equipo.</li>
+      <li>Vincular las licencias de un mismo plan de varios dispositivos.</li>
+      <li>Contactarlo en caso de dudas sobre su activación.</li>
+    </ul>
+    <h3>Finalidades secundarias</h3>
+    <p>(opcionales, puede oponerse sin que afecte el servicio):</p>
+    <ul>
+      <li>Enviarle información sobre actualizaciones o nuevos productos.</li>
+    </ul>
+    <p>
+      Si no desea que sus datos se usen para las finalidades secundarias, puede indicarlo al momento de la compra o
+      de la activación, o después en cualquier momento escribiendo a
+      <a href="mailto:contacto@kinalia.com.mx">contacto@kinalia.com.mx</a>. Su negativa no será motivo para negarle
+      el servicio.
+    </p>
+
+    <h2><span class="num">3.</span>Transferencia de datos y encargados</h2>
+    <p>
+      <strong>3.1</strong> No vendemos ni transferimos sus datos a terceros para fines comerciales ajenos a Kinalia.
+      Podemos compartir información con proveedores que actúan como <strong>encargados del tratamiento</strong>
+      únicamente para poder prestarle el servicio.
+    </p>
+    <p><strong>3.2</strong> Utilizamos como encargados:</p>
+    <ul>
+      <li><strong>Brevo</strong> — envío del correo con su licencia y comunicaciones relacionadas con su compra y activación.</li>
+      <li><strong>Plataforma de pago</strong> — el procesador de pagos que se utilice en cada momento procesa la compra bajo su propio aviso de privacidad; Kinalia no almacena datos de tarjeta.</li>
+    </ul>
+    <p>
+      Según evolucione el producto podemos incorporar otros encargados (hosting, base de datos, soporte), lo que se
+      reflejará en una actualización de este Aviso.
+    </p>
+    <p>
+      <strong>3.3 Transferencia internacional de datos.</strong> Brevo y la plataforma de pago pueden procesar y
+      almacenar información en servidores fuera de México. Al activar su licencia, usted acepta que sus datos puedan
+      tratarse en esos países, bajo los mismos fines descritos en este Aviso y con medidas de protección contractual
+      con dichos proveedores.
+    </p>
+
+    <h2><span class="num">4.</span>Derechos ARCO y revocación del consentimiento</h2>
+    <p>
+      Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse (derechos ARCO) al tratamiento de sus datos
+      personales, así como a <strong>revocar el consentimiento</strong> que nos haya otorgado. Para ejercer cualquiera
+      de estos derechos, escríbanos a <a href="mailto:contacto@kinalia.com.mx">contacto@kinalia.com.mx</a> indicando:
+    </p>
+    <ul>
+      <li>Su nombre completo.</li>
+      <li>El derecho que desea ejercer.</li>
+      <li>Documentación que acredite su identidad, si aplica.</li>
+    </ul>
+    <p>
+      Responderemos en un plazo máximo de 20 días hábiles conforme a la ley. La revocación del consentimiento surte
+      efectos hacia adelante y no afecta los tratamientos realizados mientras el consentimiento estuvo vigente.
+    </p>
+    <p>
+      Si considera que su derecho a la protección de datos personales fue vulnerado, puede acudir ante la autoridad
+      competente en la materia.
+    </p>
+
+    <h2><span class="num">5.</span>Conservación de datos</h2>
+    <p>
+      Conservamos sus datos mientras su licencia esté vigente y hasta <strong>3 años</strong> después de su
+      vencimiento o cancelación, plazo tras el cual se eliminan o anonimizan, salvo que una obligación fiscal o legal
+      exija conservarlos por más tiempo.
+    </p>
+
+    <h2><span class="num">6.</span>Medidas de seguridad</h2>
+    <p>
+      Kinalia implementa medidas administrativas, técnicas y físicas razonables para proteger sus datos personales
+      contra daño, pérdida, alteración, acceso o tratamiento no autorizado.
+    </p>
+
+    <h2><span class="num">7.</span>Cambios a este aviso</h2>
+    <p>
+      Cualquier modificación a este Aviso de Privacidad se publicará en la página de compra de Rope Master
+      (kinalia.com.mx) y dentro de la aplicación, con su fecha de última actualización.
+    </p>
+
+    <h2><span class="num">8.</span>Contacto</h2>
+    <p>
+      <a href="mailto:contacto@kinalia.com.mx">contacto@kinalia.com.mx</a>
+    </p>
+
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-ink-800 mt-8">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <p class="font-mono text-[11px] text-sand-600">
+      &copy; <span id="y">2026</span> Kinalia · Rope Master Management
+    </p>
+    <div class="flex items-center gap-5 font-mono text-[11px] uppercase tracking-wide text-sand-500">
+      <a href="eula" class="hover:text-rope-400 transition-colors">EULA</a>
+      <a href="../../productos/ropemaster" class="hover:text-rope-400 transition-colors">Rope Master</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

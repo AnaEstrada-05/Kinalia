@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rope Master · Manual de licencias</title>
+<meta name="description" content="Cómo comprar, activar y administrar la licencia de Rope Master Management: activación paso a paso, ID de equipo, crossplay, renovación y reembolsos.">
+<link rel="icon" type="image/png" href="/assets/ropemaster-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: {
+            950: '#0a0908', 900: '#131110', 850: '#1a1715', 800: '#211d1a',
+            700: '#2c2723', 600: '#3a332d', 500: '#5a5049',
+          },
+          rope: {
+            300: '#ffb377', 400: '#ff9142', 500: '#f2701a', 600: '#d4590a', 700: '#a84509',
+          },
+          sand: {
+            100: '#f7f3ea', 200: '#ece4d4', 300: '#d8cfc0', 400: '#b6ab99', 500: '#a69c8d', 600: '#847a6c',
+          },
+        },
+        fontFamily: {
+          display: ['Poppins', 'sans-serif'],
+          body: ['Karla', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+        boxShadow: {
+          'glow-orange': '0 0 60px -12px rgba(242, 112, 26, 0.55)',
+          'glow-soft': '0 0 30px -8px rgba(242, 112, 26, 0.35)',
+        },
+        letterSpacing: { widest2: '.22em' },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0a0908;
+    font-family: 'Karla', sans-serif;
+    position: relative;
+  }
+  body::after {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none;
+    opacity: .03; z-index: 60; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .font-display { font-family: 'Poppins', sans-serif; font-weight: 700; }
+  .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+  .prose-rm p { margin: 0 0 1rem; color: #d8cfc0; line-height: 1.7; }
+  .prose-rm p:last-child { margin-bottom: 0; }
+  .prose-rm strong { color: #f7f3ea; font-weight: 600; }
+  .prose-rm a { color: #ff9142; text-decoration: underline; text-underline-offset: 2px; }
+  .prose-rm a:hover { color: #ffb377; }
+  .prose-rm ul, .prose-rm ol { margin: 0 0 1rem; padding-left: 1.25rem; color: #d8cfc0; line-height: 1.7; }
+  .prose-rm ul { list-style: disc; }
+  .prose-rm ol { list-style: decimal; }
+  .prose-rm li { margin: .4rem 0; }
+  .prose-rm li::marker { color: #847a6c; }
+  .prose-rm code {
+    font-family: 'IBM Plex Mono', monospace; font-size: .85em;
+    background: #211d1a; border: 1px solid rgba(255,255,255,.08);
+    border-radius: 4px; padding: 2px 6px; color: #ece4d4;
+  }
+
+  :focus-visible { outline: 2px solid #ff9142; outline-offset: 3px; border-radius: 4px; }
+  ::selection { background: rgba(242,112,26,.35); color: #f7f3ea; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.16,.8,.28,1), transform .7s cubic-bezier(.16,.8,.28,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { transition: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-ink-950 text-sand-200 antialiased">
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-50 bg-ink-950/85 backdrop-blur-md border-b border-white/6">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="../ropemaster" class="inline-flex items-center gap-2 font-mono text-[13px] uppercase tracking-wide text-sand-100 hover:text-rope-400 transition-colors">
+      <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      <span data-i18n data-es="Rope Master" data-en="Rope Master">Rope Master</span>
+    </a>
+    <div class="flex items-center gap-3">
+      <a href="../ropemaster#pricing" class="hidden sm:inline-flex items-center rounded-full bg-rope-500 px-4 py-2 font-semibold text-xs text-ink-950 hover:bg-rope-400 transition-colors" data-i18n data-es="Comprar Licencia" data-en="Buy License">Comprar Licencia</a>
+      <button id="lang-toggle" class="inline-flex items-center font-mono text-xs uppercase tracking-wider text-sand-100 border border-white/25 rounded-full px-3 py-1.5 hover:border-rope-400 hover:text-rope-300 transition-colors">
+        <span id="lang-toggle-label">EN</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-5 sm:px-8">
+
+  <!-- ============ HERO ============ -->
+  <section class="pt-16 sm:pt-24 pb-12 border-b border-white/6">
+    <div class="reveal">
+      <div class="font-mono text-xs uppercase tracking-widest2 text-rope-400 mb-4" data-i18n data-es="Manual del usuario" data-en="User manual">Manual del usuario</div>
+      <h1 class="font-display font-bold uppercase text-4xl sm:text-6xl text-sand-100 leading-[0.95]" data-i18n data-es="Cómo funcionan las licencias" data-en="How licensing works">Cómo funcionan las licencias</h1>
+      <p class="mt-6 max-w-2xl text-lg text-sand-300 leading-relaxed" data-i18n
+         data-es="Cómo comprar, activar y administrar la licencia de tu equipo, incluso sin internet en el evento."
+         data-en="How to buy, activate and manage your computer's license, even with no internet at the event.">
+        Cómo comprar, activar y administrar la licencia de tu equipo, incluso sin internet en el evento.
+      </p>
+      <p class="mt-5 font-mono text-xs text-sand-500" data-i18n
+         data-es="App de escritorio (Windows) · Versión del documento: 2026-08-29 · Soporte: servicios@kinalia.com.mx"
+         data-en="Desktop app (Windows) · Document version: 2026-08-29 · Support: servicios@kinalia.com.mx">
+        App de escritorio (Windows) · Versión del documento: 2026-08-29 · Soporte: servicios@kinalia.com.mx
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ TOC ============ -->
+  <nav class="reveal py-10 border-b border-white/6">
+    <div class="font-mono text-xs uppercase tracking-widest2 text-sand-500 mb-5" data-i18n data-es="Contenido" data-en="Contents">Contenido</div>
+    <ol class="grid sm:grid-cols-2 gap-x-8 gap-y-2.5 font-mono text-sm text-sand-300">
+      <li><a href="#s1" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">01 · </span><span data-i18n data-es="Cómo funciona una licencia" data-en="How a license works">Cómo funciona una licencia</span></a></li>
+      <li><a href="#s2" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">02 · </span><span data-i18n data-es="Planes: Local y Event Pass" data-en="Plans: Local and Event Pass">Planes: Local y Event Pass</span></a></li>
+      <li><a href="#s3" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">03 · </span><span data-i18n data-es="Tu ID de equipo" data-en="Your machine ID">Tu ID de equipo</span></a></li>
+      <li><a href="#s4" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">04 · </span><span data-i18n data-es="Comprar tu licencia" data-en="Buying your license">Comprar tu licencia</span></a></li>
+      <li><a href="#s5" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">05 · </span><span data-i18n data-es="Activar la app" data-en="Activating the app">Activar la app</span></a></li>
+      <li><a href="#s6" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">06 · </span><span data-i18n data-es="Recibir y pegar tu código" data-en="Receiving and pasting your code">Recibir y pegar tu código</span></a></li>
+      <li><a href="#s7" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">07 · </span><span data-i18n data-es="Varios dispositivos" data-en="Several computers">Varios dispositivos</span></a></li>
+      <li><a href="#s8" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">08 · </span><span data-i18n data-es="Conexión entre equipos (crossplay)" data-en="Connecting computers (crossplay)">Conexión entre equipos (crossplay)</span></a></li>
+      <li><a href="#s9" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">09 · </span><span data-i18n data-es="Vencimiento y renovación" data-en="Expiry and renewal">Vencimiento y renovación</span></a></li>
+      <li><a href="#s10" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">10 · </span><span data-i18n data-es="Cambiar o formatear la computadora" data-en="Changing or formatting the computer">Cambiar o formatear la computadora</span></a></li>
+      <li><a href="#s11" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">11 · </span><span data-i18n data-es="&ldquo;Este equipo está bloqueado&rdquo;" data-en="&ldquo;This computer is blocked&rdquo;">&ldquo;Este equipo está bloqueado&rdquo;</span></a></li>
+      <li><a href="#s12" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">12 · </span><span data-i18n data-es="Política de reembolsos" data-en="Refund policy">Política de reembolsos</span></a></li>
+      <li><a href="#s13" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">13 · </span><span data-i18n data-es="Mensajes que puedes ver" data-en="Messages you might see">Mensajes que puedes ver</span></a></li>
+      <li><a href="#s14" class="hover:text-rope-400 transition-colors"><span class="text-sand-500">14 · </span><span data-i18n data-es="Soporte" data-en="Support">Soporte</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ 1 ============ -->
+  <section id="s1" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">01</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Cómo funciona una licencia" data-en="How a license works">Cómo funciona una licencia</h2>
+    <div class="prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="Rope Master Management se vende por <strong>licencia de equipo</strong>. Cada computadora donde instales la app necesita su propia licencia activada. No importa si esa computadora va a dirigir el evento o si solo se conecta como juez o cronómetro: todas se activan igual."
+         data-en="Rope Master Management is sold per <strong>computer license</strong>. Every computer where you install the app needs its own activated license. It doesn't matter whether that computer will run the event or just connect as a judge or timer: they all activate the same way.">
+        Rope Master Management se vende por <strong>licencia de equipo</strong>. Cada computadora donde instales la app necesita su propia licencia activada. No importa si esa computadora va a dirigir el evento o si solo se conecta como juez o cronómetro: todas se activan igual.
+      </p>
+      <p data-i18n
+         data-es="La licencia es un <strong>código firmado</strong> que te enviamos por correo. La app lo verifica <strong>sin conexión a internet</strong>, así que una vez activada funciona completa en un rancho o lienzo sin señal. Nunca hay que iniciar sesión ni depender de un servidor durante la competencia."
+         data-en="The license is a <strong>signed code</strong> we email to you. The app verifies it <strong>with no internet connection</strong>, so once activated it runs in full at a ranch or arena with no signal. You never sign in or depend on a server during the competition.">
+        La licencia es un <strong>código firmado</strong> que te enviamos por correo. La app lo verifica <strong>sin conexión a internet</strong>, así que una vez activada funciona completa en un rancho o lienzo sin señal. Nunca hay que iniciar sesión ni depender de un servidor durante la competencia.
+      </p>
+      <ul data-i18n
+          data-es="<li>El código está ligado a <strong>una sola computadora</strong> (su &ldquo;ID de equipo&rdquo;). No sirve pegar el mismo código en otra máquina.</li><li>No hay usuario ni contraseña. El código <strong>es</strong> tu acceso.</li><li>Si compraste un plan para varios equipos, recibes <strong>un código por cada uno</strong>.</li>"
+          data-en="<li>The code is tied to <strong>a single computer</strong> (its &ldquo;machine ID&rdquo;). Pasting the same code on another machine won't work.</li><li>There is no username or password. The code <strong>is</strong> your access.</li><li>If you bought a plan for several computers, you get <strong>one code for each</strong>.</li>">
+        <li>El código está ligado a <strong>una sola computadora</strong> (su &ldquo;ID de equipo&rdquo;). No sirve pegar el mismo código en otra máquina.</li>
+        <li>No hay usuario ni contraseña. El código <strong>es</strong> tu acceso.</li>
+        <li>Si compraste un plan para varios equipos, recibes <strong>un código por cada uno</strong>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 2 ============ -->
+  <section id="s2" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">02</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Planes: Local y Event Pass" data-en="Plans: Local and Event Pass">Planes: Local y Event Pass</h2>
+    <div class="prose-rm max-w-2xl mb-6">
+      <p data-i18n
+         data-es="Hay dos formas de comprar. <strong>Event Pass</strong> es para quien va a organizar una sola competencia. <strong>Local</strong> es la licencia anual completa, sin límite de eventos. La comparación completa y los precios están en la <a href='../ropemaster#pricing'>página de Rope Master</a>."
+         data-en="There are two ways to buy. <strong>Event Pass</strong> is for someone running a single competition. <strong>Local</strong> is the full annual license, with no event limit. The full comparison and prices are on the <a href='../ropemaster#pricing'>Rope Master page</a>.">
+        Hay dos formas de comprar. <strong>Event Pass</strong> es para quien va a organizar una sola competencia. <strong>Local</strong> es la licencia anual completa, sin límite de eventos. La comparación completa y los precios están en la <a href="../ropemaster#pricing">página de Rope Master</a>.
+      </p>
+    </div>
+
+    <div class="overflow-x-auto rounded-2xl border border-white/10">
+      <table class="w-full min-w-[440px] border-collapse text-sm">
+        <thead>
+          <tr class="border-b border-white/10 bg-ink-900">
+            <th class="text-left font-mono text-[11px] uppercase tracking-wide text-sand-500 px-5 py-4" data-i18n data-es="Incluye" data-en="Includes">Incluye</th>
+            <th class="text-center font-display font-bold uppercase text-xs text-sand-100 px-4 py-4">Event Pass</th>
+            <th class="text-center font-display font-bold uppercase text-xs text-sand-100 px-4 py-4 bg-rope-500/10">Local</th>
+          </tr>
+        </thead>
+        <tbody class="font-mono text-[13px] text-sand-300">
+          <tr class="border-b border-white/6"><td class="px-5 py-3.5 font-sans" data-i18n data-es="Eventos" data-en="Events">Eventos</td><td class="text-center px-4 py-3.5">1</td><td class="text-center px-4 py-3.5 bg-rope-500/10" data-i18n data-es="Ilimitados" data-en="Unlimited">Ilimitados</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-3.5 font-sans" data-i18n data-es="Operadores conectados por LAN" data-en="Operators connected over LAN">Operadores conectados por LAN</td><td class="text-center px-4 py-3.5">2</td><td class="text-center px-4 py-3.5 bg-rope-500/10">5</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-3.5 font-sans" data-i18n data-es="Modos casual" data-en="Casual modes">Modos casual</td><td class="text-center px-4 py-3.5 text-rope-400">✓</td><td class="text-center px-4 py-3.5 bg-rope-500/10 text-rope-400">✓</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-3.5 font-sans" data-i18n data-es="Modos profesionales (FMR, PRCA, WSTR, USTRC)" data-en="Professional modes (FMR, PRCA, WSTR, USTRC)">Modos profesionales (FMR, PRCA, WSTR, USTRC)</td><td class="text-center px-4 py-3.5 text-sand-500">—</td><td class="text-center px-4 py-3.5 bg-rope-500/10 text-rope-400">✓</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-3.5 font-sans" data-i18n data-es="Series" data-en="Series">Series</td><td class="text-center px-4 py-3.5 font-sans text-[12px]" data-i18n data-es="Una, precargada" data-en="One, preloaded">Una, precargada</td><td class="text-center px-4 py-3.5 bg-rope-500/10 text-rope-400">✓</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-3.5 font-sans" data-i18n data-es="Rankings" data-en="Rankings">Rankings</td><td class="text-center px-4 py-3.5 text-sand-500">—</td><td class="text-center px-4 py-3.5 bg-rope-500/10 text-rope-400">✓</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-3.5 font-sans" data-i18n data-es="Funciona sin internet (LAN / offline)" data-en="Works offline (LAN / offline)">Funciona sin internet (LAN / offline)</td><td class="text-center px-4 py-3.5 text-rope-400">✓</td><td class="text-center px-4 py-3.5 bg-rope-500/10 text-rope-400">✓</td></tr>
+          <tr><td class="px-5 py-3.5 font-sans" data-i18n data-es="Respaldos (backups)" data-en="Backups">Respaldos (backups)</td><td class="text-center px-4 py-3.5 text-sand-500">—</td><td class="text-center px-4 py-3.5 bg-rope-500/10 text-rope-400">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="font-display font-bold uppercase text-lg text-sand-100 mt-8 mb-4" data-i18n data-es="Qué significa Event Pass en la práctica" data-en="What Event Pass means in practice">Qué significa Event Pass en la práctica</h3>
+    <div class="prose-rm max-w-2xl">
+      <ul data-i18n
+          data-es="<li>Al activar, la app crea <strong>una serie automáticamente</strong>. Tú creas tu evento dentro de ella con su fecha real.</li><li>Cuando ya existe un evento, no puedes crear otro ni borrarlo.</li><li>Solo modos <strong>casual</strong>. Los modos profesionales requieren plan Local.</li><li>Cuando marcas el evento como finalizado, ya no se puede renombrar ni cambiar su lista de participantes. Exportar resultados y calcular payoffs sigue disponible.</li><li>En el menú lateral quedan activos <strong>Inicio</strong> y <strong>Lazadores</strong>; el resto se ve en gris.</li>"
+          data-en="<li>On activation, the app creates <strong>one series automatically</strong>. You create your event inside it with its real date.</li><li>Once an event exists, you can't create another one or delete it.</li><li><strong>Casual</strong> modes only. Professional modes require the Local plan.</li><li>Once you mark the event as finished, it can no longer be renamed and its participant list can't be changed. Exporting results and computing payoffs stays available.</li><li>In the side menu, <strong>Home</strong> and <strong>Ropers</strong> stay active; the rest is greyed out.</li>">
+        <li>Al activar, la app crea <strong>una serie automáticamente</strong>. Tú creas tu evento dentro de ella con su fecha real.</li>
+        <li>Cuando ya existe un evento, no puedes crear otro ni borrarlo.</li>
+        <li>Solo modos <strong>casual</strong>. Los modos profesionales requieren plan Local.</li>
+        <li>Cuando marcas el evento como finalizado, ya no se puede renombrar ni cambiar su lista de participantes. Exportar resultados y calcular payoffs sigue disponible.</li>
+        <li>En el menú lateral quedan activos <strong>Inicio</strong> y <strong>Lazadores</strong>; el resto se ve en gris.</li>
+      </ul>
+    </div>
+    <div class="mt-6 rounded-xl border-l-2 border-rope-500 bg-rope-500/[0.06] px-5 py-4 prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="<strong>Mejorar de plan.</strong> Puedes pasar de Event Pass a Local en cualquier momento sin cambiar de computadora. Escríbenos con tu folio y te enviamos un código nuevo; al pegarlo, reemplaza al anterior automáticamente."
+         data-en="<strong>Upgrading.</strong> You can move from Event Pass to Local at any time without changing computers. Write to us with your reference and we send a new code; pasting it replaces the previous one automatically.">
+        <strong>Mejorar de plan.</strong> Puedes pasar de Event Pass a Local en cualquier momento sin cambiar de computadora. Escríbenos con tu folio y te enviamos un código nuevo; al pegarlo, reemplaza al anterior automáticamente.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 3 ============ -->
+  <section id="s3" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">03</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Tu ID de equipo" data-en="Your machine ID">Tu ID de equipo</h2>
+    <div class="prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="El <strong>ID de equipo</strong> es un texto que identifica a tu computadora. Lo necesitamos para generar tu licencia, porque el código queda ligado exactamente a esa máquina. Lo encuentras en la <strong>pantalla de activación</strong> que aparece al abrir la app sin licencia:"
+         data-en="The <strong>machine ID</strong> is a string that identifies your computer. We need it to generate your license, because the code is tied to exactly that machine. You find it on the <strong>activation screen</strong> that appears when you open the app without a license:">
+        El <strong>ID de equipo</strong> es un texto que identifica a tu computadora. Lo necesitamos para generar tu licencia, porque el código queda ligado exactamente a esa máquina. Lo encuentras en la <strong>pantalla de activación</strong> que aparece al abrir la app sin licencia:
+      </p>
+      <p><code>ID de equipo: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</code></p>
+      <p data-i18n
+         data-es="Junto a él hay un botón <strong>Copiar</strong>. Cópialo y tenlo a la mano: te lo vamos a pedir al comprar y al solicitar la licencia."
+         data-en="Next to it there's a <strong>Copy</strong> button. Copy it and keep it handy: we ask for it when you buy and when you request the license.">
+        Junto a él hay un botón <strong>Copiar</strong>. Cópialo y tenlo a la mano: te lo vamos a pedir al comprar y al solicitar la licencia.
+      </p>
+    </div>
+    <div class="mt-6 rounded-xl border-l-2 border-white/20 bg-white/[0.03] px-5 py-4 prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="<strong>Importante.</strong> El ID identifica al equipo, no a la persona. Si vas a activar en dos computadoras, cada una tiene su propio ID y necesita su propio código."
+         data-en="<strong>Important.</strong> The ID identifies the computer, not the person. If you activate on two computers, each has its own ID and needs its own code.">
+        <strong>Importante.</strong> El ID identifica al equipo, no a la persona. Si vas a activar en dos computadoras, cada una tiene su propio ID y necesita su propio código.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 4 ============ -->
+  <section id="s4" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">04</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Comprar tu licencia" data-en="Buying your license">Comprar tu licencia</h2>
+    <div class="prose-rm max-w-2xl">
+      <ol data-i18n
+          data-es="<li><strong>Abre la página de compra.</strong> Desde la pantalla de activación de la app, elige <strong>Todavía no he comprado</strong> y presiona <strong>Ir a comprar</strong>. También puedes entrar directo a <a href='../ropemaster#pricing'>la página de Rope Master</a>.</li><li><strong>Elige tu plan.</strong> Local o Event Pass, según lo que vayas a hacer. El tamaño del plan (número de dispositivos) se elige aquí, en la página, no dentro de la app.</li><li><strong>Acepta el acuerdo de licencia.</strong> Antes de pagar verás el <strong>EULA</strong> y el <strong>Aviso de Privacidad</strong> con una casilla de aceptación. Es requisito para continuar.</li><li><strong>Paga y guarda tu folio.</strong> Al terminar recibes un <strong>folio de compra</strong>. Guárdalo: es lo que conecta tu pago con la licencia que vas a solicitar, y lo mismo que usas para pedir códigos de dispositivos adicionales.</li>"
+          data-en="<li><strong>Open the purchase page.</strong> From the app's activation screen, choose <strong>I haven't bought yet</strong> and press <strong>Go to buy</strong>. You can also go straight to <a href='../ropemaster#pricing'>the Rope Master page</a>.</li><li><strong>Choose your plan.</strong> Local or Event Pass, depending on what you'll do. The plan size (number of computers) is chosen here, on the page, not inside the app.</li><li><strong>Accept the license agreement.</strong> Before paying you'll see the <strong>EULA</strong> and the <strong>Privacy Notice</strong> with an acceptance checkbox. It's required to continue.</li><li><strong>Pay and keep your reference.</strong> When you finish you get a <strong>purchase reference</strong>. Keep it: it links your payment to the license you'll request, and it's the same one you use to request codes for additional computers.</li>">
+        <li><strong>Abre la página de compra.</strong> Desde la pantalla de activación de la app, elige <strong>Todavía no he comprado</strong> y presiona <strong>Ir a comprar</strong>. También puedes entrar directo a <a href="../ropemaster#pricing">la página de Rope Master</a>.</li>
+        <li><strong>Elige tu plan.</strong> Local o Event Pass, según lo que vayas a hacer. El tamaño del plan (número de dispositivos) se elige aquí, en la página, no dentro de la app.</li>
+        <li><strong>Acepta el acuerdo de licencia.</strong> Antes de pagar verás el <strong>EULA</strong> y el <strong>Aviso de Privacidad</strong> con una casilla de aceptación. Es requisito para continuar.</li>
+        <li><strong>Paga y guarda tu folio.</strong> Al terminar recibes un <strong>folio de compra</strong>. Guárdalo: es lo que conecta tu pago con la licencia que vas a solicitar, y lo mismo que usas para pedir códigos de dispositivos adicionales.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 5 ============ -->
+  <section id="s5" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">05</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Activar la app" data-en="Activating the app">Activar la app</h2>
+    <div class="prose-rm max-w-2xl mb-6">
+      <p data-i18n
+         data-es="Al abrir la app sin licencia aparece <strong>&ldquo;Activa tu licencia&rdquo;</strong> con tu ID de equipo y estas opciones:"
+         data-en="When you open the app without a license, <strong>&ldquo;Activate your license&rdquo;</strong> appears with your machine ID and these options:">
+        Al abrir la app sin licencia aparece <strong>&ldquo;Activa tu licencia&rdquo;</strong> con tu ID de equipo y estas opciones:
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      <div class="rounded-2xl border border-white/10 bg-ink-900 p-6">
+        <h3 class="font-display font-bold uppercase text-base text-sand-100 mb-2" data-i18n data-es="Ya tengo un código de licencia" data-en="I already have a license code">Ya tengo un código de licencia</h3>
+        <div class="prose-rm"><p data-i18n
+          data-es="Si ya te enviamos tu código, este es el camino corto. Ve directo al paso <a href='#s6'>06</a>."
+          data-en="If we've already sent your code, this is the short path. Go straight to step <a href='#s6'>06</a>.">
+          Si ya te enviamos tu código, este es el camino corto. Ve directo al paso <a href="#s6">06</a>.
+        </p></div>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-ink-900 p-6">
+        <h3 class="font-display font-bold uppercase text-base text-sand-100 mb-2" data-i18n data-es="Ya pagué, es este dispositivo" data-en="I already paid, this device">Ya pagué, es este dispositivo</h3>
+        <div class="prose-rm mb-4"><p data-i18n
+          data-es="Úsalo para pedir la licencia de la computadora donde estás. Se abre un formulario:"
+          data-en="Use it to request the license for the computer you're on. A form opens:">
+          Úsalo para pedir la licencia de la computadora donde estás. Se abre un formulario:
+        </p></div>
+        <div class="prose-rm"><ul data-i18n
+          data-es="<li><strong>Folio de compra.</strong> El que recibiste al pagar. Obligatorio.</li><li><strong>Nombre completo.</strong> El del comprador.</li><li><strong>Correo con el que compraste.</strong> Se pide dos veces para evitar errores de dedo. A ese correo llega tu licencia.</li><li><strong>Casilla de EULA / Aviso de Privacidad.</strong> Hay que marcarla para poder enviar.</li>"
+          data-en="<li><strong>Purchase reference.</strong> The one you got when paying. Required.</li><li><strong>Full name.</strong> The buyer's.</li><li><strong>Email you bought with.</strong> Asked twice to avoid typos. Your license goes to that address.</li><li><strong>EULA / Privacy Notice checkbox.</strong> You must tick it to be able to send.</li>">
+          <li><strong>Folio de compra.</strong> El que recibiste al pagar. Obligatorio.</li>
+          <li><strong>Nombre completo.</strong> El del comprador.</li>
+          <li><strong>Correo con el que compraste.</strong> Se pide dos veces para evitar errores de dedo. A ese correo llega tu licencia.</li>
+          <li><strong>Casilla de EULA / Aviso de Privacidad.</strong> Hay que marcarla para poder enviar.</li>
+        </ul></div>
+        <div class="prose-rm mt-4"><p data-i18n
+          data-es="Al enviar, la solicitud <strong>nos llega automáticamente</strong> y la app te muestra un <strong>folio de solicitud</strong>. No tienes que hacer nada más; nosotros generamos tu código y te lo mandamos por correo."
+          data-en="On send, the request <strong>reaches us automatically</strong> and the app shows you a <strong>request reference</strong>. You don't have to do anything else; we generate your code and email it to you.">
+          Al enviar, la solicitud <strong>nos llega automáticamente</strong> y la app te muestra un <strong>folio de solicitud</strong>. No tienes que hacer nada más; nosotros generamos tu código y te lo mandamos por correo.
+        </p></div>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-ink-900 p-6">
+        <h3 class="font-display font-bold uppercase text-base text-sand-100 mb-2" data-i18n data-es="Ya pagué, es otro dispositivo" data-en="I already paid, another device">Ya pagué, es otro dispositivo</h3>
+        <div class="prose-rm"><p data-i18n
+          data-es="Igual que el anterior, más un campo opcional <strong>&ldquo;¿Qué número de dispositivo es este?&rdquo;</strong> (ej. 2). Usa <strong>el mismo folio de compra</strong> que en el primer equipo para que sepamos que ya está pagado y no se cobra de nuevo."
+          data-en="Same as above, plus an optional field <strong>&ldquo;Which device number is this?&rdquo;</strong> (e.g. 2). Use <strong>the same purchase reference</strong> as on the first computer so we know it's already paid and it isn't charged again.">
+          Igual que el anterior, más un campo opcional <strong>&ldquo;¿Qué número de dispositivo es este?&rdquo;</strong> (ej. 2). Usa <strong>el mismo folio de compra</strong> que en el primer equipo para que sepamos que ya está pagado y no se cobra de nuevo.
+        </p></div>
+      </div>
+    </div>
+
+    <div class="mt-6 rounded-xl border-l-2 border-rope-500 bg-rope-500/[0.06] px-5 py-4 prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="<strong>Sin internet al activar.</strong> Si envías la solicitud sin conexión, la app la guarda y la reintenta sola en segundo plano cuando vuelve el internet. El botón <strong>Copiar datos</strong> queda como respaldo por si prefieres enviárnosla por correo junto con tu comprobante."
+         data-en="<strong>No internet when activating.</strong> If you send the request offline, the app saves it and retries it on its own in the background when internet returns. The <strong>Copy data</strong> button is a fallback in case you prefer to email it to us with your receipt.">
+        <strong>Sin internet al activar.</strong> Si envías la solicitud sin conexión, la app la guarda y la reintenta sola en segundo plano cuando vuelve el internet. El botón <strong>Copiar datos</strong> queda como respaldo por si prefieres enviárnosla por correo junto con tu comprobante.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 6 ============ -->
+  <section id="s6" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">06</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Recibir y pegar tu código" data-en="Receiving and pasting your code">Recibir y pegar tu código</h2>
+    <div class="prose-rm max-w-2xl">
+      <ol data-i18n
+          data-es="<li><strong>Revisa tu correo.</strong> Te enviamos un mensaje con tu <strong>código de licencia</strong>: un texto largo. Si no llega en un plazo razonable, revisa spam o escríbenos con tu folio.</li><li><strong>Abre la app y entra a &ldquo;Ya tengo un código de licencia&rdquo;</strong>, en la pantalla de activación.</li><li><strong>Pega el código completo.</strong> Cópialo tal cual del correo, sin espacios ni saltos de línea de más. Marca la casilla de EULA / Aviso y presiona <strong>Activar licencia</strong>.</li><li><strong>Listo.</strong> La app se desbloquea al instante. El código queda guardado en esa computadora; no hay que volver a pegarlo cada vez que abres.</li>"
+          data-en="<li><strong>Check your email.</strong> We send a message with your <strong>license code</strong>: a long string. If it doesn't arrive within a reasonable time, check spam or write to us with your reference.</li><li><strong>Open the app and go to &ldquo;I already have a license code&rdquo;</strong>, on the activation screen.</li><li><strong>Paste the full code.</strong> Copy it exactly from the email, with no extra spaces or line breaks. Tick the EULA / Notice checkbox and press <strong>Activate license</strong>.</li><li><strong>Done.</strong> The app unlocks instantly. The code stays saved on that computer; you don't have to paste it again every time you open it.</li>">
+        <li><strong>Revisa tu correo.</strong> Te enviamos un mensaje con tu <strong>código de licencia</strong>: un texto largo. Si no llega en un plazo razonable, revisa spam o escríbenos con tu folio.</li>
+        <li><strong>Abre la app y entra a &ldquo;Ya tengo un código de licencia&rdquo;</strong>, en la pantalla de activación.</li>
+        <li><strong>Pega el código completo.</strong> Cópialo tal cual del correo, sin espacios ni saltos de línea de más. Marca la casilla de EULA / Aviso y presiona <strong>Activar licencia</strong>.</li>
+        <li><strong>Listo.</strong> La app se desbloquea al instante. El código queda guardado en esa computadora; no hay que volver a pegarlo cada vez que abres.</li>
+      </ol>
+      <p data-i18n
+         data-es="Si algo falla, los mensajes más comunes (&ldquo;licencia para otro equipo&rdquo;, &ldquo;firma no válida&rdquo;) están explicados en <a href='#s13'>Mensajes que puedes ver</a>."
+         data-en="If something fails, the most common messages (&ldquo;license for another computer&rdquo;, &ldquo;invalid signature&rdquo;) are explained in <a href='#s13'>Messages you might see</a>.">
+        Si algo falla, los mensajes más comunes (&ldquo;licencia para otro equipo&rdquo;, &ldquo;firma no válida&rdquo;) están explicados en <a href="#s13">Mensajes que puedes ver</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 7 ============ -->
+  <section id="s7" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">07</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Varios dispositivos" data-en="Several computers">Varios dispositivos</h2>
+    <div class="prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="Un plan para varios equipos no se &ldquo;reparte&rdquo; desde la app: cada computadora se activa por separado y recibe su propio código."
+         data-en="A multi-computer plan isn't &ldquo;split&rdquo; from the app: each computer activates separately and gets its own code.">
+        Un plan para varios equipos no se &ldquo;reparte&rdquo; desde la app: cada computadora se activa por separado y recibe su propio código.
+      </p>
+      <ol data-i18n
+          data-es="<li><strong>Primer equipo.</strong> Actívalo normal con <strong>Ya pagué, es este dispositivo</strong>.</li><li><strong>Cada equipo adicional.</strong> En esa computadora, elige <strong>Ya pagué, es otro dispositivo</strong> y envía la solicitud con <strong>el mismo folio de compra</strong>. Opcionalmente indica qué número de dispositivo es.</li><li><strong>Te enviamos un código por equipo.</strong> Cada uno ligado a su propia máquina, todos bajo el mismo folio. Sin cargo extra dentro del plan que compraste.</li>"
+          data-en="<li><strong>First computer.</strong> Activate it normally with <strong>I already paid, this device</strong>.</li><li><strong>Each additional computer.</strong> On that computer, choose <strong>I already paid, another device</strong> and send the request with <strong>the same purchase reference</strong>. Optionally note which device number it is.</li><li><strong>We send one code per computer.</strong> Each tied to its own machine, all under the same reference. No extra charge within the plan you bought.</li>">
+        <li><strong>Primer equipo.</strong> Actívalo normal con <strong>Ya pagué, es este dispositivo</strong>.</li>
+        <li><strong>Cada equipo adicional.</strong> En esa computadora, elige <strong>Ya pagué, es otro dispositivo</strong> y envía la solicitud con <strong>el mismo folio de compra</strong>. Opcionalmente indica qué número de dispositivo es.</li>
+        <li><strong>Te enviamos un código por equipo.</strong> Cada uno ligado a su propia máquina, todos bajo el mismo folio. Sin cargo extra dentro del plan que compraste.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 8 ============ -->
+  <section id="s8" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">08</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Conexión entre equipos (crossplay)" data-en="Connecting computers (crossplay)">Conexión entre equipos (crossplay)</h2>
+    <div class="prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="El <strong>crossplay</strong> es cuando una computadora dirige el evento y otras se conectan por la misma red local (LAN) como juez, cronómetro o asistente. Tu licencia define cuántas estaciones pueden compartir una sesión."
+         data-en="<strong>Crossplay</strong> is when one computer runs the event and others connect over the same local network (LAN) as judge, timer or assistant. Your license sets how many stations can share a session.">
+        El <strong>crossplay</strong> es cuando una computadora dirige el evento y otras se conectan por la misma red local (LAN) como juez, cronómetro o asistente. Tu licencia define cuántas estaciones pueden compartir una sesión.
+      </p>
+      <ul data-i18n
+          data-es="<li>El límite lo pone la licencia de la <strong>computadora que dirige</strong>: Event Pass permite 2, Local permite 5 (salvo que hayas comprado otro tope).</li><li>Cada computadora que quiera <strong>conectarse</strong> también necesita su propia licencia con crossplay habilitado. No basta con que la principal tenga cupo.</li><li>Cuando la sesión llega a su límite, la siguiente conexión se rechaza aunque el PIN sea correcto.</li>"
+          data-en="<li>The limit is set by the <strong>directing computer's</strong> license: Event Pass allows 2, Local allows 5 (unless you bought a different cap).</li><li>Every computer that wants to <strong>connect</strong> also needs its own license with crossplay enabled. It's not enough for the main one to have room.</li><li>When the session reaches its limit, the next connection is rejected even if the PIN is correct.</li>">
+        <li>El límite lo pone la licencia de la <strong>computadora que dirige</strong>: Event Pass permite 2, Local permite 5 (salvo que hayas comprado otro tope).</li>
+        <li>Cada computadora que quiera <strong>conectarse</strong> también necesita su propia licencia con crossplay habilitado. No basta con que la principal tenga cupo.</li>
+        <li>Cuando la sesión llega a su límite, la siguiente conexión se rechaza aunque el PIN sea correcto.</li>
+      </ul>
+      <p data-i18n
+         data-es="Si necesitas más estaciones de las que incluye tu plan, escríbenos: se ajusta con un código nuevo para cada equipo, sin cambiar de computadora."
+         data-en="If you need more stations than your plan includes, write to us: it's adjusted with a new code for each computer, without changing machines.">
+        Si necesitas más estaciones de las que incluye tu plan, escríbenos: se ajusta con un código nuevo para cada equipo, sin cambiar de computadora.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 9 ============ -->
+  <section id="s9" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">09</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Vencimiento y renovación" data-en="Expiry and renewal">Vencimiento y renovación</h2>
+    <div class="prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="Según el plan, tu licencia puede tener fecha de vencimiento (por ejemplo, la Local anual) o no vencer nunca."
+         data-en="Depending on the plan, your license may have an expiry date (for example the annual Local) or never expire.">
+        Según el plan, tu licencia puede tener fecha de vencimiento (por ejemplo, la Local anual) o no vencer nunca.
+      </p>
+      <p data-i18n
+         data-es="Cuando una licencia con fecha llega a su límite, la app muestra <strong>&ldquo;Tu licencia venció&rdquo;</strong> y pide un código nuevo. Tus datos y eventos <strong>no se borran</strong>: al pegar el código de renovación, todo vuelve a estar disponible."
+         data-en="When a dated license reaches its limit, the app shows <strong>&ldquo;Your license expired&rdquo;</strong> and asks for a new code. Your data and events <strong>are not deleted</strong>: pasting the renewal code makes everything available again.">
+        Cuando una licencia con fecha llega a su límite, la app muestra <strong>&ldquo;Tu licencia venció&rdquo;</strong> y pide un código nuevo. Tus datos y eventos <strong>no se borran</strong>: al pegar el código de renovación, todo vuelve a estar disponible.
+      </p>
+      <p data-i18n
+         data-es="Para renovar, escríbenos con tu folio o vuelve a la página de compra. Te enviamos un código nuevo para el mismo equipo."
+         data-en="To renew, write to us with your reference or go back to the purchase page. We send a new code for the same computer.">
+        Para renovar, escríbenos con tu folio o vuelve a la página de compra. Te enviamos un código nuevo para el mismo equipo.
+      </p>
+    </div>
+    <div class="mt-6 rounded-xl border-l-2 border-rope-500 bg-rope-500/[0.06] px-5 py-4 prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="<strong>Reloj del equipo.</strong> La fecha de vencimiento se compara con el reloj de tu computadora. Si cambias la fecha del sistema manualmente, la app puede comportarse de forma inesperada. Mantén la hora del equipo correcta."
+         data-en="<strong>Computer clock.</strong> The expiry date is compared against your computer's clock. If you change the system date manually, the app may behave unexpectedly. Keep the computer's time correct.">
+        <strong>Reloj del equipo.</strong> La fecha de vencimiento se compara con el reloj de tu computadora. Si cambias la fecha del sistema manualmente, la app puede comportarse de forma inesperada. Mantén la hora del equipo correcta.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 10 ============ -->
+  <section id="s10" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">10</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Cambiar o formatear la computadora" data-en="Changing or formatting the computer">Cambiar o formatear la computadora</h2>
+    <div class="prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="El código está ligado a un equipo concreto. Si formateas esa computadora o te pasas a una nueva, el ID de equipo cambia y el código anterior deja de servir ahí."
+         data-en="The code is tied to a specific computer. If you format that computer or move to a new one, the machine ID changes and the previous code stops working there.">
+        El código está ligado a un equipo concreto. Si formateas esa computadora o te pasas a una nueva, el ID de equipo cambia y el código anterior deja de servir ahí.
+      </p>
+      <ol data-i18n
+          data-es="<li><strong>Instala la app en el equipo nuevo (o recién formateado)</strong> y copia su <strong>ID de equipo</strong> desde la pantalla de activación.</li><li><strong>Escríbenos con tu folio y el ID nuevo.</strong> Indica que es un cambio o reinstalación de equipo, no una compra nueva.</li><li><strong>Recibes un código de reemplazo</strong> para el equipo nuevo, bajo el mismo folio.</li>"
+          data-en="<li><strong>Install the app on the new (or freshly formatted) computer</strong> and copy its <strong>machine ID</strong> from the activation screen.</li><li><strong>Write to us with your reference and the new ID.</strong> Say it's a computer change or reinstall, not a new purchase.</li><li><strong>You get a replacement code</strong> for the new computer, under the same reference.</li>">
+        <li><strong>Instala la app en el equipo nuevo (o recién formateado)</strong> y copia su <strong>ID de equipo</strong> desde la pantalla de activación.</li>
+        <li><strong>Escríbenos con tu folio y el ID nuevo.</strong> Indica que es un cambio o reinstalación de equipo, no una compra nueva.</li>
+        <li><strong>Recibes un código de reemplazo</strong> para el equipo nuevo, bajo el mismo folio.</li>
+      </ol>
+    </div>
+    <div class="mt-6 rounded-xl border-l-2 border-white/20 bg-white/[0.03] px-5 py-4 prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="<strong>Nota.</strong> Los cambios de equipo se revisan caso por caso. Cambios repetidos bajo el mismo folio pueden requerir aclaración antes de reemitir."
+         data-en="<strong>Note.</strong> Computer changes are reviewed case by case. Repeated changes under the same reference may need clarification before re-issuing.">
+        <strong>Nota.</strong> Los cambios de equipo se revisan caso por caso. Cambios repetidos bajo el mismo folio pueden requerir aclaración antes de reemitir.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 11 ============ -->
+  <section id="s11" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">11</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="&ldquo;Este equipo está bloqueado&rdquo;" data-en="&ldquo;This computer is blocked&rdquo;">&ldquo;Este equipo está bloqueado&rdquo;</h2>
+    <div class="prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="En raras ocasiones un equipo puede quedar <strong>suspendido</strong> (por ejemplo, tras un contracargo o una activación no reconocida). La app muestra una pantalla de bloqueo en lugar de abrir, aunque haya una licencia válida instalada. Si crees que es un error:"
+         data-en="In rare cases a computer can be <strong>suspended</strong> (for example after a chargeback or an unrecognized activation). The app shows a lock screen instead of opening, even if a valid license is installed. If you think it's a mistake:">
+        En raras ocasiones un equipo puede quedar <strong>suspendido</strong> (por ejemplo, tras un contracargo o una activación no reconocida). La app muestra una pantalla de bloqueo en lugar de abrir, aunque haya una licencia válida instalada. Si crees que es un error:
+      </p>
+      <ol data-i18n
+          data-es="<li><strong>Escribe a servicios@kinalia.com.mx.</strong> Incluye el <strong>ID de equipo</strong> que aparece en esa pantalla (hay botón <strong>Copiar</strong>).</li><li><strong>Espera nuestra confirmación de desbloqueo.</strong></li><li><strong>Conecta el equipo a internet y presiona Reintentar</strong> (o reinicia la app). El desbloqueo llega en línea; sin internet no se actualiza.</li>"
+          data-en="<li><strong>Write to servicios@kinalia.com.mx.</strong> Include the <strong>machine ID</strong> shown on that screen (there's a <strong>Copy</strong> button).</li><li><strong>Wait for our unblock confirmation.</strong></li><li><strong>Connect the computer to internet and press Retry</strong> (or restart the app). The unblock arrives online; offline it doesn't update.</li>">
+        <li><strong>Escribe a servicios@kinalia.com.mx.</strong> Incluye el <strong>ID de equipo</strong> que aparece en esa pantalla (hay botón <strong>Copiar</strong>).</li>
+        <li><strong>Espera nuestra confirmación de desbloqueo.</strong></li>
+        <li><strong>Conecta el equipo a internet y presiona Reintentar</strong> (o reinicia la app). El desbloqueo llega en línea; sin internet no se actualiza.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 12 ============ -->
+  <section id="s12" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">12</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Política de reembolsos" data-en="Refund policy">Política de reembolsos</h2>
+    <div class="prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="Las licencias de Rope Master Management son un <strong>producto digital</strong>: una vez que te enviamos tu código, este queda ligado a tu equipo y no puede &ldquo;devolverse&rdquo;. Por eso el reembolso depende de en qué punto del proceso estés."
+         data-en="Rope Master Management licenses are a <strong>digital product</strong>: once we send your code, it's tied to your computer and can't be &ldquo;returned&rdquo;. So the refund depends on where in the process you are.">
+        Las licencias de Rope Master Management son un <strong>producto digital</strong>: una vez que te enviamos tu código, este queda ligado a tu equipo y no puede &ldquo;devolverse&rdquo;. Por eso el reembolso depende de en qué punto del proceso estés.
+      </p>
+      <ul data-i18n
+          data-es="<li><strong>Antes de que te enviemos el código:</strong> puedes solicitar el reembolso completo escribiendo a servicios@kinalia.com.mx con tu folio de compra.</li><li><strong>Después de recibir el código:</strong> no hay reembolso por cambio de opinión, ya que el producto digital ya fue entregado. Si el código tiene un problema técnico y no podemos resolverlo, se evalúa el reembolso caso por caso.</li><li><strong>Event Pass:</strong> al estar ligado a un solo evento, no es reembolsable una vez que el evento fue creado o realizado.</li><li><strong>Renovaciones:</strong> se pueden reembolsar solo si aún no se ha aplicado el código de renovación al equipo.</li>"
+          data-en="<li><strong>Before we send the code:</strong> you can request a full refund by writing to servicios@kinalia.com.mx with your purchase reference.</li><li><strong>After you receive the code:</strong> there's no refund for a change of mind, since the digital product was already delivered. If the code has a technical problem we can't solve, the refund is assessed case by case.</li><li><strong>Event Pass:</strong> being tied to a single event, it's non-refundable once the event was created or held.</li><li><strong>Renewals:</strong> refundable only if the renewal code hasn't been applied to the computer yet.</li>">
+        <li><strong>Antes de que te enviemos el código:</strong> puedes solicitar el reembolso completo escribiendo a servicios@kinalia.com.mx con tu folio de compra.</li>
+        <li><strong>Después de recibir el código:</strong> no hay reembolso por cambio de opinión, ya que el producto digital ya fue entregado. Si el código tiene un problema técnico y no podemos resolverlo, se evalúa el reembolso caso por caso.</li>
+        <li><strong>Event Pass:</strong> al estar ligado a un solo evento, no es reembolsable una vez que el evento fue creado o realizado.</li>
+        <li><strong>Renovaciones:</strong> se pueden reembolsar solo si aún no se ha aplicado el código de renovación al equipo.</li>
+      </ul>
+      <p data-i18n
+         data-es="Para cualquier solicitud, escríbenos dentro de los <strong>30 días</strong> siguientes a la compra e incluye tu folio. Los reembolsos aprobados se procesan por el mismo medio de pago."
+         data-en="For any request, write to us within <strong>30 days</strong> of purchase and include your reference. Approved refunds are processed through the same payment method.">
+        Para cualquier solicitud, escríbenos dentro de los <strong>30 días</strong> siguientes a la compra e incluye tu folio. Los reembolsos aprobados se procesan por el mismo medio de pago.
+      </p>
+    </div>
+    <div class="mt-6 rounded-xl border-l-2 border-white/20 bg-white/[0.03] px-5 py-4 prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="<strong>Referencia.</strong> Esta sección resume la política. El texto vinculante es el que aparece en la página de compra y en el <a href='../../legal/ropemaster/eula'>acuerdo de licencia (EULA)</a>."
+         data-en="<strong>Reference.</strong> This section summarizes the policy. The binding text is the one on the purchase page and in the <a href='../../legal/ropemaster/eula'>license agreement (EULA)</a>.">
+        <strong>Referencia.</strong> Esta sección resume la política. El texto vinculante es el que aparece en la página de compra y en el <a href="../../legal/ropemaster/eula">acuerdo de licencia (EULA)</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 13 ============ -->
+  <section id="s13" class="reveal py-12 border-b border-white/6 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">13</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Mensajes que puedes ver" data-en="Messages you might see">Mensajes que puedes ver</h2>
+    <div class="overflow-x-auto rounded-2xl border border-white/10">
+      <table class="w-full min-w-[520px] border-collapse text-sm">
+        <thead>
+          <tr class="border-b border-white/10 bg-ink-900">
+            <th class="text-left font-mono text-[11px] uppercase tracking-wide text-sand-500 px-5 py-4 w-2/5" data-i18n data-es="Mensaje" data-en="Message">Mensaje</th>
+            <th class="text-left font-mono text-[11px] uppercase tracking-wide text-sand-500 px-5 py-4" data-i18n data-es="Qué significa" data-en="What it means">Qué significa</th>
+          </tr>
+        </thead>
+        <tbody class="text-sand-300 align-top">
+          <tr class="border-b border-white/6"><td class="px-5 py-4 text-sand-100 font-semibold" data-i18n data-es="Esta licencia fue emitida para otro equipo" data-en="This license was issued for another computer">Esta licencia fue emitida para otro equipo</td><td class="px-5 py-4 leading-relaxed" data-i18n data-es="El código no corresponde a esta computadora. Normalmente es porque se pegó el código de otro dispositivo. Usa el que generamos para el ID de equipo de esta máquina." data-en="The code doesn't match this computer. Usually it's because a code from another device was pasted. Use the one we generated for this machine's ID.">El código no corresponde a esta computadora. Normalmente es porque se pegó el código de otro dispositivo. Usa el que generamos para el ID de equipo de esta máquina.</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-4 text-sand-100 font-semibold" data-i18n data-es="La firma de la licencia no es válida" data-en="The license signature is not valid">La firma de la licencia no es válida</td><td class="px-5 py-4 leading-relaxed" data-i18n data-es="El código llegó incompleto o se alteró al copiar y pegar. Cópialo de nuevo del correo, completo y sin espacios extra." data-en="The code arrived incomplete or was altered when copying and pasting. Copy it again from the email, complete and with no extra spaces.">El código llegó incompleto o se alteró al copiar y pegar. Cópialo de nuevo del correo, completo y sin espacios extra.</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-4 text-sand-100 font-semibold" data-i18n data-es="Esta licencia ya venció" data-en="This license has expired">Esta licencia ya venció</td><td class="px-5 py-4 leading-relaxed" data-i18n data-es="La fecha de vencimiento ya pasó. Solicita un código de renovación." data-en="The expiry date has passed. Request a renewal code.">La fecha de vencimiento ya pasó. Solicita un código de renovación.</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-4 text-sand-100 font-semibold" data-i18n data-es="Tu licencia no incluye crossplay (unirte a otro equipo)" data-en="Your license doesn't include crossplay (joining another computer)">Tu licencia no incluye crossplay (unirte a otro equipo)</td><td class="px-5 py-4 leading-relaxed" data-i18n data-es="Este dispositivo no tiene la conexión LAN habilitada. Pídenos un código con crossplay si necesitas conectarte." data-en="This device doesn't have LAN connection enabled. Ask us for a code with crossplay if you need to connect.">Este dispositivo no tiene la conexión LAN habilitada. Pídenos un código con crossplay si necesitas conectarte.</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-4 text-sand-100 font-semibold" data-i18n data-es="Este host llegó al límite de dispositivos de crossplay de su licencia" data-en="This host reached its license's crossplay device limit">Este host llegó al límite de dispositivos de crossplay de su licencia</td><td class="px-5 py-4 leading-relaxed" data-i18n data-es="La computadora que dirige ya tiene conectadas todas las estaciones que permite su plan." data-en="The directing computer already has all the stations its plan allows connected.">La computadora que dirige ya tiene conectadas todas las estaciones que permite su plan.</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-4 text-sand-100 font-semibold" data-i18n data-es="Tu licencia Event Pass solo permite un evento" data-en="Your Event Pass license only allows one event">Tu licencia Event Pass solo permite un evento</td><td class="px-5 py-4 leading-relaxed" data-i18n data-es="Ya existe un evento en este equipo. Para crear más necesitas plan Local." data-en="An event already exists on this computer. To create more you need the Local plan.">Ya existe un evento en este equipo. Para crear más necesitas plan Local.</td></tr>
+          <tr class="border-b border-white/6"><td class="px-5 py-4 text-sand-100 font-semibold" data-i18n data-es="Tu licencia Event Pass no incluye modos profesionales" data-en="Your Event Pass license doesn't include professional modes">Tu licencia Event Pass no incluye modos profesionales</td><td class="px-5 py-4 leading-relaxed" data-i18n data-es="Los modos FMR, PRCA, WSTR y USTRC requieren plan Local." data-en="FMR, PRCA, WSTR and USTRC modes require the Local plan.">Los modos FMR, PRCA, WSTR y USTRC requieren plan Local.</td></tr>
+          <tr><td class="px-5 py-4 text-sand-100 font-semibold" data-i18n data-es="Este evento ya se completó — tu licencia Event Pass no permite cambiarle el nombre ni el roster" data-en="This event is already complete — your Event Pass license doesn't allow changing its name or roster">Este evento ya se completó — tu licencia Event Pass no permite cambiarle el nombre ni el roster</td><td class="px-5 py-4 leading-relaxed" data-i18n data-es="Un evento finalizado en Event Pass no se puede reabrir para editar. Exportar, resultados y payoffs sí siguen disponibles." data-en="A finished event on Event Pass can't be reopened for editing. Export, results and payoffs do stay available.">Un evento finalizado en Event Pass no se puede reabrir para editar. Exportar, resultados y payoffs sí siguen disponibles.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 14 ============ -->
+  <section id="s14" class="reveal py-12 scroll-mt-20">
+    <div class="font-mono text-sm text-rope-400 mb-3">14</div>
+    <h2 class="font-display font-bold uppercase text-2xl sm:text-3xl text-sand-100 leading-tight mb-5" data-i18n data-es="Soporte" data-en="Support">Soporte</h2>
+    <div class="prose-rm max-w-2xl">
+      <p data-i18n
+         data-es="Para compras, activaciones, renovaciones, cambios de equipo o cualquier duda sobre tu licencia, escríbenos. Incluye siempre tu <strong>folio de compra</strong> y, cuando aplique, el <strong>ID de equipo</strong>."
+         data-en="For purchases, activations, renewals, computer changes or any question about your license, write to us. Always include your <strong>purchase reference</strong> and, when it applies, the <strong>machine ID</strong>.">
+        Para compras, activaciones, renovaciones, cambios de equipo o cualquier duda sobre tu licencia, escríbenos. Incluye siempre tu <strong>folio de compra</strong> y, cuando aplique, el <strong>ID de equipo</strong>.
+      </p>
+    </div>
+    <div class="mt-6 flex flex-col sm:flex-row sm:items-center gap-4 rounded-2xl border border-rope-500/25 bg-rope-500/[0.06] p-6">
+      <div class="flex-1">
+        <div class="font-mono text-xs uppercase tracking-widest2 text-sand-500 mb-1" data-i18n data-es="Correo de soporte" data-en="Support email">Correo de soporte</div>
+        <a href="mailto:servicios@kinalia.com.mx" class="font-display font-bold uppercase text-lg text-sand-100 hover:text-rope-400 transition-colors">servicios@kinalia.com.mx</a>
+      </div>
+      <a href="../ropemaster#pricing" class="shrink-0 inline-flex items-center justify-center rounded-full bg-rope-500 hover:bg-rope-400 text-ink-950 text-sm font-semibold px-5 py-3 transition-colors shadow-glow-soft" data-i18n data-es="Comprar Licencia" data-en="Buy License">Comprar Licencia</a>
+    </div>
+    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs text-sand-500">
+      <a href="../ropemaster#pricing" class="hover:text-rope-400 transition-colors" data-i18n data-es="Compra" data-en="Buy">Compra</a>
+      <a href="../../legal/ropemaster/eula" class="hover:text-rope-400 transition-colors" data-i18n data-es="Acuerdo de licencia (EULA)" data-en="License agreement (EULA)">Acuerdo de licencia (EULA)</a>
+      <a href="../../legal/ropemaster/aviso-de-privacidad" class="hover:text-rope-400 transition-colors" data-i18n data-es="Aviso de Privacidad" data-en="Privacy Notice">Aviso de Privacidad</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-white/6 py-10 mt-8">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="font-mono text-xs text-sand-600" data-i18n data-es="Manual del usuario · versión 2026-08-29 · Rope Master Management" data-en="User manual · version 2026-08-29 · Rope Master Management">Manual del usuario · versión 2026-08-29 · Rope Master Management</p>
+    <a href="../ropemaster" class="font-mono text-xs text-sand-500 hover:text-rope-400 transition-colors" data-i18n data-es="← Volver a Rope Master" data-en="← Back to Rope Master">← Volver a Rope Master</a>
+  </div>
+</footer>
+
+<script>
+  // Language toggle — mirrors the Rope Master landing page. The route handler
+  // flips `currentLang` to 'en' server-side for /en visitors before this runs.
+  let currentLang = 'es';
+  const langBtn = document.getElementById('lang-toggle');
+  const langLabel = document.getElementById('lang-toggle-label');
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text !== null) el.innerHTML = text;
+    });
+    langLabel.textContent = lang === 'es' ? 'EN' : 'ES';
+  }
+  langBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'es' ? 'en' : 'es';
+    applyLang(currentLang);
+  });
+  applyLang(currentLang);
+
+  // Smooth in-page anchors, measured after fonts settle (same reasoning as the landing page)
+  function scrollToAnchor(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const doScroll = () => target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (document.fonts && document.fonts.status !== 'loaded') {
+      document.fonts.ready.then(doScroll);
+    } else {
+      doScroll();
+    }
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const id = link.getAttribute('href').slice(1);
+    if (!id || !document.getElementById(id)) return;
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      history.pushState(null, '', '#' + id);
+      scrollToAnchor(id);
+    });
+  });
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>

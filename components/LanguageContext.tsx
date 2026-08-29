@@ -82,7 +82,7 @@ const dictionary = {
       line2: "Sin Complicaciones.",
       subtitle:
         "Kinalia transforma tus procesos manuales en soluciones de inteligencia artificial a la medida — paso a paso, con impacto real desde el primer día.",
-      cta: "Agenda una llamada de 30 min →",
+      cta: "Platiquemos sin compromiso →",
       badges: [
         { label: "Sin compromisos", sub: "Fase inicial clara" },
         { label: "A la medida", sub: "Arquitectura propia" },
@@ -347,12 +347,12 @@ const dictionary = {
     ctaBanner: {
       title: "¿Listo para mejorar tu operación?",
       description:
-        "Empieza con una Kinalia Call — 30 minutos, sin costo, sin compromiso.",
+        "Empieza con una Kinalia Call, sin costo, sin compromiso.",
       cta: "Agenda tu llamada",
     },
     calendly: {
       eyebrow: "Kinalia Call",
-      heading: "Agenda tu llamada — 30 min",
+      heading: "Agenda tu llamada — 30 minutos maximo",
       closeAria: "Cerrar ventana de agendado",
       title: "Agenda tu Kinalia Call",
       closeBackdrop: "Cerrar",

@@ -210,7 +210,7 @@
     <div class="reveal reveal-delay-3 mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-wide text-sand-400">
       <div class="flex items-center gap-2"><span class="text-rope-500 text-base font-semibold">100+</span><span data-i18n data-es="lazadores por evento" data-en="ropers per event">lazadores por evento</span></div>
       <div class="flex items-center gap-2"><span class="text-rope-500 text-base font-semibold">0%</span><span data-i18n data-es="dependencia de señal" data-en="signal dependency">dependencia de señal</span></div>
-      <div class="flex items-center gap-2"><span class="text-rope-500 text-base font-semibold">6</span><span data-i18n data-es="roles sincronizados" data-en="synced roles">roles sincronizados</span></div>
+      <div class="flex items-center gap-2"><span class="text-rope-500 text-base font-semibold">6</span><span data-i18n data-es="funciones sincronizadas" data-en="synced functions">funciones sincronizadas</span></div>
     </div>
   </div>
 </section>
@@ -547,7 +547,7 @@
             Una laptop actúa como Host local, creando su propia red Wi-Fi (hotspot móvil) para conectar Asistentes, Captura, Jueces y Announcer entre sí. Cero datos móviles, cero módem, cero cortes de señal en medio de la final.
           </p>
           <div class="flex flex-wrap gap-2 font-mono text-[11px] uppercase text-sand-200">
-            <span class="border border-white/25 rounded-full px-2.5 py-1">Asistentex</span>
+            <span class="border border-white/25 rounded-full px-2.5 py-1">Asistente</span>
             <span class="border border-white/25 rounded-full px-2.5 py-1">Captura</span>
             <span class="border border-white/25 rounded-full px-2.5 py-1">Jueces</span>
             <span class="border border-white/25 rounded-full px-2.5 py-1">Announcer</span>
@@ -601,7 +601,8 @@
           <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Series" data-en="Series">Series</span><span class="text-sand-500 font-mono">—</span></li>
           <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Ranking de la serie" data-en="Series ranking">Ranking de la serie</span><span class="text-sand-500 font-mono">—</span></li>
           <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Funciona sin internet" data-en="Works offline">Funciona sin internet</span><span class="text-rope-500 font-mono">✓</span></li>
-          <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Backups" data-en="Backups">Backups</span><span class="text-sand-500 font-mono">—</span></li>
+          <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Exportar eventos" data-en="Export events">Exportar eventos</span><span class="text-rope-500 font-mono">✓</span></li>
+          <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Respaldo de serie" data-en="Series backup">Respaldo de serie</span><span class="text-sand-500 font-mono">—</span></li>
           <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Soporte prioritario" data-en="Priority support">Soporte prioritario</span><span class="text-sand-500 font-mono">—</span></li>
         </ul>
       </div>
@@ -625,7 +626,8 @@
           <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Series" data-en="Series">Series</span><span class="text-rope-500 font-mono">✓</span></li>
           <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Ranking de la serie" data-en="Series ranking">Ranking de la serie</span><span class="text-rope-500 font-mono">✓</span></li>
           <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Funciona sin internet" data-en="Works offline">Funciona sin internet</span><span class="text-rope-500 font-mono">✓</span></li>
-          <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Backups" data-en="Backups">Backups</span><span class="text-rope-500 font-mono">✓</span></li>
+          <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Exportar eventos" data-en="Export events">Exportar eventos</span><span class="text-rope-500 font-mono">✓</span></li>
+          <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Respaldo de serie" data-en="Series backup">Respaldo de serie</span><span class="text-rope-500 font-mono">✓</span></li>
           <li class="flex items-center justify-between py-2.5"><span data-i18n data-es="Soporte prioritario" data-en="Priority support">Soporte prioritario</span><span class="text-sand-500 font-mono">—</span></li>
         </ul>
       </div>
@@ -693,12 +695,17 @@
               <td class="text-center px-4 py-4 bg-rope-500/10"><span class="text-rope-500">✓</span></td>
             </tr>
             <tr class="border-b border-ink-800 bg-ink-900">
-              <td class="sticky left-0 z-10 bg-ink-900 px-5 sm:px-6 py-4 font-sans text-sand-300" data-i18n data-es="Backups" data-en="Backups">Backups</td>
+              <td class="sticky left-0 z-10 bg-ink-900 px-5 sm:px-6 py-4 font-sans text-sand-300" data-i18n data-es="Exportar eventos" data-en="Export events">Exportar eventos</td>
+              <td class="text-center px-4 py-4"><span class="text-rope-500">✓</span></td>
+              <td class="text-center px-4 py-4 bg-rope-500/10"><span class="text-rope-500">✓</span></td>
+            </tr>
+            <tr class="border-b border-ink-800 bg-ink-800/40">
+              <td class="sticky left-0 z-10 bg-ink-800 px-5 sm:px-6 py-4 font-sans text-sand-300" data-i18n data-es="Respaldo de serie" data-en="Series backup">Respaldo de serie</td>
               <td class="text-center px-4 py-4 text-sand-500">—</td>
               <td class="text-center px-4 py-4 bg-rope-500/10"><span class="text-rope-500">✓</span></td>
             </tr>
-            <tr class="bg-ink-800/40">
-              <td class="sticky left-0 z-10 bg-ink-800 px-5 sm:px-6 py-4 font-sans text-sand-300" data-i18n data-es="Soporte prioritario" data-en="Priority support">Soporte prioritario</td>
+            <tr class="bg-ink-900">
+              <td class="sticky left-0 z-10 bg-ink-900 px-5 sm:px-6 py-4 font-sans text-sand-300" data-i18n data-es="Soporte prioritario" data-en="Priority support">Soporte prioritario</td>
               <td class="text-center px-4 py-4 text-sand-500">—</td>
               <td class="text-center px-4 py-4 text-sand-500 bg-rope-500/10"><span class="text-rope-500">✓</span></td>
             </tr>

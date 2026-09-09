@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Reembolso · Rope Master</title>
+<meta name="description" content="Política de Reembolso de las licencias del software Rope Master Management, de Kinalia.">
+<!-- Página oculta: accesible solo por URL directa, fuera de navegación e indexación -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: {
+            950: '#0a0908',
+            900: '#131110',
+            850: '#1a1715',
+            800: '#211d1a',
+            700: '#2c2723',
+            600: '#3a332d',
+            500: '#5a5049',
+          },
+          rope: {
+            300: '#ffb377',
+            400: '#ff9142',
+            500: '#f2701a',
+            600: '#d4590a',
+            700: '#a84509',
+          },
+          sand: {
+            100: '#f7f3ea',
+            200: '#ece4d4',
+            300: '#d8cfc0',
+            400: '#b6ab99',
+            500: '#a69c8d',
+            600: '#847a6c',
+          },
+        },
+        fontFamily: {
+          display: ['Poppins', 'sans-serif'],
+          body: ['Karla', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+        boxShadow: {
+          'glow-orange': '0 0 60px -12px rgba(242, 112, 26, 0.55)',
+          'glow-soft': '0 0 30px -8px rgba(242, 112, 26, 0.35)',
+        },
+        letterSpacing: {
+          widest2: '.22em',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0a0908;
+    font-family: 'Karla', sans-serif;
+    position: relative;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .03;
+    z-index: 60;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .font-display { font-family: 'Poppins', sans-serif; font-weight: 700; }
+  .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+  ::selection { background: rgba(242,112,26,.35); color: #f7f3ea; }
+  :focus-visible { outline: 2px solid #ff9142; outline-offset: 3px; border-radius: 4px; }
+
+  /* ---- Prosa del documento legal ---- */
+  .legal { color: #d8cfc0; font-size: 1rem; line-height: 1.75; }
+  .legal h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+    color: #f7f3ea;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #2c2723;
+    scroll-margin-top: 6rem;
+  }
+  .legal h2:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
+  .legal h2 .num {
+    color: #f2701a;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .95rem;
+    margin-right: .6rem;
+  }
+  .legal h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ece4d4;
+    font-size: 1.05rem;
+    margin-top: 1.75rem;
+    margin-bottom: .35rem;
+  }
+  .legal p { margin: .9rem 0; }
+  .legal ul { margin: .9rem 0; padding-left: 1.35rem; list-style: none; }
+  .legal ul li { position: relative; margin: .55rem 0; }
+  .legal ul li::before {
+    content: '';
+    position: absolute;
+    left: -1.15rem;
+    top: .62em;
+    width: 6px; height: 6px;
+    background: #f2701a;
+    border-radius: 1px;
+    transform: rotate(45deg);
+  }
+  .legal ol { margin: .9rem 0; padding-left: 1.5rem; list-style: decimal; }
+  .legal ol li { margin: .55rem 0; padding-left: .25rem; }
+  .legal ol li::marker { color: #a69c8d; font-family: 'IBM Plex Mono', monospace; font-size: .9em; }
+  .legal strong { color: #f7f3ea; font-weight: 700; }
+  .legal a { color: #ff9142; text-decoration: underline; text-underline-offset: 3px; }
+  .legal a:hover { color: #ffb377; }
+  .legal .todo { color: #a69c8d; font-style: italic; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body class="text-sand-100">
+
+<!-- ============ TOP BAR ============ -->
+<header class="border-b border-ink-800 bg-ink-950/80 backdrop-blur-sm sticky top-0 z-50">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="../../productos/ropemaster" class="flex items-baseline gap-2 group">
+      <span class="font-display font-extrabold uppercase tracking-widest2 text-sm text-sand-100 group-hover:text-rope-400 transition-colors">Rope Master</span>
+      <span class="font-mono text-[10px] uppercase tracking-wide text-sand-500">por Kinalia</span>
+    </a>
+    <a href="../../productos/ropemaster" class="font-mono text-[11px] uppercase tracking-wide text-sand-400 hover:text-rope-400 transition-colors">&larr; Volver al sitio</a>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
+
+  <!-- ============ ENCABEZADO ============ -->
+  <p class="font-mono text-[11px] uppercase tracking-widest2 text-rope-500">Documento legal</p>
+  <h1 class="mt-3 font-display font-extrabold uppercase text-3xl sm:text-4xl leading-[1.1] text-sand-100">
+    Política de Reembolso
+  </h1>
+  <p class="mt-4 text-sand-300 text-lg">Rope Master Management</p>
+  <p class="mt-1 font-mono text-xs text-sand-500">Versión: 2026-09-08</p>
+
+  <!-- ============ AVISO DE BORRADOR ============ -->
+  <div class="mt-8 rounded-xl border border-rope-500/40 bg-rope-500/[0.06] p-5">
+    <p class="font-mono text-[11px] uppercase tracking-wide text-rope-400 font-semibold">Borrador — no es asesoría legal</p>
+    <p class="mt-2 text-sm text-sand-300 leading-relaxed">
+      Este documento lo redactó una IA a partir de cómo funciona el sistema de licencias y de compra de la aplicación
+      y de una investigación sobre la Ley Federal de Protección al Consumidor. Debe quedar consistente con la
+      cláusula 6 del <a href="eula" class="text-rope-400 underline">EULA</a> y con los Términos y Condiciones de
+      Kinalia, y revisarse con un abogado — sobre todo el tratamiento del derecho de retracto en licencias ya
+      activadas y las comisiones de la plataforma de pago.
+    </p>
+  </div>
+
+  <!-- ============ CUERPO DE LA POLÍTICA ============ -->
+  <div class="legal mt-12">
+
+    <p>
+      Esta Política de Reembolso aplica a las licencias del software <strong>Rope Master Management</strong>
+      ("el Software") adquiridas a través del sitio de <strong>Kinalia</strong> ("Kinalia", "nosotros"). Forma parte
+      de los términos de compra y es consistente con la cláusula 6 del
+      <a href="eula">Contrato de Licencia de Usuario Final</a>.
+    </p>
+
+    <h2><span class="num">1.</span>Naturaleza del producto</h2>
+    <p>
+      El Software se vende bajo una <strong>licencia de activación offline</strong>, mediante <strong>pago
+      único</strong> (no hay cargos recurrentes ni renovación automática). Cada licencia se emite y se firma para un
+      equipo específico a partir de los datos que usted proporciona al comprar y activar (nombre, correo, folio de
+      compra y una huella técnica del equipo). La licencia es un <strong>producto digital</strong>: se entrega y se
+      pone a su disposición en el momento en que usted la activa en un equipo.
+    </p>
+
+    <h2><span class="num">2.</span>Antes de activar la licencia</h2>
+    <p>
+      <strong>2.1 Derecho de retracto.</strong> Por tratarse de una compra a distancia, si su licencia <strong>no ha
+      sido activada</strong> en ningún equipo, usted puede <strong>cancelar la compra dentro de los 5 días
+      hábiles</strong> posteriores a esta, sin responsabilidad y <strong>sin necesidad de justificar el
+      motivo</strong>. Le reintegramos el <strong>importe total pagado</strong>.
+    </p>
+    <p>
+      <strong>2.2 Plazo comercial ampliado.</strong> Aun pasados esos 5 días hábiles, mientras la licencia
+      <strong>siga sin activarse</strong>, puede solicitar el reembolso hasta los <strong>7 días naturales</strong>
+      posteriores a la compra.
+    </p>
+
+    <h2><span class="num">3.</span>Al activar la licencia</h2>
+    <p>
+      La licencia se entrega desbloqueada <strong>únicamente cuando usted la activa</strong>. Al activarla, usted
+      solicita y consiente expresamente que el producto digital se ejecute de inmediato; a partir de ese momento
+      <strong>el producto se considera entregado y consumido</strong>, por lo que <strong>no procede el reembolso
+      por cambio de opinión</strong> (por ejemplo: ya no lo necesita, compró el plan equivocado por decisión propia,
+      o no usó la licencia a tiempo).
+    </p>
+    <p>
+      Esto <strong>no afecta</strong> sus derechos por garantía o producto no conforme (sección 4) ni sus derechos
+      de ley (sección 6). Aplica, de forma enunciativa, a:
+    </p>
+    <ul>
+      <li>Licencias <strong>Event Pass</strong>, ligadas a un solo evento y con vigencia de 7 días desde que se genera la licencia.</li>
+      <li>Licencias <strong>Local</strong> ya activadas, incluida la parte no utilizada del periodo.</li>
+      <li>Compras de dispositivos adicionales de un mismo plan una vez activadas.</li>
+    </ul>
+
+    <h2><span class="num">4.</span>Garantía y producto no conforme</h2>
+    <p>
+      <strong>4.1 Garantía legal de 90 días.</strong> El Software cuenta con una <strong>garantía legal mínima de
+      90 días naturales</strong> desde su activación, que <strong>no puede reducirse ni excluirse</strong>. Si
+      dentro de ese plazo un <strong>defecto reproducible</strong> impide usar el Software para su finalidad esencial
+      y no lo corregimos en un plazo razonable, usted tiene derecho, <strong>a su elección</strong>, a la
+      <strong>reposición</strong> (reemisión de la licencia) o a la <strong>devolución de la cantidad pagada</strong>,
+      y <strong>en todo caso a una bonificación no menor al 20 % del precio pagado</strong>.
+    </p>
+    <p>
+      <strong>4.2 Otros casos con derecho a devolución o reposición.</strong> Con los mismos efectos del punto 4.1
+      (elección del consumidor + bonificación mínima del 20 %):
+    </p>
+    <ul>
+      <li>Recibió, por un error atribuible a Kinalia, una licencia que <strong>no corresponde al plan que pagó</strong>.</li>
+      <li>El Software <strong>no corresponde</strong> a las especificaciones o funcionalidades ofrecidas al momento de la compra.</li>
+      <li>Se le <strong>cobró dos veces</strong> la misma compra.</li>
+    </ul>
+    <p>
+      <strong>4.3 Lo que no requiere esta sección.</strong> El cambio de equipo o la reinstalación del sistema
+      operativo se resuelven <strong>reemitiendo la licencia sin costo</strong> para el nuevo equipo (cláusula 3.4
+      del EULA), sin necesidad de reembolso.
+    </p>
+
+    <h2><span class="num">5.</span>Condiciones y exclusiones</h2>
+    <ul>
+      <li>
+        <strong>Producto elegible.</strong> Estas reglas aplican a las licencias del Software compradas en el sitio
+        de Kinalia. No hay "empaque" ni "etiquetas" que devolver: al ser un producto digital, la condición relevante
+        es <strong>si la licencia fue activada o no</strong>.
+      </li>
+      <li>
+        <strong>Comprobante.</strong> Para cualquier solicitud se requiere el <strong>folio de compra</strong> y que
+        la solicitud provenga del <strong>mismo correo</strong> con el que se realizó la compra.
+      </li>
+      <li>
+        <strong>No aplica reembolso discrecional</strong> una vez activada la licencia, fuera de los supuestos de
+        garantía y de derechos de ley (secciones 4 y 6). Los productos digitales activados y las licencias ya
+        emitidas para un equipo específico se consideran personalizados y consumidos.
+      </li>
+    </ul>
+
+    <h2><span class="num">6.</span>Cómo solicitar un reembolso</h2>
+    <p>
+      Escriba a <a href="mailto:servicios@kinalia.com.mx">servicios@kinalia.com.mx</a> desde el correo con el que
+      hizo la compra, indicando:
+    </p>
+    <ol>
+      <li>Su <strong>folio de compra</strong>.</li>
+      <li>El motivo de la solicitud (no se requiere motivo para el retracto de la sección 2).</li>
+      <li>Si ya activó o no la licencia en algún equipo.</li>
+    </ol>
+    <h3>Plazos y forma</h3>
+    <ul>
+      <li>Le respondemos dentro de <strong>5 días hábiles</strong>.</li>
+      <li>
+        Si el reembolso procede, se realiza <strong>por el mismo medio de pago</strong> y en la <strong>misma moneda
+        (pesos mexicanos, MXN)</strong> de la compra original, para que no pierda por tipo de cambio.
+      </li>
+      <li>
+        El importe se refleja en su estado de cuenta según los tiempos de su banco o emisor (habitualmente entre
+        <strong>5 y 10 días hábiles</strong> adicionales).
+      </li>
+      <li>
+        Los reembolsos por <strong>retracto</strong> (sección 2) y por <strong>garantía</strong> (sección 4) se
+        hacen por el <strong>importe total</strong>. En el reembolso por plazo comercial ampliado (2.2) se podrán
+        descontar las comisiones no reembolsables que la plataforma de pago retenga, lo cual se le informará antes
+        de procesarlo.
+      </li>
+      <li>Kinalia no cobra ningún cargo por gestionar el reembolso.</li>
+    </ul>
+
+    <h2><span class="num">7.</span>Derechos del consumidor</h2>
+    <p>
+      Nada en esta Política limita los derechos irrenunciables que la legislación de protección al consumidor le
+      confiere respecto de ventas a distancia o por medios electrónicos, incluidos el derecho de cancelar la compra,
+      la garantía legal mínima y los derechos de reposición, devolución y bonificación. En caso de conflicto entre
+      esta Política y una disposición de orden público a su favor, <strong>prevalece la ley</strong>.
+    </p>
+    <p>
+      Si no está conforme con la atención a su solicitud, puede acudir a la <strong>Procuraduría Federal del
+      Consumidor (PROFECO)</strong>.
+    </p>
+
+    <h2><span class="num">8.</span>Cambios a esta Política</h2>
+    <p>
+      Kinalia puede actualizar esta Política. La versión aplicable a su compra es la vigente y publicada en el sitio
+      en la fecha en que usted realizó el pago.
+    </p>
+
+    <h2><span class="num">9.</span>Contacto</h2>
+    <ul>
+      <li>Reembolsos y soporte: <a href="mailto:servicios@kinalia.com.mx">servicios@kinalia.com.mx</a></li>
+      <li>Asuntos legales: <a href="mailto:contacto@kinalia.com.mx">contacto@kinalia.com.mx</a></li>
+    </ul>
+
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-ink-800 mt-8">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <p class="font-mono text-[11px] text-sand-600">
+      &copy; <span id="y">2026</span> Kinalia · Rope Master Management
+    </p>
+    <div class="flex items-center gap-5 font-mono text-[11px] uppercase tracking-wide text-sand-500">
+      <a href="eula" class="hover:text-rope-400 transition-colors">EULA</a>
+      <a href="aviso-de-privacidad" class="hover:text-rope-400 transition-colors">Aviso de Privacidad</a>
+      <a href="../../productos/ropemaster" class="hover:text-rope-400 transition-colors">Rope Master</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

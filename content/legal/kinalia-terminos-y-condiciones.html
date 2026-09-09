@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Términos y Condiciones · Kinalia</title>
+<meta name="description" content="Términos y Condiciones de Kinalia: uso del sitio, contratación de servicios y compra de licencias de software.">
+<!-- Página oculta: accesible solo por URL directa, fuera de navegación e indexación -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: {
+            950: '#0a0908',
+            900: '#131110',
+            850: '#1a1715',
+            800: '#211d1a',
+            700: '#2c2723',
+            600: '#3a332d',
+            500: '#5a5049',
+          },
+          rope: {
+            300: '#ffb377',
+            400: '#ff9142',
+            500: '#f2701a',
+            600: '#d4590a',
+            700: '#a84509',
+          },
+          sand: {
+            100: '#f7f3ea',
+            200: '#ece4d4',
+            300: '#d8cfc0',
+            400: '#b6ab99',
+            500: '#a69c8d',
+            600: '#847a6c',
+          },
+        },
+        fontFamily: {
+          display: ['Poppins', 'sans-serif'],
+          body: ['Karla', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+        boxShadow: {
+          'glow-orange': '0 0 60px -12px rgba(242, 112, 26, 0.55)',
+          'glow-soft': '0 0 30px -8px rgba(242, 112, 26, 0.35)',
+        },
+        letterSpacing: {
+          widest2: '.22em',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0a0908;
+    font-family: 'Karla', sans-serif;
+    position: relative;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .03;
+    z-index: 60;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .font-display { font-family: 'Poppins', sans-serif; font-weight: 700; }
+  .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+  ::selection { background: rgba(242,112,26,.35); color: #f7f3ea; }
+  :focus-visible { outline: 2px solid #ff9142; outline-offset: 3px; border-radius: 4px; }
+
+  /* ---- Prosa del documento legal ---- */
+  .legal { color: #d8cfc0; font-size: 1rem; line-height: 1.75; }
+  .legal h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+    color: #f7f3ea;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #2c2723;
+    scroll-margin-top: 6rem;
+  }
+  .legal h2:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
+  .legal h2 .num {
+    color: #f2701a;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .95rem;
+    margin-right: .6rem;
+  }
+  .legal h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ece4d4;
+    font-size: 1.05rem;
+    margin-top: 1.75rem;
+    margin-bottom: .35rem;
+  }
+  .legal p { margin: .9rem 0; }
+  .legal ul { margin: .9rem 0; padding-left: 1.35rem; list-style: none; }
+  .legal ul li { position: relative; margin: .55rem 0; }
+  .legal ul li::before {
+    content: '';
+    position: absolute;
+    left: -1.15rem;
+    top: .62em;
+    width: 6px; height: 6px;
+    background: #f2701a;
+    border-radius: 1px;
+    transform: rotate(45deg);
+  }
+  .legal strong { color: #f7f3ea; font-weight: 700; }
+  .legal a { color: #ff9142; text-decoration: underline; text-underline-offset: 3px; }
+  .legal a:hover { color: #ffb377; }
+  .legal .todo { color: #a69c8d; font-style: italic; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body class="text-sand-100">
+
+<!-- ============ TOP BAR ============ -->
+<header class="border-b border-ink-800 bg-ink-950/80 backdrop-blur-sm sticky top-0 z-50">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="../.." class="flex items-baseline gap-2 group">
+      <span class="font-display font-extrabold uppercase tracking-widest2 text-sm text-sand-100 group-hover:text-rope-400 transition-colors">Kinalia</span>
+      <span class="font-mono text-[10px] uppercase tracking-wide text-sand-500">Corporate</span>
+    </a>
+    <a href="../.." class="font-mono text-[11px] uppercase tracking-wide text-sand-400 hover:text-rope-400 transition-colors">&larr; Volver al inicio</a>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
+
+  <!-- ============ ENCABEZADO ============ -->
+  <p class="font-mono text-[11px] uppercase tracking-widest2 text-rope-500">Documento legal</p>
+  <h1 class="mt-3 font-display font-extrabold uppercase text-3xl sm:text-4xl leading-[1.1] text-sand-100">
+    Términos y Condiciones
+  </h1>
+  <p class="mt-4 text-sand-300 text-lg">Kinalia</p>
+  <p class="mt-1 font-mono text-xs text-sand-500">Versión: 2026-09-08 · Basado en la versión corporativa del 27 de agosto de 2026</p>
+
+  <!-- ============ AVISO DE BORRADOR ============ -->
+  <div class="mt-8 rounded-xl border border-rope-500/40 bg-rope-500/[0.06] p-5">
+    <p class="font-mono text-[11px] uppercase tracking-wide text-rope-400 font-semibold">Borrador — no es asesoría legal</p>
+    <p class="mt-2 text-sm text-sand-300 leading-relaxed">
+      Esta versión incorpora ajustes de una investigación sobre la Ley Federal de Protección al Consumidor (ventas a
+      distancia, garantías y la reforma de diciembre de 2025) y debe revisarse con un abogado junto con el EULA y la
+      Política de Reembolso de cada producto — sobre todo el domicilio de Kinalia, el tratamiento del derecho de
+      retracto en licencias ya activadas, y si estos Términos deben registrarse como contrato de adhesión ante
+      Profeco.
+    </p>
+  </div>
+
+  <!-- ============ CUERPO DE LOS TÉRMINOS ============ -->
+  <div class="legal mt-12">
+
+    <p>
+      Al usar el sitio web de Kinalia ("el Sitio") o contratar cualquiera de sus servicios, usted ("el Usuario" o
+      "el Cliente") acepta los siguientes Términos y Condiciones. Para contratar servicios o comprar licencias de
+      software se requiere además la aceptación expresa prevista en la cláusula 3.3.
+    </p>
+
+    <h2><span class="num">1.</span>Quiénes somos</h2>
+    <p>
+      Kinalia, con domicilio en
+      <span class="todo">[domicilio fiscal — pendiente de confirmar con abogado / al constituir la empresa]</span>,
+      ofrece servicios de consultoría, desarrollo de software, automatización e inteligencia artificial a la medida
+      para empresas, así como desarrollo de páginas web y productos de software propios (como Rope Master).
+    </p>
+
+    <h2><span class="num">2.</span>Servicios ofrecidos</h2>
+    <p>
+      Kinalia ofrece, entre otros: Kinalia Call (llamada de diagnóstico gratuita), Kinalia Discovery (diagnóstico
+      técnico), Kinalia Adaptation (limpieza/estructuración de datos), Kinalia Development (desarrollo de
+      software/automatización/IA a la medida) y Kinalia Maintain/Upgrade (mantenimiento y mejoras). El alcance,
+      precio y condiciones específicas de cada servicio contratado se detallan en la propuesta/cotización y en el
+      Contrato de Prestación de Servicios correspondiente — estos Términos generales no sustituyen ese contrato.
+    </p>
+
+    <h2><span class="num">3.</span>Proceso de contratación y pago</h2>
+    <p>
+      <strong>3.1</strong> La contratación de un servicio se formaliza al aceptar por escrito una propuesta/cotización
+      y firmar el contrato de servicio correspondiente.
+    </p>
+    <p>
+      <strong>3.2</strong> Los pagos se realizan por transferencia bancaria o efectivo, conforme al esquema indicado
+      en la propuesta (normalmente anticipo + pago(s) contra avance/entrega). En proyectos medianos y grandes,
+      Kinalia no inicia trabajo sin el anticipo correspondiente; en proyectos pequeños las condiciones de inicio se
+      indican en la propuesta.
+    </p>
+    <p>
+      <strong>3.3</strong> Para contratar un servicio o comprar una licencia de software a través del Sitio, el
+      Usuario debe <strong>marcar expresamente la casilla de aceptación</strong> de estos Términos y Condiciones y,
+      cuando aplique, del EULA del producto correspondiente, antes de completar el pago. Sin esa aceptación expresa
+      no puede concluirse la compra. Cada aceptación se registra con la fecha, la hora y la dirección IP desde la
+      que se realizó.
+    </p>
+
+    <h2><span class="num">3&nbsp;bis.</span>Compra de licencias de software</h2>
+    <p>
+      <strong>3 bis.1</strong> Kinalia comercializa productos de software propios mediante licencias de uso (por
+      ejemplo, Rope Master). La compra de una licencia a través del Sitio es una operación a distancia.
+    </p>
+    <p>
+      <strong>3 bis.2</strong> El uso de cada producto se rige por su <strong>Contrato de Licencia de Usuario Final
+      (EULA)</strong> y el tratamiento de datos por su <strong>Aviso de Privacidad</strong> específico
+      (<a href="../ropemaster/eula">EULA</a> y <a href="../ropemaster/aviso-de-privacidad">Aviso de Privacidad</a> de
+      Rope Master).
+    </p>
+    <p>
+      <strong>3 bis.3</strong> Salvo que el EULA del producto indique otra cosa, la licencia y las credenciales o
+      medios de activación se entregan al Usuario una vez confirmado el pago, al correo electrónico proporcionado en
+      la compra.
+    </p>
+    <p>
+      <strong>3 bis.4</strong> La política de reembolsos de la sección 4 aplica a estas compras. El detalle por
+      producto está en su <a href="../ropemaster/politica-de-reembolso">Política de Reembolso</a>.
+    </p>
+    <p>
+      <strong>3 bis.5</strong> Las licencias de software de Kinalia se venden mediante <strong>pago único</strong>,
+      sin cargos automáticos recurrentes ni renovación automática. Si en el futuro Kinalia ofrece una modalidad de
+      suscripción con cobro recurrente, informará de forma clara, destacada y accesible su periodicidad, monto y
+      fecha de cobro, recabará el consentimiento expreso e informado del Usuario, avisará cada renovación con al
+      menos 5 días naturales de anticipación permitiendo cancelar sin penalización, y habilitará la cancelación
+      inmediata en línea, sin obligar a llamadas telefónicas.
+    </p>
+
+    <h2><span class="num">4.</span>Política de reembolsos</h2>
+    <p>
+      <strong>4.1</strong> Los anticipos pagados por trabajo ya iniciado o realizado no son reembolsables.
+    </p>
+    <p><strong>4.2</strong> Para productos de software con licencia (como <strong>Rope Master</strong>):</p>
+    <ul>
+      <li>
+        <strong>(a) Antes de activar.</strong> Si la licencia <strong>no ha sido activada</strong> en ningún equipo,
+        el Usuario puede cancelar la compra dentro de los <strong>5 días hábiles</strong> posteriores a esta, sin
+        responsabilidad y sin justificar el motivo, con reintegro del importe total. Como política comercial, Kinalia
+        amplía ese plazo a <strong>7 días naturales</strong> mientras la licencia siga sin activarse.
+      </li>
+      <li>
+        <strong>(b) Al activar.</strong> La licencia se entrega desbloqueada únicamente cuando el Usuario la activa.
+        Al activarla, el Usuario solicita y consiente expresamente la ejecución inmediata del producto digital y
+        reconoce que este se considera entregado y consumido, por lo que no procede el reembolso por cambio de
+        opinión a partir de ese momento.
+      </li>
+      <li>
+        <strong>(c) Garantía y derechos de ley.</strong> Lo anterior no afecta la garantía legal mínima del
+        producto, los supuestos de producto no conforme (con derecho, a elección del Usuario, a reposición o
+        devolución y a una bonificación no menor al 20 % del precio pagado) ni los demás derechos irrenunciables que
+        la legislación de protección al consumidor otorgue al Usuario.
+      </li>
+      <li>
+        <strong>(d)</strong> El detalle, los plazos de respuesta, la moneda y el procedimiento se encuentran en la
+        <a href="../ropemaster/politica-de-reembolso">Política de Reembolso</a> de cada producto y en su
+        <a href="../ropemaster/eula">EULA</a>.
+      </li>
+    </ul>
+    <p>
+      <strong>4.3</strong> Nada en esta política limita los derechos irrenunciables que la legislación de protección
+      al consumidor confiera al Usuario respecto de ventas a distancia o por medios electrónicos, incluidos el
+      derecho de cancelar la compra, la garantía legal mínima y los derechos de reposición, devolución y
+      bonificación. En caso de conflicto, prevalece la ley.
+    </p>
+
+    <h2><span class="num">5.</span>Protección al consumidor</h2>
+    <p>
+      Si usted no está satisfecho con la atención a una queja o aclaración, puede acudir a la Procuraduría Federal
+      del Consumidor (PROFECO). Kinalia no pretende limitar, mediante estos Términos o el EULA de sus productos,
+      ningún derecho irrenunciable que la ley le otorgue como consumidor. Kinalia atenderá las solicitudes de
+      garantía, reposición, bonificación y reembolso conforme a la ley y a la Política de Reembolso del producto
+      correspondiente.
+    </p>
+
+    <h2><span class="num">6.</span>Propiedad intelectual del Sitio</h2>
+    <p>
+      Todo el contenido del Sitio (textos, diseño, logotipos, marca "Kinalia") es propiedad de Kinalia o se usa bajo
+      licencia. Queda prohibido reproducirlo o usarlo sin autorización escrita, salvo el uso normal de navegación del
+      Sitio.
+    </p>
+
+    <h2><span class="num">7.</span>Propiedad intelectual de los proyectos contratados</h2>
+    <p>
+      Se rige por lo pactado en el Contrato de Prestación de Servicios de cada proyecto, que define uno de dos
+      modelos: <strong>Cesión</strong> (entregables a la medida —páginas web, logotipos, herramientas específicas—
+      cuya propiedad pasa al Cliente una vez pagado el total) o <strong>Licencia</strong> (productos o plataformas de
+      Kinalia, sobre los que el Cliente recibe solo un derecho de uso). En ambos casos, las herramientas y
+      metodologías propias de Kinalia (IP Preexistente) permanecen de Kinalia y se licencian para el uso del
+      proyecto entregado.
+    </p>
+
+    <h2><span class="num">8.</span>Limitación de responsabilidad</h2>
+    <p>
+      Kinalia no garantiza que el Sitio esté libre de interrupciones o errores. El uso del Sitio y la contratación
+      de servicios se realizan bajo su propio riesgo, en la medida permitida por la ley aplicable. La responsabilidad
+      de Kinalia frente a cualquier cliente se limita a lo pactado expresamente en el contrato de servicio
+      correspondiente.
+    </p>
+
+    <h2><span class="num">9.</span>Modificaciones a estos Términos</h2>
+    <p>
+      Kinalia puede actualizar estos Términos en cualquier momento; la versión vigente siempre estará publicada en el
+      Sitio con su fecha de última actualización.
+    </p>
+
+    <h2><span class="num">10.</span>Ley aplicable y competencia</h2>
+    <p><strong>10.1</strong> Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos.</p>
+    <p>
+      <strong>10.2</strong> Para Usuarios con el carácter de <strong>consumidor</strong>, las controversias se
+      resolverán ante la Procuraduría Federal del Consumidor (PROFECO) o ante los tribunales competentes conforme a
+      la legislación de protección al consumidor, sin renuncia de fuero ni prórroga de competencia.
+    </p>
+    <p>
+      <strong>10.3</strong> Para Usuarios que <strong>no</strong> tengan el carácter de consumidor (empresas o
+      contrataciones profesionales), cualquier controversia se someterá a los tribunales competentes de la
+      <strong>ciudad de Chihuahua, Chihuahua, México</strong>.
+    </p>
+
+    <h2><span class="num">11.</span>Contacto</h2>
+    <p>
+      <a href="mailto:contacto@kinalia.com.mx">contacto@kinalia.com.mx</a>
+    </p>
+
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-ink-800 mt-8">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <p class="font-mono text-[11px] text-sand-600">
+      &copy; <span id="y">2026</span> Kinalia
+    </p>
+    <div class="flex items-center gap-5 font-mono text-[11px] uppercase tracking-wide text-sand-500">
+      <a href="../ropemaster/eula" class="hover:text-rope-400 transition-colors">EULA Rope Master</a>
+      <a href="../ropemaster/politica-de-reembolso" class="hover:text-rope-400 transition-colors">Política de Reembolso</a>
+      <a href="../../productos/ropemaster" class="hover:text-rope-400 transition-colors">Rope Master</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

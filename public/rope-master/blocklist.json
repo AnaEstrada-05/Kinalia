@@ -1,5 +1,3 @@
 {
-  "blocked": [
-    { "hardware_id": "1def767b46ccc22031e9d0e3740f9334fdbd8e60c2a5aab1819d2d99777da23b", "reason": "prueba de bloqueo" }
-  ]
+  "blocked": []
 }

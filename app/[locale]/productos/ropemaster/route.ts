@@ -40,6 +40,19 @@ export async function GET(
       .replace("let currentLang = 'es';", "let currentLang = 'en';");
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Rope Master",
+    url: `https://kinalia.com.mx/${locale}/productos/ropemaster`,
+    applicationCategory: "BusinessApplication",
+    inLanguage: locale === "en" ? "en" : "es-MX",
+    publisher: { "@id": "https://kinalia.com.mx/#organization" },
+  };
+  const ld = `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\u003c")}</script>`;
+  html = html.replace("</head>", `${ld}
+</head>`);
+
   return new Response(html, {
     headers: {
       "Content-Type": "text/html; charset=utf-8",

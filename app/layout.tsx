@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Kinalia — Consultoría de IA, automatización y datos",
     description:
       "Menos pérdidas. Más decisiones con datos reales. Agenda una llamada de 30 minutos, sin costo ni compromiso.",
-    url: "https://kinalia.com.mx",
+    url: "https://kinalia.com.mx/es",
     siteName: "Kinalia",
     locale: "es_MX",
     type: "website",

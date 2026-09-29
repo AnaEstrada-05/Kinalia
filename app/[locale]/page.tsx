@@ -6,6 +6,7 @@ import Products from "@/components/Products";
 import CtaBanner from "@/components/CtaBanner";
 import Team from "@/components/Team";
 import PainPoints from "@/components/PainPoints";
+import HappyClients from "@/components/HappyClients";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
           <PainPoints />
           <Process />
           <Products />
+          <HappyClients />
           <CtaBanner />
           {/* <Team /> */}
         </main>

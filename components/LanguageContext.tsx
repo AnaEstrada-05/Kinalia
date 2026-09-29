@@ -39,6 +39,14 @@ type ProductShowcaseItem = {
   description: string;
   href: string;
   logo: string;
+  /** Full-bleed card photo/artwork for the showcase layout. Only used when
+   *  `cardBg` is not set — otherwise `logo` is centered on `cardBg` instead. */
+  image: string;
+  /** Tailwind background classes; when set, the card shows `logo` centered on
+   *  this brand-color background instead of a full-bleed `image` photo. */
+  cardBg?: string;
+  /** Not launched yet — card shows a "coming soon" state instead of a link. */
+  comingSoon?: boolean;
 };
 
 // Footer columns. A link's `href` starting with "#" is used as-is (in-page
@@ -50,12 +58,18 @@ type FooterColumns = {
   empresa: { title: string; items: FooterLink[] };
 };
 
+// Client logos in the homepage "Clientes satisfechos" marquee. `href` is an
+// absolute external URL (the client's own site); `logo` is a black, transparent
+// mark sized to sit inside a square tile.
+type ClientItem = { name: string; href: string; logo: string };
+
 const dictionary = {
   es: {
     nav: {
       proceso: "Proceso",
       contacto: "Contacto",
       productos: "Productos",
+      clientes: "Clientes",
       cta: "Agenda tu llamada",
       langLabel: "EN",
       langAria: "Cambiar a inglés",
@@ -65,6 +79,7 @@ const dictionary = {
       subtitle:
         "Software que construimos y que ya está en uso — no son mockups, son productos reales, listos para instalar hoy.",
       viewProduct: "Ver producto",
+      comingSoon: "Próximamente",
       items: [
         {
           id: "ropemaster",
@@ -74,6 +89,19 @@ const dictionary = {
             "Series, equipos, jueces y resultados sincronizados en tiempo real — incluso sin una sola barra de señal.",
           href: "/productos/ropemaster",
           logo: "/assets/ropemaster-logo.png",
+          image: "/assets/ropemaster-card.jpg",
+          cardBg: "bg-gradient-to-br from-[#f7f3ea] to-[#ece4d4]",
+        },
+        {
+          id: "hobi",
+          name: "Hobi",
+          tag: "Maximiza cada compra",
+          description:
+            "Encuentra y compara ofertas cerca de ti antes de comprar — en desarrollo.",
+          href: "",
+          logo: "/assets/hobi-card.png",
+          image: "/assets/hobi-card.png",
+          comingSoon: true,
         },
       ] as ProductShowcaseItem[],
     },
@@ -101,25 +129,18 @@ const dictionary = {
           title: "Procesos Manuales",
           description:
             "Tareas rudimentarias que consumen horas valiosas del equipo cada semana.",
-          image: "/assets/manual-work.jpg",
-          alt: "Equipo de trabajo revisando procesos manuales",
         },
         {
           num: "02.",
           title: "Herramientas Genéricas",
           description:
             "Software estándar que no se adapta a lo que realmente necesita el negocio.",
-          image: "/assets/generic-tools.jpg",
-          alt: "Reunión de estrategia analizando software",
         },
         {
           num: "03.",
           title: "Oportunidades Perdidas",
           description:
             "Sin presencia web o un sistema centralizado, los clientes se van con otros.",
-          image:
-            "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
-          alt: "Profesionales analizando oportunidades de crecimiento",
         },
       ],
     },
@@ -357,12 +378,32 @@ const dictionary = {
       title: "Agenda tu Kinalia Call",
       closeBackdrop: "Cerrar",
     },
+    clients: {
+      eyebrow: "Casos de éxito",
+      title: "Clientes satisfechos",
+      subtitle:
+        "Negocios reales que ya confían en Kinalia para resolver sus retos digitales.",
+      viewSite: "Ver sitio",
+      items: [
+        {
+          name: "Mashanta",
+          href: "https://mashanta-art.kinalia.com.mx/",
+          logo: "/assets/mashanta-logo.png",
+        },
+        {
+          name: "Vantia — Javier Elizondo",
+          href: "https://javierelizondo.kinalia.com.mx/",
+          logo: "/assets/vantia-logo.svg",
+        },
+      ] as ClientItem[],
+    },
   },
   en: {
     nav: {
       proceso: "Process",
       contacto: "Contact",
       productos: "Products",
+      clientes: "Clients",
       cta: "Book a call",
       langLabel: "ES",
       langAria: "Switch to Spanish",
@@ -372,6 +413,7 @@ const dictionary = {
       subtitle:
         "Software we've built and that's already in use — not mockups, real products, ready to install today.",
       viewProduct: "View product",
+      comingSoon: "Coming soon",
       items: [
         {
           id: "ropemaster",
@@ -381,6 +423,19 @@ const dictionary = {
             "Series, teams, judges and results synced in real time — even without a single bar of signal.",
           href: "/productos/ropemaster",
           logo: "/assets/ropemaster-logo.png",
+          image: "/assets/ropemaster-card.jpg",
+          cardBg: "bg-gradient-to-br from-[#f7f3ea] to-[#ece4d4]",
+        },
+        {
+          id: "hobi",
+          name: "Hobi",
+          tag: "Maximize every purchase",
+          description:
+            "Find and compare nearby deals before you buy — currently in development.",
+          href: "",
+          logo: "/assets/hobi-card.png",
+          image: "/assets/hobi-card.png",
+          comingSoon: true,
         },
       ] as ProductShowcaseItem[],
     },
@@ -408,25 +463,18 @@ const dictionary = {
           title: "Manual Processes",
           description:
             "Rudimentary tasks that consume valuable team hours every week.",
-          image: "/assets/manual-work.jpg",
-          alt: "Team reviewing manual processes",
         },
         {
           num: "02.",
           title: "Generic Tools",
           description:
             "Off-the-shelf software that doesn’t adapt to what the business really needs.",
-          image: "/assets/generic-tools.jpg",
-          alt: "Strategy meeting analyzing software",
         },
         {
           num: "03.",
           title: "Missed Opportunities",
           description:
             "Without a web presence or a centralized system, customers leave for competitors.",
-          image:
-            "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
-          alt: "Professionals analyzing growth opportunities",
         },
       ],
     },
@@ -662,6 +710,25 @@ const dictionary = {
       closeAria: "Close scheduling window",
       title: "Book your Kinalia Call",
       closeBackdrop: "Close",
+    },
+    clients: {
+      eyebrow: "Success stories",
+      title: "Happy clients",
+      subtitle:
+        "Real businesses that already trust Kinalia to solve their digital challenges.",
+      viewSite: "View site",
+      items: [
+        {
+          name: "Mashanta",
+          href: "https://mashanta-art.kinalia.com.mx/",
+          logo: "/assets/mashanta-logo.png",
+        },
+        {
+          name: "Vantia — Javier Elizondo",
+          href: "https://javierelizondo.kinalia.com.mx/",
+          logo: "/assets/vantia-logo.svg",
+        },
+      ] as ClientItem[],
     },
   },
 } as const;

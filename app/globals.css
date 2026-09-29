@@ -170,3 +170,30 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(10,42,107,0.14);
 }
+
+/* --- Clientes: carrusel de logos en loop continuo --- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* --- Productos: dúo de tarjetas, alineadas parejo, con un pequeño lift al hover --- */
+.product-tilt {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.product-tilt:hover,
+.product-tilt:focus-within {
+  transform: translateY(-8px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .product-tilt {
+    transition: none;
+  }
+}

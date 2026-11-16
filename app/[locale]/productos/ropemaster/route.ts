@@ -9,6 +9,12 @@ import path from "path";
 // React tree.
 const LOCALES = ["es", "en"] as const;
 
+// While true, /productos/ropemaster serves the "coming soon" placeholder
+// (content/ropemaster-coming-soon.html) instead of the full landing. The full
+// page stays untouched in content/ropemaster.html — flip this to false to
+// bring it back.
+const COMING_SOON = true;
+
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ locale: string }> }
@@ -19,14 +25,27 @@ export async function GET(
     return new Response("Not found", { status: 404 });
   }
 
-  const filePath = path.join(process.cwd(), "content", "ropemaster.html");
+  const filePath = path.join(
+    process.cwd(),
+    "content",
+    COMING_SOON ? "ropemaster-coming-soon.html" : "ropemaster.html"
+  );
   let html = await readFile(filePath, "utf-8");
 
   // The page ships in Spanish by default (its own [data-i18n] toggle already
   // supports EN/ES client-side). For /en visitors we flip the initial state
   // server-side — the page's own script then runs applyLang(currentLang) once
   // on load, which swaps every [data-i18n] node and both the label + <html lang>.
-  if (locale === "en") {
+  if (COMING_SOON && locale === "en") {
+    html = html
+      .replace('<html lang="es">', '<html lang="en">')
+      .replace("<title>Rope Master · Próximamente</title>", "<title>Rope Master · Coming soon</title>")
+      .replace("Próxi<span>mamente</span>", "Coming <span>soon</span>")
+      .replace(
+        /<p>Estamos preparando[^<]*<\/p>\s*<p class="en">[^<]*<\/p>/,
+        "<p>We're getting something big ready for your roping series: events, teams and results synced in real time, even without signal.</p>"
+      );
+  } else if (locale === "en") {
     html = html
       .replace('<html lang="es">', '<html lang="en">')
       .replace(

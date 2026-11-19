@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { LanguageProvider, type Locale } from "@/components/LanguageContext";
-import Navbar from "@/components/Navbar";
 
 const LOCALES: Locale[] = ["es", "en"];
 
@@ -18,9 +17,6 @@ export default async function LocaleLayout({
   }
 
   return (
-    <LanguageProvider locale={locale as Locale}>
-      <Navbar />
-      {children}
-    </LanguageProvider>
+    <LanguageProvider locale={locale as Locale}>{children}</LanguageProvider>
   );
 }

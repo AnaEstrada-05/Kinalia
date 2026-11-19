@@ -37,6 +37,25 @@
   --font-mono: var(--font-plex-mono);
 }
 
+/* Rope Master (landing de producto): paleta propia, con prefijo rm- para no
+   chocar con los tokens de Kinalia. Las fuentes llegan como variables CSS
+   desde next/font en el contenedor de la pagina, por eso va con `inline`. */
+@theme inline {
+  --color-rm-ink: #0a0908;
+  --color-rm-ink-2: #16120f;
+  --color-rm-ink-3: #221c17;
+  --color-rm-sand: #f7f3ea;
+  --color-rm-sand-2: #ece5d6;
+  --color-rm-rope: #f2701a;
+  --color-rm-rope-soft: #ff9142;
+  --color-rm-dim: #6b6355;
+  --color-rm-line: #ddd3c0;
+  --color-rm-line-dark: #2e2720;
+
+  --font-rm-display: var(--rm-font-display), "Segoe UI", sans-serif;
+  --font-rm-body: var(--rm-font-body), "Segoe UI", sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -196,4 +215,65 @@ body {
   .product-tilt {
     transition: none;
   }
+}
+/* --- Rope Master: animaciones de la landing (las mismas de la pagina anterior) --- */
+
+/* Entrada al hacer scroll: sube, o entra de lado con una ligera inclinacion
+   (las tarjetas de licencia). La clase is-visible la agrega <Reveal />. */
+.rm-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 0.8, 0.28, 1),
+    transform 0.8s cubic-bezier(0.16, 0.8, 0.28, 1);
+}
+.rm-reveal-left {
+  opacity: 0;
+  transform: translateX(-48px) rotate(-3deg) scale(0.96);
+  transition: opacity 0.75s cubic-bezier(0.16, 0.8, 0.28, 1),
+    transform 0.75s cubic-bezier(0.16, 0.8, 0.28, 1);
+}
+.rm-reveal-right {
+  opacity: 0;
+  transform: translateX(48px) rotate(3deg) scale(0.96);
+  transition: opacity 0.75s cubic-bezier(0.16, 0.8, 0.28, 1),
+    transform 0.75s cubic-bezier(0.16, 0.8, 0.28, 1);
+}
+.rm-reveal.is-visible,
+.rm-reveal-left.is-visible,
+.rm-reveal-right.is-visible {
+  opacity: 1;
+  transform: translate(0, 0) rotate(0) scale(1);
+}
+
+/* Los renglones de una lista entran uno por uno cuando su tarjeta se vuelve visible
+   (el retraso de cada uno va en el style). */
+.rm-li {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.is-visible .rm-li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Entrada del hero al cargar la pagina (no depende de JS). */
+@keyframes rmRise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rm-rise {
+  animation: rmRise 0.8s cubic-bezier(0.16, 0.8, 0.28, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rm-reveal,
+  .rm-reveal-left,
+  .rm-reveal-right,
+  .rm-li {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .rm-rise { animation: none; }
 }

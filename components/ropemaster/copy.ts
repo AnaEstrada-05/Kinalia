@@ -27,6 +27,17 @@ const es = {
       "Rope Master: el sistema de arena para gestionar tus eventos de lazo, de la inscripción al último premio, con precisión profesional y funcionando incluso sin internet.",
   },
 
+  // Pagina "Proximamente" que se muestra mientras COMING_SOON sea true en page.tsx.
+  comingSoon: {
+    metaTitle: "Rope Master · Próximamente",
+    metaDescription:
+      "Rope Master: el sistema profesional de gestión de eventos de lazo. Próximamente.",
+    titleStart: "Próxi",
+    titleEm: "mamente",
+    text: "Estamos preparando algo grande para tus eventos de lazo: equipos, sorteos y resultados sincronizados en tiempo real, incluso sin señal.",
+    note: "Coming soon: real-time event management for roping events, even without signal.",
+  },
+
   nav: {
     links: [
       { label: "Características", href: "#roles" },
@@ -404,6 +415,16 @@ const en: Copy = {
     title: "Rope Master · Professional Roping Event Management System",
     description:
       "Rope Master: the arena system to run your roping series, from sign-up to the last payout, with professional precision and working even without internet.",
+  },
+
+  comingSoon: {
+    metaTitle: "Rope Master · Coming soon",
+    metaDescription:
+      "Rope Master: professional roping event management system. Coming soon.",
+    titleStart: "Coming ",
+    titleEm: "soon",
+    text: "We are getting something big ready for your roping events: teams, draws and results synced in real time, even without signal.",
+    note: "",
   },
 
   nav: {

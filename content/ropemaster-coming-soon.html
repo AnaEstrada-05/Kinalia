@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rope Master · Próximamente</title>
+<meta name="description" content="Rope Master: el sistema profesional de gestión de eventos de lazo. Próximamente.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#0a0908; --sand:#f7f3ea; --sand-dim:#d8cfc0; --rope:#f2701a; --rope-soft:#ff9142; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font-family: 'Karla', sans-serif; color: var(--sand); background: var(--ink);
+    background-image: linear-gradient(180deg, rgba(10,9,8,.55) 0%, rgba(10,9,8,.68) 50%, rgba(10,9,8,.96) 100%),
+      url('/rope-master/hero.jpg');
+    background-size: cover; background-position: center 62%;
+  }
+  main {
+    min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 3rem 1.5rem; gap: 1.75rem;
+  }
+  .badge {
+    background: var(--sand); border-radius: 14px; padding: 1rem 1.5rem;
+    box-shadow: 0 0 60px -12px rgba(242,112,26,.55);
+    animation: fadein .8s ease both;
+  }
+  .badge img { display: block; width: clamp(150px, 28vw, 230px); height: auto; }
+  h1 {
+    margin: 0; font-family: 'Poppins', sans-serif; font-weight: 800; text-transform: uppercase; line-height: 1.05;
+    font-size: clamp(2.6rem, 9vw, 6rem); animation: fadein .8s .2s ease both;
+  }
+  h1 span { color: var(--rope); }
+  p { margin: 0; max-width: 34rem; font-size: clamp(1rem, 2.4vw, 1.25rem); line-height: 1.5; color: var(--sand-dim); animation: fadein .8s .3s ease both; }
+  p.en { font-size: .95rem; opacity: .75; animation-delay: .4s; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="badge"><img src="/assets/ropemaster-logo.png" alt="Rope Master"></div>
+  <h1>Próxi<span>mamente</span></h1>
+  <p>Estamos preparando algo grande para tu serial de lazo: eventos, equipos y resultados sincronizados en tiempo real, incluso sin señal.</p>
+  <p class="en">Coming soon — real-time event management for roping series, even without signal.</p>
+</main>
+</body>
+</html>
